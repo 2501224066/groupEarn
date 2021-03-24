@@ -1,0 +1,13 @@
+<view class="help">
+  <view class="box shadow" wx:for="{{list}}" wx:key="*this">
+    <view class="top" bindtap="setTab" data-index="{{index}}">
+      <view>{{item.title}}</view>
+      <view class="img">
+        <image wx:if="{{index == tab}}" src="/image/up.png" mode="aspectFill"></image>
+        <image wx:else src="/image/down.png" mode="aspectFill"></image>
+      </view>
+    </view>
+    <view class="text" wx:if="{{index == tab}}">{{item.content}}</view>
+  </view>
+
+</view>

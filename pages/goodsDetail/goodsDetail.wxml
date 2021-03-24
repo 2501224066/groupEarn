@@ -1,0 +1,251 @@
+<view class="goods-detail">
+  <!-- 导航栏 -->
+  <view class="navbar"
+    style="height:{{navHeight}}px; padding-top:{{navTop}}px; background:{{navScrollTop>290 ? '#fff' : ''}}">
+    <view class="box">
+      <view class="img">
+        <image src="/image/left.png" mode="aspectFill"></image>
+      </view>
+      <view class="img">
+        <image src="/image/three.png" mode="aspectFill"></image>
+      </view>
+    </view>
+  </view>
+
+  <!-- 轮播 -->
+  <view class="lb">
+    <swiper autoplay="true" indicator-dots="true" indicator-color="#000" indicator-active-color="#f73d4c">
+      <swiper-item wx:for="{{swiper}}" wx:key="*this">
+        <image src="{{item}}" mode="aspectFill"></image>
+      </swiper-item>
+    </swiper>
+  </view>
+
+  <view class="box1">
+    <!--标题-->
+    <view class="title">
+      渤海浪花海蜇四海蜇头人水产哦海产哦调料包200可装包邮哟的
+      <span>10人团</span>
+    </view>
+
+    <!--价格-->
+    <view class="price">
+      <view class="l">
+        <view class="ll">
+          <view>¥</view>
+          <view>188.00</view>
+          <view>拼团价</view>
+        </view>
+        <view class="lr"> 原价 ¥299.00 </view>
+      </view>
+      <view class="r">
+        <view class="text">中签码</view>
+        <view class="num">
+          <view>2</view>
+          <view>5</view>
+          <view>9</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 返积分 -->
+    <view class="back">
+      <view class="three"></view>
+      <view class="text">团长得￥18.8，拼团失败得￥18.80，拼团成功得18.8积分</view>
+    </view>
+  </view>
+
+  <view class="box2">
+    <view class="title">
+      <view class="l">
+        <view>拼团规则</view>
+        <view class="img">
+          <image src="/image/question.png" mode="aspectFill"></image>
+        </view>
+      </view>
+    </view>
+
+    <!-- 流程 -->
+    <view class="flow shadow">
+      <view class="line"></view>
+      <view class="icon">
+        <view class="img-box">
+          <view class="img">
+            <image src="/image/flow1.png" mode="aspectFill"></image>
+          </view>
+        </view>
+        <view class="img-box">
+          <view class="img">
+            <image src="/image/flow2.png" mode="aspectFill"></image>
+          </view>
+        </view>
+        <view class="img-box">
+          <view class="img">
+            <image src="/image/flow3.png" mode="aspectFill"></image>
+          </view>
+        </view>
+      </view>
+      <view class="text">
+        <view>
+          <view>参与拼团</view>
+          <view><span>10人</span>成团</view>
+        </view>
+        <view>
+          <view><span>3人</span>拼中</view>
+          <view><span>7人</span>未中退款</view>
+        </view>
+        <view>
+          <view>未拼中获得补贴</view>
+          <view><span>¥18.8</span>红包</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="title">
+      <view class="l">
+        <view>参与拼团</view>
+      </view>
+      <view class="r">
+        <view>更多拼团</view>
+        <view class="img">
+          <image src="/image/right2.png" mode="aspectFill"></image>
+        </view>
+      </view>
+    </view>
+
+    <!-- 拼团列表 -->
+    <view class="list shadow">
+      <view class="li" wx:for="{{3}}" wx:key>
+        <view class="img-box">
+          <view class="img">
+            <image src="https://img2.woyaogexing.com/2017/10/17/28990af8ee939ee1!400x400_big.jpg" mode="aspectFill">
+            </image>
+          </view>
+          <view class="img">
+            <image src="https://img2.woyaogexing.com/2017/10/17/28990af8ee939ee1!400x400_big.jpg" mode="aspectFill">
+            </image>
+          </view>
+          <view class="img">
+            <image src="https://img2.woyaogexing.com/2017/10/17/28990af8ee939ee1!400x400_big.jpg" mode="aspectFill">
+            </image>
+          </view>
+          <view class="img">
+            <image src="https://img2.woyaogexing.com/2017/10/17/28990af8ee939ee1!400x400_big.jpg" mode="aspectFill">
+            </image>
+          </view>
+        </view>
+        <view class="name">张*</view>
+        <view class="time">
+          <view style="color:#f73d4c">1天21时38分33秒</view>
+          <view>10人团，差3人</view>
+        </view>
+        <view class="go">
+          去拼团
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="box2">
+    <view class="title">
+      <view class="l">
+        <view>商品详情</view>
+      </view>
+    </view>
+
+    <!-- 富文本 -->
+    <view class="rich">
+      <rich-text>.....</rich-text>
+    </view>
+  </view>
+</view>
+
+<!-- 底部浮动栏目 -->
+<view class="footer" style="height:{{iphoneFooter ? 178 : 140}}rpx">
+  <view class="fbox">
+    <view class="f1">
+      <view class="img">
+        <image wx:if="{{follow}}" src="/image/follow.png" mode="aspectFill"></image>
+        <image wx:else src="/image/unfollow.png" mode="aspectFill"></image>
+      </view>
+      <view>收藏</view>
+    </view>
+    <view class="f1">
+      <view class="img">
+        <image src="/image/share.png" mode="aspectFill"></image>
+      </view>
+      <view>分享</view>
+    </view>
+    <view class="f1">
+      <view class="img">
+        <image src="/image/rule.png" mode="aspectFill"></image>
+      </view>
+      <view>规则</view>
+    </view>
+    <view class="f2">
+      <view bindtap="openSpecs" data-type="1">我要开团</view>
+      <view bindtap="openSpecs" data-type="2">单独购买</view>
+    </view>
+  </view>
+</view>
+<view style="height:{{iphoneFooter ? 178 : 140}}rpx;margin-top:10vh"></view>
+
+<!-- 规格 -->
+<view class="specs" wx:if="{{specsShow}}">
+  <view class="box" style="padding-bottom:{{iphoneFooter ? 84 : 50}}rpx">
+    <!-- 关闭 -->
+    <view class="close">
+      <view class="img" bindtap="closeSpecs">
+        <image src="/image/close.png" mode="aspectFill"></image>
+      </view>
+    </view>
+
+    <!-- 商品 -->
+    <view class="goods">
+      <view class="img">
+        <image src="https://img2.woyaogexing.com/2017/10/17/556d6117294495f8!400x400_big.jpg" mode="aspectFill"></image>
+      </view>
+      <view class="detail">
+        <view class="title">标题标题标题标题标题标题 标题标题标题...</view>
+        <view class="price">
+          <view wx:if="{{buyType == 1}}" style="color: #FA4556">拼团价 ¥ <span>188.00</span></view>
+          <view wx:else style="color: #ff5e01">原价 ¥ <span>298.00</span></view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 数据 -->
+    <view class="list">
+      <view class="tag">选择规格</view>
+      <view class="li">
+        <view class="checked">S号</view>
+        <view>XL号</view>
+      </view>
+    </view>
+    <view class="list">
+      <view class="tag">选择颜色</view>
+      <view class="li">
+        <view>红色</view>
+        <view class="checked">蓝色</view>
+        <view>紫色</view>
+      </view>
+    </view>
+
+    <!-- 数量 -->
+    <view class="list">
+      <view class="tag">选择数量</view>
+      <view class="op">
+        <view bindtap="numDown">-</view>
+        <view>
+          <input type="number" value="{{buyNum}}" bindblur="numInput" />
+        </view>
+        <view bindtap="numUp">+</view>
+        <view class="max">最多限购{{maxBuyNum}}份</view>
+      </view>
+    </view>
+
+    <!-- 按钮 -->
+    <view class="btn" wx:if="{{buyType == 1}}">确定开团</view>
+    <view class="btn2" wx:else>确定购买</view>
+  </view>
+</view>

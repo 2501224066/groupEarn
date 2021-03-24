@@ -1,0 +1,16 @@
+<view class="push">
+  <view class="list">
+    <view class="li" wx:for="{{list}}" wx:key="*this">
+      <view class="header">
+        <image src="{{item.header}}" mode="aspectFill"></image>
+      </view>
+      <view class="img2">
+        <image wx:if="{{item.sex == 1}}" src="/image/sex1.png" mode="aspectFill"></image>
+        <image wx:else src="/image/sex2.png" mode="aspectFill"></image>
+      </view>
+      <view class="name">{{item.name}}</view>
+      <view class="text">{{item.time}}</view>
+    </view>
+  </view>
+  <view class="total">共{{list.length}}个推荐好友</view>
+</view>

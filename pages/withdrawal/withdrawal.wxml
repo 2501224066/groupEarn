@@ -1,0 +1,34 @@
+<view class="withdrawal">
+  <view class="balance">
+    <view class="title">可提现金额</view>
+    <view class="money">2999.00元</view>
+  </view>
+
+  <view class="label">
+    <view class="img">
+      <image src="/image/wx.png"></image>
+    </view>
+    <view>提现到微信零钱</view>
+  </view>
+
+  <view class="price">
+    <view class="tag">¥</view>
+    <view class="num">
+      <input type="digit" placeholder-class="placeholder-class" placeholder="0.00" value="{{price}}" bindblur="{{setPrice}}"/>
+    </view>
+  </view>
+
+  <view class="memo">
+    <view class="title">用户须知</view>
+    <view class="li">根据腾讯官方支付规则，提现费率为<span>1%</span>，最低提现金额<span>10.00元</span></view>
+    <view class="li">提现到账金额一般为<span>12小时内</span>，如遇腾讯提现规则变化以官方时间到规定时间为准。</view>
+    <view class="li">提现金额知道到账到绑定（登陆）等微信账号微信零钱内。</view>
+  </view>
+
+  <view class="agree">
+    <switch type="checkbox" checked="{{agree}}" bindchange="agree"/>
+    <view class="title">我已阅读并同意<span>《用户提现协议》</span></view>
+  </view>
+
+  <view class="sub">立即提现</view>
+</view>

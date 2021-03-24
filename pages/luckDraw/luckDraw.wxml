@@ -1,0 +1,70 @@
+<!-- 工具 -->
+<wxs src="../../utils/index.wxs" module="util"></wxs>
+
+<view class="lickDown">
+  <view class="content">
+
+    <!-- 结果 -->
+    <view class="res">
+      <view class="text">本期中奖号码</view>
+      <view class="num">
+        <view wx:for="{{res}}" wx:key="*this">{{item}}</view>
+      </view>
+      <view class="time">该拼团与1天12小时21分31秒后结束</view>
+    </view>
+
+    <!-- 号码 -->
+    <view class="code">
+      <view wx:for="{{list}}" wx:key="*this"
+        class="list {{ !over ? (!item.open ? 'wait' : (  self == item.num && util.indexOf(res, item.num) > -1 ? 'checkout' : '')) : (util.indexOf(res, item.num) > -1 ? 'checkout' : '')}}"
+        style="font-size:{{over ? '60': (self == item.num ? '60' : '30')}}rpx">
+        <!-- 标签 -->
+        <view class="tag" wx:if="{{ util.indexOf(res, item.num) > -1 && self != item.num && over}}">中签</view>
+        <view class="tag" wx:if="{{ self == item.num }}">我</view>
+        <!-- 牌面 -->
+        <view class="text" wx:if="{{!over && item.open && self != item.num}}">已刮</view>
+        <view class="text" wx:if="{{!over && item.open && self == item.num}}">{{item.num}}</view>
+        <view class="text" wx:if="{{!over && !item.open}}">点击刮开</view>
+        <view class="text" wx:if="{{over}}">{{item.num}}</view>
+      </view>
+    </view>
+
+    <!-- 参团特权 -->
+    <view class="join">
+      <view class="title">参团特权</view>
+      <view class="text shadow">
+        参团中签可获得积分 <span>19.9点</span> ，未中签再获得 <span>19.9元</span> 厂商现金补贴。
+      </view>
+    </view>
+
+    <!-- 规则说明 -->
+    <view class="rule">
+      <view class="title">规则说明</view>
+      <view class="text shadow">
+        <view>1. 撒打算打算打算的撒的撒的</view>
+        <view>2. 撒打算打算打算的撒撒打算打算的撒打算的撒的撒的</view>
+        <view>3. 是的撒的撒的卡拉斯的</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 底部浮动栏目 -->
+<view class="footer" style="height:{{iphoneFooter ? 154 : 120}}rpx">
+  <view class="fbox">
+    <view class="btn1">继续拼团</view>
+    <view wx:if="{{over}}" class="btn3">已结束</view>
+    <view wx:else class="btn2">邀请好友参团</view>
+  </view>
+</view>
+<view style="height:{{iphoneFooter ? 154 : 120}}rpx;margin-top:10vh"></view>
+
+<!-- 抽中号码 -->
+<view class="rel" wx:if="{{relShow}}">
+  <view class="box">
+    <view class="close" bindtap="relClose">X</view>
+    <view>您刮的数字是</view>
+    <view class="num">{{self}}</view>
+    <view wx:if="{{util.indexOf(res, self) > -1}}">已中签</view>
+  </view>
+</view>

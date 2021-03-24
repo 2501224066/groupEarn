@@ -1,0 +1,63 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/my/my",
+    "pages/make/make",
+    "pages/order/order",
+    "pages/luckDraw/luckDraw",
+    "pages/goodsDetail/goodsDetail",
+    "pages/ranking/ranking",
+    "pages/address/address",
+    "pages/editAddress/editAddress",
+    "pages/collection/collection",
+    "pages/push/push",
+    "pages/wallet/wallet",
+    "pages/withdrawal/withdrawal",
+    "pages/help/help",
+    "pages/orderDetail/orderDetail",
+    "pages/aboutWe/aboutWe",
+    "pages/ruleExplain/ruleExplain",
+    "pages/confirm/confirm",
+    "pages/myEarn/myEarn",
+    "pages/earnDetail/earnDetail",
+    "pages/login/login",
+    "pages/authorize/authorize"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#000",
+    "color": "#ccc",
+    "list": [{
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/image/home.png",
+        "selectedIconPath": "/image/home-sel.png"
+      },
+      {
+        "pagePath": "pages/make/make",
+        "text": "拼团",
+        "iconPath": "/image/pin.png",
+        "selectedIconPath": "/image/pin-sel.png"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "text": "订单",
+        "iconPath": "/image/order.png",
+        "selectedIconPath": "/image/order-sel.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "/image/my.png",
+        "selectedIconPath": "/image/my-sel.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

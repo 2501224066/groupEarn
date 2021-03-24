@@ -1,0 +1,98 @@
+<view class="order-detail">
+
+  <view class="line">
+    <view class="title weight">订单待付款</view>
+    <view class="center" style="color:#E30000">剩余：{{timeData}}</view>
+  </view>
+
+  <view class="line">
+    <view class="title weight">订单待发货</view>
+  </view>
+
+  <view class="line">
+    <view class="title weight">订单已发货</view>
+    <view class="center">顺丰快递：SF1312301230120</view>
+  </view>
+
+  <view class="line">
+    <view class="title weight">订单已完成</view>
+    <view class="center">顺丰快递：SF1312301230120</view>
+  </view>
+
+  <view class="line">
+    <view class="title weight">订单已取消</view>
+    <view class="center" style="color:#E30000">取消原因：付款超时</view>
+  </view>
+
+  <view class="goods">
+    <view class="img">
+      <image src="https://img2.woyaogexing.com/2017/10/17/556d6117294495f8!400x400_big.jpg" mode="aspectFill"></image>
+    </view>
+    <view class="title">
+      <view class="text">但是克拉圣诞节啊死了卡设计的快乐撒对接</view>
+      <view>2021-03-14 12:13:32</view>
+    </view>
+    <view class="price">
+      <view class="text">199.00</view>
+      <view>x1</view>
+    </view>
+  </view>
+
+  <view class="line top">
+    <view class="title weight">收货信息</view>
+  </view>
+
+  <view class="line">
+    <view class="title">
+      <view>配送地址</view>
+    </view>
+    <view class="center">连云港 海洲区 同科汇丰国际大厦三楼8室</view>
+  </view>
+
+  <view class="line">
+    <view class="title">电话</view>
+    <view class="center">1882733525</view>
+  </view>
+
+  <view class="line">
+    <view class="title">收货人</view>
+    <view class="center">张三丰</view>
+  </view>
+
+  <view class="line top">
+    <view class="title weight">订单信息</view>
+  </view>
+
+  <view class="line">
+    <view class="title">订单编号</view>
+    <view class="center">192327720392907289</view>
+  </view>
+
+
+  <view class="line">
+    <view class="title">积分使用</view>
+    <view class="center" style="color:#E30000">-1000 积分</view>
+  </view>
+
+  <view class="line">
+    <view class="title">余额使用</view>
+    <view class="center" style="color:#E30000">-100.00 元</view>
+  </view>
+
+  <view class="line">
+    <view class="title">运费</view>
+    <view class="center">0.00</view>
+  </view>
+</view>
+
+<!-- 底部浮动栏目 -->
+<view class="footer" style="height:{{iphoneFooter ? 204 : 170}}rpx">
+  <view class="fbox">
+    <view class="tag">团购商品均为正归渠道合格商品，非质量问题暂不支持退换货</view>
+    <view class="content">
+      <view>合计：<span style="color:#FA4556">¥ 79.87</span></view>
+      <view class="btn">立即支付</view>
+    </view>
+  </view>
+</view>
+<view style="height:{{iphoneFooter ? 204 : 170}}rpx;margin-top:10vh"></view>

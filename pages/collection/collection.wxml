@@ -1,0 +1,8 @@
+<view class="collection">
+  <view class="box">
+    <view wx:for="{{3}}">
+      <!-- 商品 -->
+      <goods></goods>
+    </view>
+  </view>
+</view>

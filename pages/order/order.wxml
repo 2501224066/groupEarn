@@ -1,0 +1,32 @@
+<view class="order">
+  <!-- TAB -->
+  <view class="tab">
+    <view wx:for="{{tabList}}" wx:key="*this">
+      <view class="{{tabIndex == index ? 'selected' :''}}" bindtap="checkoutTab" data-index="{{index}}">{{item}}</view>
+    </view>
+  </view>
+
+  <view class="list" wx:for="{{list}}" wx:key="*this">
+    <view class="top">
+      <view class="img">
+        <image src="https://img2.woyaogexing.com/2017/10/17/556d6117294495f8!400x400_big.jpg" mode="aspectFill"></image>
+      </view>
+      <view class="center">
+        <view class="title">{{item.title}}</view>
+        <view class="price">¥ {{item.price}}<span>x{{item.num}}</span></view>
+      </view>
+      <view class="status green" wx:if="{{item.status == 1}}">待付款</view>
+      <view class="status" wx:if="{{item.status == 2}}">待发货</view>
+      <view class="status" wx:if="{{item.status == 3}}">已发货</view>
+      <view class="status" wx:if="{{item.status == 4}}">已完成</view>
+      <view class="status red" wx:if="{{item.status == 5}}">已取消</view>
+    </view>
+    <view class="down">
+      <view class="time">2021-03-18 15:33:29</view>
+      <view class="r">
+        <view class="buy" wx:if="{{item.status == 1}}">付款</view>
+        <view class="see" wx:else>查看订单</view>
+      </view>
+    </view>
+  </view>
+</view>

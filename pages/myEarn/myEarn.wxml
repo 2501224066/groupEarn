@@ -1,0 +1,17 @@
+<view class="my-earn">
+  <!-- TAB -->
+  <view class="tab">
+    <view wx:for="{{tabList}}" wx:key="*this" class="{{tabIndex == index ? 'selected' :''}}" bindtap="checkoutTab"
+      data-index="{{index}}">{{item}}</view>
+  </view>
+
+  <view class="box">
+    <view class="li" wx:for="{{3}}">
+      <goods2></goods2>
+      <view class="content">
+        <view>已支付：￥199.9元</view>
+        <view class="r"><span>（拼团中）</span>1天21时28分33秒后结束</view>
+      </view>
+    </view>
+  </view>
+</view>

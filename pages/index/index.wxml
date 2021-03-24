@@ -1,0 +1,169 @@
+<view class="index">
+  <!-- 导航栏 -->
+  <view class="navbar" style="height:{{navHeight}}px; padding-top:{{navTop}}px">
+    <view class="search">
+      <view class="text" style="line-height:{{navHeight}}px">搜索心仪的商品</view>
+      <view class="img">
+        <image src="/image/search.png" mode="aspectFill"></image>
+      </view>
+    </view>
+  </view>
+  <view class="navbar-brace" style="height:{{navHeight}}px"></view>
+
+  <!-- 轮播 -->
+  <view class="lb">
+    <!-- 背景圆 -->
+    <view class="bg1"></view>
+    <!-- 背景圆 -->
+    <view class="bg2"></view>
+    <view class="box">
+      <swiper autoplay="true">
+        <swiper-item wx:for="{{swiper}}" wx:key="*this">
+          <image src="{{item}}" mode="aspectFill"></image>
+        </swiper-item>
+      </swiper>
+    </view>
+  </view>
+
+  <view class="content">
+    <!-- 公告 -->
+    <view class="notice shadow">
+      <view class="img">
+        <image src="/image/notice.png" mode="aspectFill"></image>
+      </view>
+      <view class="line"></view>
+      <view class="title">
+        发布公告标题
+      </view>
+      <view class="time">
+        2020-03-10
+      </view>
+    </view>
+
+    <!-- ICON -->
+    <view class="icon">
+      <view>
+        <view class="img">
+          <image src="/image/icon1.png" mode="aspectFill"></image>
+        </view>
+        <view class="title">我的拼团</view>
+      </view>
+      <view>
+        <view class="img">
+          <image src="/image/icon2.png" mode="aspectFill"></image>
+        </view>
+        <view class="title">我的推荐</view>
+      </view>
+      <view>
+        <view class="img">
+          <image src="/image/icon3.png" mode="aspectFill"></image>
+        </view>
+        <view class="title">排行榜</view>
+      </view>
+      <view>
+        <view class="img">
+          <image src="/image/icon4.png" mode="aspectFill"></image>
+        </view>
+        <view class="title">积分商城</view>
+      </view>
+    </view>
+
+    <!-- 精选 -->
+    <view class="sel">
+      <view class="top">
+        <view class="l">精选拼团</view>
+        <view class="r">
+          <view>查看更多</view>
+          <view class="img">
+            <image src="/image/right.png" mode="aspectFill"></image>
+          </view>
+        </view>
+      </view>
+
+      <view class="box shadow" wx:for="{{active}}" wx:key="*this">
+        <view class="tag-img">
+          <image src="/image/tag.png" mode="aspectFill"></image>
+        </view>
+        <view class="tag-title">10人团</view>
+        <view class="img">
+          <image src="{{item.image_thumb}}" mode="aspectFill">
+          </image>
+        </view>
+        <view class="detail">
+          <view class="l">
+            <view class="img">
+              <image src="https://img2.woyaogexing.com/2017/10/17/28990af8ee939ee1!400x400_big.jpg" mode="aspectFill">
+              </image>
+            </view>
+            <view class="img">
+              <image src="https://img2.woyaogexing.com/2017/10/17/28990af8ee939ee1!400x400_big.jpg" mode="aspectFill">
+              </image>
+            </view>
+            <view class="img">
+              <image src="https://img2.woyaogexing.com/2017/10/17/28990af8ee939ee1!400x400_big.jpg" mode="aspectFill">
+              </image>
+            </view>
+            <view class="img">
+              <image src="https://img2.woyaogexing.com/2017/10/17/28990af8ee939ee1!400x400_big.jpg" mode="aspectFill">
+              </image>
+            </view>
+            <view class="img">
+              <image src="https://img2.woyaogexing.com/2017/10/17/28990af8ee939ee1!400x400_big.jpg" mode="aspectFill">
+              </image>
+            </view>
+            <view class="count">已拼23团</view>
+          </view>
+          <view class="r">
+            <view class="text">中签号码</view>
+            <view class="num" wx:for="{{item.luck_key}}" wx:key="*this" wx:for-item="key">{{key}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 参与动态 -->
+    <view class="join shadow">
+      <view class="title">参与动态</view>
+      <view class="list">
+        <view class="img">
+          <image src="https://img2.woyaogexing.com/2017/10/17/28990af8ee939ee1!400x400_big.jpg" mode="aspectFill">
+          </image>
+        </view>
+        <view class="text">本* 参与拼团失败 获得19.5元现金补贴</view>
+        <view class="time">刚刚</view>
+      </view>
+      <view class="list">
+        <view class="img">
+          <image src="https://img2.woyaogexing.com/2017/10/17/28990af8ee939ee1!400x400_big.jpg" mode="aspectFill">
+          </image>
+        </view>
+        <view class="text">本* 参与拼团失败 获得19.5元现金补贴</view>
+        <view class="time">15:59:13</view>
+      </view>
+      <view class="list">
+        <view class="img">
+          <image src="https://img2.woyaogexing.com/2017/10/17/28990af8ee939ee1!400x400_big.jpg" mode="aspectFill">
+          </image>
+        </view>
+        <view class="text">本* 参与拼团失败 获得19.5元现金补贴</view>
+        <view class="time">15:12:14</view>
+      </view>
+      <view class="list">
+        <view class="img">
+          <image src="https://img2.woyaogexing.com/2017/10/17/28990af8ee939ee1!400x400_big.jpg" mode="aspectFill">
+          </image>
+        </view>
+        <view class="text">本* 参与拼团失败 获得19.5元现金补贴</view>
+        <view class="time">17:24:51</view>
+      </view>
+    </view>
+
+    <!-- 拼团规则 -->
+    <view class="rule shadow">
+      <view class="title">拼团规则</view>
+      <view class="list">1.撒撒打算打算接口撒的哈手拉手多久啊啥的空间阿斯顿考六级啊啥的快乐快乐撒对接撒对接</view>
+      <view class="list">2.撒撒打算打算接口撒的哈手拉手多久啊啥的空间阿斯接</view>
+      <view class="list">3.撒撒打算打算接口撒的哈手拉手多久啊啥的空间阿斯顿考六级乐快乐撒对接撒对接</view>
+    </view>
+  </view>
+</view>

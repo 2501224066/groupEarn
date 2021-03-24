@@ -1,0 +1,35 @@
+<view class="address">
+  <view wx:if="{{list.length == 0}}" class="none">
+    <view class="img">
+      <image src="/image/no-address.png" mode="aspectFill"></image>
+    </view>
+    <view>还未添加地址</view>
+  </view>
+
+  <view wx:else class="list">
+    <view class="li" wx:for="{{list}}" wx:key="*this">
+      <view class="l">
+        <view>
+          <span>{{item.name}}</span>
+          <span wx:if="{{item.sex == 1}}"> 先生 </span>
+          <span wx:else> 女士 </span>
+          <span>{{item.phone}}</span>
+        </view>
+        <view class="address">{{item.agen}} {{item.address}}</view>
+      </view>
+      <view class="r">
+        <view class="img">
+          <image src="/image/edit.png" mode="aspectFill"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 底部添加按钮 -->
+<view class="footer" style="height:{{iphoneFooter ? 154 : 130}}rpx">
+  <view class="fbox">
+    <view class="btn">添加新地址</view>
+  </view>
+</view>
+<view style="height:{{iphoneFooter ? 154 : 130}}rpx;margin-top:10vh"></view>

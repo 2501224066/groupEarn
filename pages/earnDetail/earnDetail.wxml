@@ -1,0 +1,54 @@
+<view class="earn-detail">
+  <!-- 商品 -->
+  <view class="detail">
+    <goods2></goods2>
+    <view class="content">
+      <view>已支付：￥199.9元</view>
+      <view class="r">拼团中</view>
+    </view>
+  </view>
+
+  <!-- 时间 -->
+  <view class="time">
+    <view class="line"> </view>
+    <view class="num">
+      <view>剩余</view>
+      <view class="count">
+        <span>21</span>时
+        <span>05</span>分
+        <span>32</span>秒
+      </view>
+      <view>结束</view>
+    </view>
+    <view class="tag">拼团中，还差4人拼团成功</view>
+  </view>
+
+  <!-- 成员 -->
+  <view class="people">
+    <view class="li" wx:for="{{7}}">
+      <view class="img">
+        <image src="https://img2.woyaogexing.com/2017/10/17/556d6117294495f8!400x400_big.jpg" mode="aspectFill"></image>
+      </view>
+      <view class="chief" wx:if="{{index == 0}}">团长</view>
+    </view>
+    <view class="no" wx:for="{{3}}">?</view>
+  </view>
+
+  <view class="label">参团特权</view>
+
+  <view class="text">
+    <view class="shadow">
+      邀请好友参团中签可获得积分<span> 19.9 点</span>，未中签再获得<span> 19.9 元</span>厂商现金补贴。
+    </view>
+  </view>
+</view>
+
+<!-- 底部浮动栏目 -->
+<view class="footer" style="height:{{iphoneFooter ? 154 : 120}}rpx">
+  <view class="fbox">
+    <view class="btn1">继续拼团</view>
+    <view wx:if="{{over}}" class="btn3">已结束</view>
+    <view wx:else class="btn2">邀请好友参团</view>
+  </view>
+</view>
+<view style="height:{{iphoneFooter ? 154 : 120}}rpx;margin-top:10vh"></view>
