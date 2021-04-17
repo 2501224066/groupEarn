@@ -1,40 +1,42 @@
-<view class="order-detail">
+<!-- 工具 -->
+<wxs src="../../utils/index.wxs" module="util"></wxs>
 
-  <view class="line">
+<view class="order-detail">
+  <view class="line" wx:if="{{detail.status == 1}}">
     <view class="title weight">订单待付款</view>
-    <view class="center" style="color:#E30000">剩余：{{timeData}}</view>
+    <view class="center" style="color:#E30000">剩余：{{d}}天{{H}}时{{i}}分{{s}}秒</view>
   </view>
 
-  <view class="line">
+  <view class="line" wx:if="{{detail.status == 2}}">
     <view class="title weight">订单待发货</view>
   </view>
 
-  <view class="line">
+  <view class="line" wx:if="{{detail.status == 3}}">
     <view class="title weight">订单已发货</view>
     <view class="center">顺丰快递：SF1312301230120</view>
   </view>
 
-  <view class="line">
+  <view class="line" wx:if="{{detail.status == 4}}">
     <view class="title weight">订单已完成</view>
     <view class="center">顺丰快递：SF1312301230120</view>
   </view>
 
-  <view class="line">
+  <view class="line" wx:if="{{detail.status == 0}}">
     <view class="title weight">订单已取消</view>
     <view class="center" style="color:#E30000">取消原因：付款超时</view>
   </view>
 
   <view class="goods">
     <view class="img">
-      <image src="https://img2.woyaogexing.com/2017/10/17/556d6117294495f8!400x400_big.jpg" mode="aspectFill"></image>
+      <image src="{{detail.detail.goods_img}}" mode="aspectFill"></image>
     </view>
     <view class="title">
-      <view class="text">但是克拉圣诞节啊死了卡设计的快乐撒对接</view>
-      <view>2021-03-14 12:13:32</view>
+      <view class="text">{{detail.detail.goods_name}}</view>
+      <view>{{detail.created_at}}</view>
     </view>
     <view class="price">
-      <view class="text">199.00</view>
-      <view>x1</view>
+      <view class="text">{{util.toFixed(detail.money, 2)}}</view>
+      <view>x{{detail.detail.number}}</view>
     </view>
   </view>
 
@@ -46,17 +48,17 @@
     <view class="title">
       <view>配送地址</view>
     </view>
-    <view class="center">连云港 海洲区 同科汇丰国际大厦三楼8室</view>
+    <view class="center">{{detail.street}}</view>
   </view>
 
   <view class="line">
     <view class="title">电话</view>
-    <view class="center">1882733525</view>
+    <view class="center">{{detail.mobile}}</view>
   </view>
 
   <view class="line">
     <view class="title">收货人</view>
-    <view class="center">张三丰</view>
+    <view class="center">{{detail.contact}}</view>
   </view>
 
   <view class="line top">
@@ -64,35 +66,44 @@
   </view>
 
   <view class="line">
-    <view class="title">订单编号</view>
-    <view class="center">192327720392907289</view>
+    <view class="title">规格</view>
+    <view class="center">{{detail.detail.goods_attr1}},{{detail.detail.goods_attr2}}</view>
   </view>
 
+  <view class="line">
+    <view class="title">订单编号</view>
+    <view class="center">{{detail.order_no}}</view>
+  </view>
 
   <view class="line">
-    <view class="title">积分使用</view>
-    <view class="center" style="color:#E30000">-1000 积分</view>
+    <view class="title">积分抵扣</view>
+    <view class="center" style="color:#E30000">-{{util.toFixed(detail.integral_price,2)}} 元</view>
   </view>
 
   <view class="line">
     <view class="title">余额使用</view>
-    <view class="center" style="color:#E30000">-100.00 元</view>
+    <view class="center" style="color:#E30000">-{{util.toFixed(detail.coun_mony,2)}} 元</view>
   </view>
 
   <view class="line">
     <view class="title">运费</view>
-    <view class="center">0.00</view>
+    <view class="center">{{util.toFixed(detail.freight_price,2)}} 元</view>
+  </view>
+
+  <view class="line">
+    <view class="title">实际支付</view>
+    <view class="center" style="color:#E30000">{{util.toFixed(detail.pay_money,2)}} 元</view>
   </view>
 </view>
 
 <!-- 底部浮动栏目 -->
-<view class="footer" style="height:{{iphoneFooter ? 204 : 170}}rpx">
+<view class="footer" style="height:{{iphoneFooter ? 204 : 170}}rpx" wx:if="{{detail.status == 1}}">
   <view class="fbox">
     <view class="tag">团购商品均为正归渠道合格商品，非质量问题暂不支持退换货</view>
     <view class="content">
-      <view>合计：<span style="color:#FA4556">¥ 79.87</span></view>
-      <view class="btn">立即支付</view>
+      <view>合计：<span style="color:#FA4556">¥ {{util.toFixed(detail.pay_money,2)}}</span></view>
+      <view class="btn" bindtap="to" data-url="/pages/confirm/confirm?orderId={{detail.id}}&goodsId={{detail.detail.goods_id}}">立即支付</view>
     </view>
   </view>
 </view>
-<view style="height:{{iphoneFooter ? 204 : 170}}rpx;margin-top:10vh"></view>
+<view style="height:{{iphoneFooter ? 204 : 170}}rpx" wx:if="{{detail.status == 1}}"></view>

@@ -28,8 +28,10 @@
 
 .list>.li>.photo>.tag-title {
   position: absolute;
-  left: 16rpx;
+  left: 8rpx;
   top: 5rpx;
+  width: 67rpx;
+  text-align: center;
   font-size: 16rpx;
   color: #fff;
   z-index: 2;
@@ -59,7 +61,7 @@
 }
 
 .list>.li>.detail>.label {
-  font-size: 23rpx;
+  font-size: 20rpx;
   box-sizing: border-box;
 }
 

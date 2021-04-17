@@ -1,3 +1,7 @@
+.my{
+  padding-bottom: 10vh;
+}
+
 .navbar {
   position: fixed;
   left: 0;
@@ -166,7 +170,6 @@
   padding: 0 30rpx;
   box-sizing: border-box;
   color: #999;
-  margin-bottom: 10vh;
 }
 
 .dump>.li {

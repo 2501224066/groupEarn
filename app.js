@@ -6,11 +6,11 @@ App({
     iphoneFooter: null,
   },
 
-  onLaunch() {
+  onShow(){
     this.getPhoneModel()
     this.topData()
   },
-
+  
   // 获取机型
   getPhoneModel() {
     wx.getSystemInfo({

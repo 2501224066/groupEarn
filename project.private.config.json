@@ -20,7 +20,6 @@
           "scene": null
         },
         {
-          "id": -1,
           "name": "商品详情",
           "pathName": "pages/goodsDetail/goodsDetail",
           "query": "",
@@ -47,7 +46,6 @@
           "scene": null
         },
         {
-          "id": -1,
           "name": "修改地址",
           "pathName": "pages/editAddress/editAddress",
           "query": "",
@@ -114,7 +112,7 @@
           "scene": null
         },
         {
-          "name": "确认开团",
+          "name": "确认订单",
           "pathName": "pages/confirm/confirm",
           "query": "",
           "scene": null
@@ -128,11 +126,11 @@
         {
           "name": "拼团详情",
           "pathName": "pages/earnDetail/earnDetail",
-          "query": "",
+          "query": "id=123&shareUserId=99&joinGroupId=100",
           "scene": null
         },
         {
-          "name": "登陆",
+          "name": "登录",
           "pathName": "pages/login/login",
           "query": "",
           "scene": null
@@ -140,6 +138,31 @@
         {
           "name": "授权",
           "pathName": "pages/authorize/authorize",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "协议",
+          "pathName": "pages/agreement/agreement",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "设置",
+          "pathName": "pages/setting/setting",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "禁止传销",
+          "pathName": "pages/noPyramid/noPyramid",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "服务说明",
+          "pathName": "pages/serviceNote/serviceNote",
+          "query": "",
           "scene": null
         }
       ]

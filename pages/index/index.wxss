@@ -1,3 +1,7 @@
+.index{
+  padding-bottom: 10vh;
+}
+
 .navbar {
   position: fixed;
   left: 0;
@@ -11,7 +15,7 @@
   z-index: 999;
 }
 
-.search {
+.navbar>.search {
   width: 50%;
   border: 1rpx solid #f9f9f9;
   height: 100%;
@@ -23,13 +27,25 @@
   justify-content: space-between;
 }
 
-.search>.text {
+.navbar>.search>.text {
   color: #fff;
 }
 
-.search>.img {
+.navbar>.search>.img {
   width: 50rpx;
   height: 50rpx;
+}
+
+.navbar>.logo{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.navbar>.logo>.img {
+  width: 220rpx;
+  height: 60rpx;
 }
 
 .lb {
@@ -77,13 +93,16 @@
 .notice {
   display: flex;
   align-items: center;
-  padding: 10rpx 20rpx;
+  height: 50rpx;
+  padding: 0 20rpx;
   color: #999;
+  overflow: hidden;
 }
 
 .notice>.img {
   width: 30rpx;
   height: 30rpx;
+  margin: 10rpx 0;
 }
 
 .notice>.line {
@@ -93,12 +112,26 @@
   border-right: 1rpx solid #ddd;
 }
 
-.notice>.title {
+.notice swiper{
+  flex: 1;
+  height: 50rpx;
+}
+
+.notice swiper-item{
+  display: flex;
+  align-items: center;
+}
+
+.notice swiper-item>.title {
   flex: 1;
 }
 
-.notice>.time {
+.notice swiper-item>.time {
   margin-left: 20rpx;
+}
+
+.content{
+  padding:   0 3%;
 }
 
 .icon {
@@ -274,6 +307,7 @@
   height: 40rpx;
   border-radius: 20rpx;
   overflow: hidden;
+  margin-right: 30rpx;
 }
 
 .join>.list>.text {
@@ -285,12 +319,12 @@
 .join>.list>.time {
   color: #999;
   text-align: right;
+  margin-left: 30rpx;
 }
 
 .rule {
   margin-top: 30rpx;
   padding: 30rpx;
-  margin-bottom: 100rpx;
 }
 
 .rule>.title {

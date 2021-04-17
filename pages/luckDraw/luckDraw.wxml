@@ -8,24 +8,36 @@
     <view class="res">
       <view class="text">本期中奖号码</view>
       <view class="num">
-        <view wx:for="{{res}}" wx:key="*this">{{item}}</view>
+        <view wx:for="{{detail.luck_key}}" wx:key="*this">{{item}}</view>
       </view>
-      <view class="time">该拼团与1天12小时21分31秒后结束</view>
+      <view class="time">该拼团于{{d}}天{{H}}小时{{i}}分{{s}}秒后结束</view>
     </view>
 
-    <!-- 号码 -->
-    <view class="code">
-      <view wx:for="{{list}}" wx:key="*this"
-        class="list {{ !over ? (!item.open ? 'wait' : (  self == item.num && util.indexOf(res, item.num) > -1 ? 'checkout' : '')) : (util.indexOf(res, item.num) > -1 ? 'checkout' : '')}}"
-        style="font-size:{{over ? '60': (self == item.num ? '60' : '30')}}rpx">
+    <!-- 号码-全翻开 -->
+    <view class="code" wx:if="{{openList.length == list.length}}">
+      <!-- 全翻开 -->
+      <view wx:for="{{list}}" wx:key="*this" class="list {{util.indexOf(detail.luck_key, item) > -1 ? 'checkout' : ''}}"
+        style="font-size: 60rpx">
         <!-- 标签 -->
-        <view class="tag" wx:if="{{ util.indexOf(res, item.num) > -1 && self != item.num && over}}">中签</view>
-        <view class="tag" wx:if="{{ self == item.num }}">我</view>
+        <view class="tag" wx:if="{{util.indexOf(detail.luck_key, item) > -1}}">中签</view>
+        <view class="tag" wx:if="{{self == item}}">我</view>
         <!-- 牌面 -->
-        <view class="text" wx:if="{{!over && item.open && self != item.num}}">已刮</view>
-        <view class="text" wx:if="{{!over && item.open && self == item.num}}">{{item.num}}</view>
-        <view class="text" wx:if="{{!over && !item.open}}">点击刮开</view>
-        <view class="text" wx:if="{{over}}">{{item.num}}</view>
+        <view class="text">{{item}}</view>
+      </view>
+    </view>
+
+    <!-- 号码-未全翻开-->
+    <view class="code" wx:else>
+      <!-- 全翻开 -->
+      <view wx:for="{{list}}" wx:key="*this"
+        class="list {{util.indexOf(detail.luck_key, item) > -1 && util.indexOf(openList,item) > -1 && self == item ? 'checkout' : ''}}"
+        style="font-size: 30rpx">
+        <!-- 标签 -->
+        <view class="tag" wx:if="{{self == item}}">我</view>
+        <!-- 牌面 -->
+        <view class="text" style="font-size: 60rpx" wx:if="{{util.indexOf(openList,item) > -1 && self == item}}">{{item}}</view>
+        <view class="text" wx:if="{{util.indexOf(openList,item) > -1 && self != item}}">已刮</view>
+        <view class="text" wx:if="{{util.indexOf(openList,item) == -1}}" bindtap="open" data-num="{{item}}">点击刮开</view>
       </view>
     </view>
 
@@ -33,7 +45,8 @@
     <view class="join">
       <view class="title">参团特权</view>
       <view class="text shadow">
-        参团中签可获得积分 <span>19.9点</span> ，未中签再获得 <span>19.9元</span> 厂商现金补贴。
+        参团中签可获得积分 <span>{{detail.point}}点</span> ，未中签再获得
+        <span>{{util.toFixed(detail.factory_subsidy, 2)}}元</span> 厂商现金补贴。
       </view>
     </view>
 
@@ -41,9 +54,10 @@
     <view class="rule">
       <view class="title">规则说明</view>
       <view class="text shadow">
-        <view>1. 撒打算打算打算的撒的撒的</view>
-        <view>2. 撒打算打算打算的撒撒打算打算的撒打算的撒的撒的</view>
-        <view>3. 是的撒的撒的卡拉斯的</view>
+        <view>1、该拼团需{{detail.position.length}}人参与，其中{{detail.luck_key.length}}人可获拼团商品；</view>
+        <view>2、参与拼团支付成功后，刮来上方卡片获得中签号码；</view>
+        <view>3、获得的号码与开奖号码中任意一位一致即为中签，可获得拼团商品和{{detail.point}}积分；</view>
+        <view>4、未中签者，拼团人满结束后，原路退回参团款项，同时获得{{util.toFixed(detail.factory_subsidy, 2)}}元厂商补贴金。</view>
       </view>
     </view>
   </view>
@@ -52,9 +66,9 @@
 <!-- 底部浮动栏目 -->
 <view class="footer" style="height:{{iphoneFooter ? 154 : 120}}rpx">
   <view class="fbox">
-    <view class="btn1">继续拼团</view>
-    <view wx:if="{{over}}" class="btn3">已结束</view>
-    <view wx:else class="btn2">邀请好友参团</view>
+    <view class="btn1" bindtap="toMake">继续拼团</view>
+    <view wx:if="{{(openList.length == list.length && overTime < nowTime)}}" class="btn3">已结束</view>
+    <button wx:else class="btn2" open-type="share">分享</button>
   </view>
 </view>
 <view style="height:{{iphoneFooter ? 154 : 120}}rpx;margin-top:10vh"></view>
@@ -65,6 +79,6 @@
     <view class="close" bindtap="relClose">X</view>
     <view>您刮的数字是</view>
     <view class="num">{{self}}</view>
-    <view wx:if="{{util.indexOf(res, self) > -1}}">已中签</view>
+    <view wx:if="{{util.indexOf(detail.luck_key, self) > -1}}">已中签</view>
   </view>
 </view>

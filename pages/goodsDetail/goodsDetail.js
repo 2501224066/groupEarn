@@ -1,3 +1,9 @@
+import {
+  goodsDetail,
+  follow,
+  createOrder
+} from '../../config/api'
+
 const App = getApp()
 
 Page({
@@ -6,28 +12,106 @@ Page({
     navHeight: null,
     navTop: null,
     navScrollTop: 0,
-    swiper: [
-      "https://img2.woyaogexing.com/2017/10/17/556d6117294495f8!400x400_big.jpg",
-      "https://img2.woyaogexing.com/2017/10/17/28990af8ee939ee1!400x400_big.jpg"
-    ],
-    follow: true, // 关注
-    maxBuyNum: 3, // 最大购买数量
+    id: null,
+    detail: null,
+    follow: null, // 关注
+    maxBuyNum: 0, // 最大购买数量
     buyNum: 1, //购买数量
     specsShow: false, // 规格展示
     buyType: 1, // 购买类型 1:拼团 2:购买
+    specsArr: [], // 选中规格
+    group: null, // 相关团
+    groupId: null // 加入拼团ID
+  },
+
+  onLoad(options) {
+    this.setData({
+      id: options.id,
+      groupId: Number(options.groupId),
+    })
+    if (options.shareUserId) {
+      wx.setStorageSync('shareUserId', options.shareUserId)
+    }
   },
 
   onShow() {
+    if (!wx.getStorageSync('loginStatus')) {
+      wx.showToast({
+        title: '请先登录',
+        icon: 'loading'
+      })
+      setTimeout(function () {
+        wx.navigateTo({
+          url: '/pages/login/login',
+        })
+      }, 500)
+      return
+    }
     this.setData({
+      specsShow: false,
       navHeight: App.globalData.navHeight,
       navTop: App.globalData.navTop,
       iphoneFooter: App.globalData.iphoneFooter
+    })
+    this.getData()
+  },
+
+  // 数据
+  getData() {
+    let obj = {
+      id: this.data.id
+    }
+    goodsDetail(obj).then(res => {
+      this.setData({
+        detail: res.data,
+        group: res.data.active != "" ? res.data.active : null,
+        follow: res.data.goods.collect_status,
+        maxBuyNum: res.data.goods.max_buycount
+      })
+      if (this.data.group != null) {
+        this.countTime()
+      }
+    })
+  },
+
+  // 返回
+  back() {
+    wx.navigateBack()
+  },
+
+  // 收藏
+  follow() {
+    let obj = {
+      good_id: this.data.detail.goods.id,
+      status: this.data.follow ? 0 : 1
+    }
+    follow(obj).then(res => {
+      this.setData({
+        follow: this.data.follow ? 0 : 1
+      })
+    })
+  },
+
+  // 跳转
+  to(e) {
+    wx.navigateTo({
+      url: e.currentTarget.dataset.url
+    })
+  },
+
+  // 选中规格
+  checkedSpecs(e) {
+    e.currentTarget.dataset.arr.forEach(element => {
+      this.data.specsArr.indexOf(element) > -1 ? this.data.specsArr.splice(this.data.specsArr.indexOf(element), 1) : ''
+    })
+    this.data.specsArr.push(e.currentTarget.dataset.name)
+    this.setData({
+      specsArr: this.data.specsArr
     })
   },
 
   // 页面上滑距离，控制 nav 变色
   onPageScroll(ev) {
-    console.log(ev.scrollTop)
     this.setData({
       navScrollTop: ev.scrollTop
     })
@@ -90,4 +174,89 @@ Page({
       buyNum: Number(e.detail.value)
     })
   },
+
+  // 创建订单
+  create() {
+    if (this.data.specsArr.length < this.data.detail.sku.length) {
+      wx.showToast({
+        title: '请选择SKU',
+        icon: 'loading'
+      })
+      return
+    }
+
+    let obj = {
+      buy_type: this.data.buyType,
+      good_id: this.data.id,
+      num: this.data.buyNum,
+      message: '',
+      sku: this.data.specsArr.length == 0 ? '默认,默认' : (this.data.specsArr.length == 1 ? this.data.specsArr[0] + ',默认' : this.data.specsArr.toString()),
+      active_id: this.data.groupId ? this.data.groupId : 0
+    }
+    createOrder(obj).then(res => {
+      wx.navigateTo({
+        url: '/pages/confirm/confirm?orderId=' + res.data.order_id + '&goodsId=' + res.data.good_id
+      })
+    })
+  },
+
+  // 倒计时
+  countTime() {
+    let that = this
+    let timing = setInterval(function () {
+      let nowTime = Math.floor(Date.parse(new Date()) / 1000);
+      that.data.group.forEach(function (value, key) {
+        let d = '00'
+        let H = '00'
+        let i = '00'
+        let s = '00'
+        if (value.overtime >= nowTime) {
+          let surplus = value.overtime - nowTime
+          d = that.addZero(Math.floor(surplus / 86400))
+          H = that.addZero(Math.floor((surplus - d * 86400) / 3600))
+          i = that.addZero(Math.floor((surplus - d * 86400 - H * 3600) / 60))
+          s = that.addZero(surplus - d * 86400 - H * 3600 - i * 60)
+        }
+        that.data.group[key].time = d + '天' + H + '时' + i + '分' + s + '秒'
+      });
+
+      that.setData({
+        group: that.data.group
+      })
+    }, 1000)
+
+    that.setData({
+      timing: timing
+    })
+  },
+
+  // 补零
+  addZero(num) {
+    return num < 10 ? "0" + num : num
+  },
+
+  // 去拼团列表
+  toMake() {
+    wx.switchTab({
+      url: '/pages/make/make',
+    })
+  },
+
+  // 分享
+  onShareAppMessage() {
+    console.log('/pages/goodsDetail/goodsDetail?id=' + this.data.detail.goods.id + '&shareUserId=' + wx.getStorageSync('userId'))
+    return {
+      title: this.data.detail.goods.name,
+      path: '/pages/goodsDetail/goodsDetail?id=' + this.data.detail.goods.id + '&shareUserId=' + wx.getStorageSync('userId'),
+      imageUrl: this.data.detail.goods.banners[0]
+    }
+  },
+
+  onHide() {
+    clearInterval(this.data.timing);
+  },
+
+  onUnload() {
+    clearInterval(this.data.timing);
+  }
 })

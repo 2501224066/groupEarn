@@ -1,9 +1,12 @@
+<!-- 工具 -->
+<wxs src="../../utils/index.wxs" module="util"></wxs>
+
 <view class="wallet">
   <!-- 导航栏 -->
   <view class="navbar"
     style="height:{{navHeight}}px; padding-top:{{navTop}}px; background:{{navScrollTop>290 ? '#fff' : ''}}">
     <view class="box">
-      <view class="img">
+      <view class="img" bindtap="back">
         <image src="/image/left1.png" mode="aspectFill"></image>
       </view>
       <view class="title">我的钱包</view>
@@ -15,10 +18,10 @@
   <!-- 余额 -->
   <view class="total">
     <view class="op">
-      <view>提现管理</view>
+      <view bindtap="to" data-url="/pages/withdrawal/withdrawal">提现管理</view>
     </view>
     <view class="money">
-      <view class="num">8899.00</view>
+      <view class="num">{{util.toFixed(total,2)}}</view>
       <view>现金余额（元）</view>
     </view>
   </view>
@@ -28,13 +31,13 @@
     <view class="title">收支明细</view>
     <view class="li" wx:for="{{list}}" wx:key="*this">
       <view class="l">
-        <view class="tag">{{item.title}}</view>
-        <view class="time">{{item.time}}</view>
+        <view class="tag">{{item.remark}}</view>
+        <view class="time">{{item.created_at}}</view>
       </view>
-      <view class="num" style="color: {{item.up ? '#309A01'  : '#f10000'}}">
-        <span wx:if="{{item.up}}">+</span>
+      <view class="num" style="color: {{item.is_add ? '#309A01'  : '#f10000'}}">
+        <span wx:if="{{item.is_add}}">+</span>
         <span wx:else>-</span>
-        {{item.num}}
+        {{util.toFixed(item.wallet,2)}}
       </view>
     </view>
   </view>
@@ -54,8 +57,8 @@
       </picker>
     </view>
     <view class="r">
-      <view>累计收入：<span>3213.09</span></view>
-      <view>支出：<span>231119.98</span></view>
+      <view>累计收入：<span>{{util.toFixed(entry,2)}}</span></view>
+      <view>支出：<span>{{util.toFixed(out,2)}}</span></view>
     </view>
   </view>
 </view>

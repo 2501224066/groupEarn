@@ -90,6 +90,10 @@
   align-items: center;
 }
 
+.agree>switch{
+  transform: scale(0.6);
+}
+
 .agree>.title {
   margin-left: 10rpx;
 }

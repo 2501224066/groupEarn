@@ -6,11 +6,13 @@
   </view>
 
   <view class="box">
-    <view class="li" wx:for="{{3}}">
-      <goods2></goods2>
+    <view class="li" wx:for="{{list}}" wx:key="id" bindtap="to" data-url="/pages/earnDetail/earnDetail?id={{item.id}}">
+      <goods2 detail="{{item.goods}}"></goods2>
       <view class="content">
-        <view>已支付：￥199.9元</view>
-        <view class="r"><span>（拼团中）</span>1天21时28分33秒后结束</view>
+        <view>已支付：￥{{item.order.pay_money}}元</view>
+        <view class="r" wx:if="{{item.sponsor_active == 3}}"><span>（拼团中）</span>{{item.time}}</view>
+        <view class="r" wx:if="{{item.sponsor_active == 2}}"><span>拼团失败</span></view>
+        <view class="r" wx:if="{{item.sponsor_active == 1}}"><span>拼团已满</span></view>
       </view>
     </view>
   </view>

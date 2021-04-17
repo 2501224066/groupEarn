@@ -14,7 +14,7 @@ const go = function (obj) {
       method: obj.method,
       data: obj.data,
       header: {
-        'Authorization': wx.getStorageSync('token') || '',
+        'token': wx.getStorageSync('token') || '',
         'content-type': 'application/json' // 默认值
       },
       success: function (res) {
@@ -24,7 +24,7 @@ const go = function (obj) {
         } else {
           wx.showToast({
             icon: 'none',
-            title: res.data.message,
+            title: res.data.msg,
             duration: 2000,
           })
         }

@@ -1,3 +1,7 @@
+.make{
+  padding-bottom: 10vh;
+}
+
 .tab {
   padding: 0 10%;
   box-sizing: border-box;
@@ -60,6 +64,7 @@
 }
 
 .keyword>.l span {
+  margin-left: 20rpx;
   color: #FA4556;
 }
 

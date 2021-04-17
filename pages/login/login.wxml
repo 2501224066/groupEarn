@@ -17,12 +17,12 @@
   <view class="logo">
     <image src="/image/logo.png" mode="aspectFill"></image>
   </view>
-  <view class="title">团团赚</view>
+  <view class="title">钻石团</view>
 
   <view class="agree" bindtap="agree">
     <radio wx:if="{{agree}}" checked="true"/>
     <radio wx:else/>
-    <view class="text">同意团团赚<span>《法律声明及隐私政策》</span></view>
+    <view class="text">同意钻石团<span catchtap="to" data-url="/pages/agreement/agreement">《法律声明及隐私政策》</span></view>
   </view>
   <button wx:if="{{agree}}" class="sub" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">微信一键登录</button>
   <view wx:else class="sub" bindtap="noAgree">微信一键登录</view>

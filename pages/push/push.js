@@ -1,24 +1,35 @@
+import {
+  pushList
+} from '../../config/api'
+
 Page({
   data: {
-    list: [{
-        header: "https://img2.woyaogexing.com/2017/10/17/556d6117294495f8!400x400_big.jpg",
-        name: "深度",
-        time: "2021-03-18  18:50:23"
-      },
-      {
-        header: "https://img2.woyaogexing.com/2017/10/17/556d6117294495f8!400x400_big.jpg",
-        name: "神雕稀烂",
-        time: "2021-03-18  18:50:23"
-      },
-      {
-        header: "https://img2.woyaogexing.com/2017/10/17/556d6117294495f8!400x400_big.jpg",
-        name: "呵呵",
-        time: "2021-03-18  18:50:23"
-      }, {
-        header: "https://img2.woyaogexing.com/2017/10/17/556d6117294495f8!400x400_big.jpg",
-        name: "深度",
-        time: "2021-03-18  18:50:23"
-      }
-    ]
+    page: 1,
+    list: []
+  },
+
+  onShow() {
+    this.getData()
+  },
+
+  // 数据
+  getData(addStatus = false) {
+    let obj = {
+      page: this.data.page
+    }
+    pushList(obj).then(res => {
+      this.setData({
+        list: addStatus ? this.data.list.concat(res.data) : res.data,
+        page: this.data.page + 1
+      })
+    })
+  },
+
+  // 触底
+  onReachBottom() {
+    this.setData({
+      page: this.data.page + 1
+    })
+    this.getData(true)
   },
 })

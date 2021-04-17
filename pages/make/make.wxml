@@ -2,7 +2,7 @@
   <view wx:if="{{keyword}}">
     <view class="keyword">
       <view class="l">
-        <view>关键字：<span>{{keyword}}</span></view>
+        <view>关键字：<span>{{tabList[tabIndex]}}</span><span>{{keyword}}</span></view>
       </view>
       <view class="img" bindtap="close">
         <image src="/image/close.png" mode="aspectFill"></image>
@@ -28,8 +28,8 @@
     </view>
   </view>
 
-  <view wx:for="{{3}}">
+  <view wx:for="{{list}}" wx:key="*this">
     <!-- 商品 -->
-    <goods></goods>
+    <goods detail="{{item}}"></goods>
   </view>
 </view>

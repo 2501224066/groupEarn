@@ -59,6 +59,7 @@
   padding: 0 10%;
   display: flex;
   align-items: center;
+  margin-bottom: 20rpx;
 }
 
 .agree>.text {
@@ -71,7 +72,7 @@
 }
 
 .agree>radio {
-  transform: scale(0.7);
+  transform: scale(0.6);
 }
 
 .sub {

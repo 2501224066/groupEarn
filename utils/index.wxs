@@ -16,12 +16,16 @@ var strHid = function (str, length = 12) {
 
 // 保留n位小数
 var toFixed = function (num, lenth) {
-  return num.toFixed(lenth);
+  return  Number(num).toFixed(lenth);
 }
 
 // 获取小数点后数字
 var pointCut = function (num, len = 2) {
-  num = num.toFixed(len) * 100 + '';
+  num = num.toFixed(len) * 100
+  if (num < 10) {
+    num = "0" + num
+  }
+  num = num + ""
   return num.substring(num.length - len, num.length);
 }
 

@@ -2,6 +2,10 @@ page {
   background: #f8f8f8;
 }
 
+.order{
+  padding-bottom: 10vh;
+}
+
 .tab {
   box-sizing: border-box;
   display: flex;

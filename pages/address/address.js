@@ -1,28 +1,53 @@
+import {
+  addressList,
+  delAddress
+} from '../../config/api'
+
 const App = getApp()
 
 Page({
   data: {
     iphoneFooter: null,
-    list: [{
-        agen: '湖北-武汉-汉阳',
-        address: '拉屎的卡是加大宽阿迪说的撒的撒的撒的撒打算可',
-        name: '李嗷嗷',
-        phone: '1992323242',
-        sex: 1
-      },
-      {
-        agen: '湖北-武汉-汉阳',
-        address: '拉屎的卡是加大宽阿迪',
-        name: '李嗷嗷',
-        phone: '1992323242',
-        sex: 2
-      }
-    ]
+    list: []
   },
 
   onShow() {
     this.setData({
       iphoneFooter: App.globalData.iphoneFooter,
     })
+    this.getData()
   },
+
+  // 数据
+  getData() {
+    addressList().then(res => {
+      this.setData({
+        list: res.data
+      })
+    })
+  },
+
+  // 删除
+  del(e) {
+    let that = this
+    wx.showModal({
+      title: '提示',
+      content: '确定要删除吗？',
+      success: function (sm) {
+        let obj = {
+          id: e.currentTarget.dataset.id
+        }
+        delAddress(obj).then(res => {
+          that.getData()
+        })
+      }
+    })
+  },
+
+  //  跳转
+  to(e) {
+    wx.navigateTo({
+      url: e.currentTarget.dataset.url,
+    })
+  }
 })

@@ -5,4 +5,12 @@ Component({
       value: {}
     }
   },
+  methods: {
+    // 跳转
+    to(e){
+      wx.navigateTo({
+        url: e.currentTarget.dataset.url
+      })
+    }
+  }
 })

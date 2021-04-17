@@ -21,13 +21,20 @@
     "pages/myEarn/myEarn",
     "pages/earnDetail/earnDetail",
     "pages/login/login",
-    "pages/authorize/authorize"
+    "pages/authorize/authorize",
+    "pages/agreement/agreement",
+    "pages/notice/notice",
+    "pages/outGreement/outGreement",
+    "pages/setting/setting",
+    "pages/noPyramid/noPyramid",
+    "pages/serviceNote/serviceNote"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": false
   },
   "tabBar": {
     "selectedColor": "#000",

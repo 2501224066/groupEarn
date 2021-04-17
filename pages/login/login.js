@@ -44,7 +44,7 @@ Page({
 
   // 登录
   login() {
-    var that = this
+    let that = this
     // 获取code
     wx.login({
       success(res) {
@@ -62,20 +62,25 @@ Page({
       return false
     }
 
-    var that = this
+    let that = this
     wx.checkSession({
       success() {
         var obj = {
           code: that.data.code,
           iv: e.detail.iv,
-          encryptedData: e.detail.encryptedData
+          encryptedData: e.detail.encryptedData,
+        }
+        if (wx.getStorageSync('shareUserId')) {
+          obj.share_user_id = wx.getStorageSync('shareUserId') // 邀请人
         }
         login(obj).then(res => {
           wx.setStorageSync('token', res.data.token)
+          wx.setStorageSync('userId', res.data.id)
           wx.setStorageSync('userInfo', {
-            nickname: res.data.nickname,
-            avatarUrl: null,
-            phone: res.data.phone
+            nickName: res.data.nickname,
+            avatarUrl: res.data.avatar,
+            phone: res.data.mobile,
+            sex: 0
           })
           wx.setStorageSync('loginStatus', true)
           wx.showToast({
@@ -100,4 +105,11 @@ Page({
       }
     })
   },
+
+  // 跳转
+  to(e) {
+    wx.navigateTo({
+      url: e.currentTarget.dataset.url
+    })
+  }
 })

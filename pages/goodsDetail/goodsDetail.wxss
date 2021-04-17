@@ -1,36 +1,39 @@
+.goods-detail{
+  padding-bottom: 10vh;
+}
+
 .navbar {
   position: fixed;
   left: 0;
   top: 0;
   width: 100%;
-  padding-bottom: 6rpx;
-  padding-left: 3%;
-  padding-right: 3%;
+  padding: 0 3%;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   z-index: 999;
 }
 
 .navbar>.box {
-  width: 160rpx;
-  height: 100%;
-  border-radius: 100rpx;
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 30rpx;
   border: 1rpx solid #ececec;
-  padding: 0 30rpx 0 20rpx;
   box-sizing: border-box;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
-  background: rgba(250, 250, 250, .6);
+  background: #fff;
 }
 
 .navbar>.box>.img:nth-child(1) {
-  width: 32rpx;
-  height: 32rpx;
-}
-
-.navbar>.box>.img:nth-child(2) {
-  width: 40rpx;
-  height: 40rpx;
+  position: relative;
+  top: 0;
+  left: -2rpx;
+  width: 34rpx;
+  height: 34rpx;
 }
 
 .lb {
@@ -114,6 +117,8 @@
   border: 1rpx solid #ececec;
   padding: 20rpx 10rpx 10rpx 10rpx;
   box-sizing: border-box;
+  min-width: 150rpx;
+  justify-content: space-evenly;
 }
 
 .box1>.price>.r>.num>view {
@@ -304,7 +309,7 @@
 }
 
 .box2>.list>.li>.name {
-  font-size: 30rpx;
+  font-size: 28rpx;
 }
 
 .box2>.list>.li>.time {
@@ -325,8 +330,8 @@
   font-weight: 300;
 }
 
-.box2>.rich {
-  margin-bottom: 10vh;
+.box2>.rich>rich-text{
+  height: 100%;
 }
 
 .footer {
@@ -357,6 +362,9 @@
   justify-content: center;
   font-size: 24rpx;
   color: #7c7c7c;
+  padding: 0;
+  margin: 0;
+  background: #fff;
 }
 
 .footer>.fbox>.f1>.img {
@@ -387,11 +395,11 @@
 
 .footer>.fbox>.f2>view:nth-child(1) {
   border-right: 1rpx solid #ececec;
-  background: #f73d4c;
+  background: #ff5e01;
 }
 
 .footer>.fbox>.f2>view:nth-child(2) {
-  background: #ff5e01;
+  background: #f73d4c;
 }
 
 .specs {
@@ -434,7 +442,6 @@
 .specs>.box>.goods {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   margin-bottom: 30rpx;
 }
 
@@ -447,6 +454,7 @@
 }
 
 .specs>.box>.goods>.detail {
+  flex: 1;
   height: 140rpx;
   display: flex;
   flex-direction: column;
@@ -507,7 +515,6 @@
 }
 
 .specs>.box>.list>.op>view {
-  color: #999;
   width: 70rpx;
   height: 70rpx;
   line-height: 70rpx;
@@ -517,13 +524,15 @@
 .specs>.box>.list>.op>view:nth-child(1),
 .specs>.box>.list>.op>view:nth-child(3) {
   font-size: 60rpx;
-  border: 2rpx solid #999;
+  border: 2rpx solid #ececec;
   line-height: 60rpx;
+  color: #999;
 }
 
 .specs>.box>.list>.op>view:nth-child(2) {
-  border-top: 2rpx solid #999;
-  border-bottom: 2rpx solid #999;
+  border-top: 2rpx solid #ececec;
+  border-bottom: 2rpx solid #ececec;
+  color: #000;
 }
 
 .specs>.box>.list>.op input {

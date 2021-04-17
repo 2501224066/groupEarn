@@ -1,9 +1,10 @@
+<!-- 工具 -->
+<wxs src="../../utils/index.wxs" module="util"></wxs>
+
 <view class="my">
   <!-- 导航栏 -->
   <view class="navbar" style="height:{{navHeight}}px; padding-top:{{navTop}}px">
-    <view class="img">
-      <image src="/image/left1.png" mode="aspectFill"></image>
-    </view>
+    <view class="img"></view>
     <view>我的</view>
     <view class="img"></view>
   </view>
@@ -16,37 +17,38 @@
     <view class="header">
       <view class="l">
         <view class="img">
-          <image src="https://img2.woyaogexing.com/2017/10/17/556d6117294495f8!400x400_big.jpg" mode="aspectFill">
+          <image src="{{userInfo.avatarUrl ? userInfo.avatarUrl : '/image/header.png'}}" mode="aspectFill">
           </image>
         </view>
         <view class="name">
-          <view class="text">张三丰</view>
+          <view class="text" wx:if="{{userInfo}}">{{userInfo.nickName}}</view>
+          <view class="text" wx:else>暂未登录</view>
           <view class="phone">
             <view class="img">
               <image src="/image/phone.png" mode="aspectFill"></image>
             </view>
-            <view>未绑定手机号码</view>
+            <view>{{userInfo ? userInfo.phone : '未绑定手机号码'}}</view>
           </view>
         </view>
       </view>
       <view class="r">
-        <view class="img">
+        <view class="img" bindtap="to" data-url="/pages/setting/setting">
           <image src="/image/set.png" mode="aspectFill"></image>
         </view>
       </view>
     </view>
     <!-- 账户 -->
     <view class="account shadow">
-      <view>
-        <view>2999.00</view>
+      <view bindtap="to" data-url="/pages/wallet/wallet">
+        <view>{{util.toFixed(money,2)}}</view>
         <view>账户余额</view>
       </view>
       <view>
-        <view>32999</view>
+        <view>{{util.toFixed(point,2)}}</view>
         <view>积分</view>
       </view>
       <view>
-        <view>134</view>
+        <view>{{invite}}</view>
         <view>邀请人数</view>
       </view>
     </view>
@@ -56,28 +58,28 @@
   <view class="order">
     <view class="title">
       <view>我的订单</view>
-      <view class="go">全部订单</view>
+      <view class="go" bindtap="toOrder" data-tab="0">全部订单</view>
     </view>
     <view class="list">
-      <view class="li">
+      <view class="li" bindtap="toOrder" data-tab="1">
         <view class="img">
           <image src="/image/order1.png" mode="aspectFill"></image>
         </view>
-        <view>代付款</view>
+        <view>待付款</view>
       </view>
-      <view class="li">
+      <view class="li" bindtap="toOrder" data-tab="2">
         <view class="img">
           <image src="/image/order2.png" mode="aspectFill"></image>
         </view>
         <view>待发货</view>
       </view>
-      <view class="li">
+      <view class="li" bindtap="toOrder" data-tab="3">
         <view class="img">
           <image src="/image/order3.png" mode="aspectFill"></image>
         </view>
         <view>已发货</view>
       </view>
-      <view class="li">
+      <view class="li" bindtap="toOrder" data-tab="4">
         <view class="img">
           <image src="/image/order4.png" mode="aspectFill"></image>
         </view>
@@ -88,7 +90,7 @@
 
   <!-- 跳转 -->
   <view class="dump shadow">
-    <view class="li">
+    <view class="li" bindtap="to" data-url="/pages/myEarn/myEarn">
       <view class="img">
         <image src="/image/flow1.png" mode="aspectFill"></image>
       </view>
@@ -97,7 +99,7 @@
         <image src="/image/right2.png" mode="aspectFill"></image>
       </view>
     </view>
-    <view class="li">
+    <view class="li" bindtap="to" data-url="/pages/collection/collection">
       <view class="img">
         <image src="/image/unfollow.png" mode="aspectFill"></image>
       </view>
@@ -106,7 +108,7 @@
         <image src="/image/right2.png" mode="aspectFill"></image>
       </view>
     </view>
-    <view class="li">
+    <view class="li" bindtap="to" data-url="/pages/address/address">
       <view class="img">
         <image src="/image/address.png" mode="aspectFill"></image>
       </view>
@@ -115,7 +117,7 @@
         <image src="/image/right2.png" mode="aspectFill"></image>
       </view>
     </view>
-    <view class="li">
+    <view class="li" bindtap="to" data-url="/pages/aboutWe/aboutWe">
       <view class="img">
         <image src="/image/about.png" mode="aspectFill"></image>
       </view>
@@ -124,7 +126,7 @@
         <image src="/image/right2.png" mode="aspectFill"></image>
       </view>
     </view>
-    <view class="li">
+    <view class="li" bindtap="to" data-url="/pages/ruleExplain/ruleExplain">
       <view class="img">
         <image src="/image/rule2.png" mode="aspectFill"></image>
       </view>
@@ -133,14 +135,14 @@
         <image src="/image/right2.png" mode="aspectFill"></image>
       </view>
     </view>
-    <view class="li">
-      <view class="img">
-        <image src="/image/help.png" mode="aspectFill"></image>
-      </view>
-      <view class="text">帮助中心</view>
-      <view class="img2">
-        <image src="/image/right2.png" mode="aspectFill"></image>
-      </view>
+    <view class="li" bindtap="to" data-url="/pages/help/help">
+    <view class="img">
+      <image src="/image/help.png" mode="aspectFill"></image>
+    </view>
+    <view class="text">帮助中心</view>
+    <view class="img2">
+      <image src="/image/right2.png" mode="aspectFill"></image>
     </view>
   </view>
+</view>
 </view>

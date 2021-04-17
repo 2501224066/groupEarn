@@ -17,7 +17,7 @@
   <view class="logo">
     <image src="/image/logo.png" mode="aspectFill"></image>
   </view>
-  <view class="title">团团赚</view>
+  <view class="title">钻石团</view>
 
-  <view class="sub">授权个人信息</view>
+  <button class="sub" bindtap="getUserProfile">授权信息</button>
 </view>

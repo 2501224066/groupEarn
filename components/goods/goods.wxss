@@ -29,8 +29,10 @@
 
 .list>.li>.photo>.tag-title {
   position: absolute;
-  left: 16rpx;
+  left: 8rpx;
   top: 5rpx;
+  width: 67rpx;
+  text-align: center;
   font-size: 16rpx;
   color: #fff;
   z-index: 2;
@@ -149,11 +151,12 @@
 
 .list>.label {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  font-size: 23rpx;
+  font-size: 20rpx;
   justify-content: space-between;
   border-top: 1rpx solid #ececec;
-  padding: 20rpx 0;
+  padding: 10rpx 0 20rpx 0;
   box-sizing: border-box;
 }
 
@@ -165,4 +168,5 @@
   padding: 0 10rpx;
   box-sizing: border-box;
   border-radius: 20rpx;
+  margin-top: 10rpx;
 }

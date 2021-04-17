@@ -1,8 +1,8 @@
 <view class="collection">
   <view class="box">
-    <view wx:for="{{3}}">
+    <view wx:for="{{list}}" wx:key="*this">
       <!-- 商品 -->
-      <goods></goods>
+      <goods detail="{{item}}"></goods>
     </view>
   </view>
 </view>

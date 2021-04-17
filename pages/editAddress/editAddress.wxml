@@ -3,24 +3,28 @@
     <view class="li">
       <view class="label">选择地址</view>
       <view class="center">
-        <picker mode="multiSelector"  bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
-          <text class="picker-text">{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}，{{multiArray[2][multiIndex[2]]}}</text>
+        <picker mode="multiSelector" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}"
+          range="{{multiArray}}">
+          <text
+            class="picker-text">{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}，{{multiArray[2][multiIndex[2]]}}</text>
         </picker>
       </view>
+      <!--
       <view class="img">
-      <image src="/image/right2.png" mode="aspectFill"></image>
+        <image src="/image/right2.png" mode="aspectFill"></image>
       </view>
+      -->
     </view>
     <view class="li">
       <view class="label">楼号/门牌号</view>
       <view class="center">
-        <input type="text" placeholder="例：19号楼2001号室" bindblur="address" />
+        <input type="text" placeholder="例：19号楼2001号室" bindinput="address" value="{{address}}" />
       </view>
     </view>
     <view class="li">
       <view class="label">联系人</view>
       <view class="center">
-        <input type="text" placeholder="收货人姓名" bindblur="name" />
+        <input type="text" placeholder="收货人姓名" bindinput="name" value="{{name}}" />
       </view>
     </view>
     <view class="li">
@@ -34,7 +38,7 @@
     <view class="li">
       <view class="label">手机号</view>
       <view class="center">
-        <input type="number" maxlength="11" placeholder="手机号码" bindblur="phone" />
+        <input type="number" maxlength="11" placeholder="手机号码" bindinput="phone" value="{{phone}}" />
       </view>
     </view>
     <view class=" li">
@@ -51,7 +55,7 @@
 <!-- 底部添加按钮 -->
 <view class="footer" style="height:{{iphoneFooter ? 154 : 130}}rpx">
   <view class="fbox">
-    <view class="btn">保存地址</view>
+    <view class="btn" bindtap="save">保存地址</view>
   </view>
 </view>
 <view style="height:{{iphoneFooter ? 154 : 130}}rpx"></view>

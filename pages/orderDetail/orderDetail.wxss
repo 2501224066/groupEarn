@@ -2,6 +2,11 @@ page {
   background: #f8f8f8;
 }
 
+
+.order-detail {
+  padding-bottom: 10vh;
+}
+
 .line {
   border-top: 1rpx solid #ececec;
   padding: 30rpx 50rpx;
@@ -96,26 +101,26 @@ page {
   overflow: hidden;
 }
 
-.goods>.title{
+.goods>.title {
   flex: 1;
   height: 100%;
-  margin:0 30rpx;
+  margin: 0 30rpx;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   color: #999;
 }
 
-.goods>.title>.text{
+.goods>.title>.text {
   font-size: 28rpx;
   color: #333;
 }
 
-.goods>.price{
+.goods>.price {
   text-align: right;
 }
 
-.goods>.price>.text{
+.goods>.price>.text {
   font-weight: 500;
   font-size: 32rpx;
 }

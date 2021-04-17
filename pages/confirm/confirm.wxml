@@ -1,16 +1,20 @@
+<!-- 工具 -->
+<wxs src="../../utils/index.wxs" module="util"></wxs>
+
 <view class="confirm">
   <view class="top"></view>
   <view class="title">收货地址</view>
 
   <!-- 地址 -->
-  <view class="address shadow">
+  <view class="address shadow" bindtap="to" data-url="/pages/address/address">
     <view class="img">
       <image src="/image/address2.png"></image>
     </view>
-    <view class="center">
-      <view class="name">张三丰<span>13188923435</span></view>
-      <view>江苏省-连云港-海洲 卡色号8123就啊睡觉的</view>
+    <view class="center" wx:if="{{address.id}}">
+      <view class="name">{{address.contact}}<span>{{address.mobile}}</span></view>
+      <view>{{address.province}}-{{address.city}}-{{address.area}} {{address.street}}</view>
     </view>
+    <view class="center" wx:else>暂未设置地址，点击前往设置</view>
     <view class="r">
       <image src=" /image/right2.png">
       </image>
@@ -21,26 +25,36 @@
 
   <!-- 信息 -->
   <view class="detail shadow">
-    <goods2></goods2>
+    <goods2 detail="{{detail}}"></goods2>
+    <view class="li">
+      <view>规格</view>
+      <view></view>
+      <view>{{orderDetail.detail.goods_attr1}},{{orderDetail.detail.goods_attr2}}</view>
+    </view>
     <view class="li">
       <view>数量金额</view>
-      <view>x1</view>
-      <view>¥ 299.00</view>
+      <view>x{{orderDetail.detail.number}}</view>
+      <view>¥ {{orderDetail.money}}</view>
     </view>
     <view class="li">
       <view>运费</view>
       <view></view>
-      <view>¥ 0.00</view>
+      <view>¥ {{util.toFixed(orderPayData.freight_price,2)}}</view>
     </view>
     <view class="li">
       <view>积分兑换</view>
-      <view>2890 积分</view>
-      <view>- 28.7</view>
+      <view>{{orderPayData.total_point}} 积分</view>
+      <view>- {{orderPayData.point}}</view>
     </view>
     <view class="li">
       <view>余额抵用</view>
-      <view>¥ 199.88</view>
-      <view>- ¥ 199.00</view>
+      <view>¥ {{util.toFixed(orderPayData.total_balance,2)}}</view>
+      <view>- ¥ {{util.toFixed(orderPayData.coun_mony,2)}}</view>
+    </view>
+    <view class="li">
+      <view>实际应付</view>
+      <view></view>
+      <view>¥ {{util.toFixed(orderPayData.pay_money,2)}}</view>
     </view>
   </view>
 </view>
@@ -50,8 +64,8 @@
   <view class="fbox">
     <view class="tag">团购商品均为正归渠道合格商品，非质量问题暂不支持退换货</view>
     <view class="content">
-      <view>合计：<span style="color:#FA4556">¥ 79.87</span></view>
-      <view class="btn">立即支付</view>
+      <view>合计：<span style="color:#FA4556">¥ {{util.toFixed(orderPayData.pay_money,2)}}</span></view>
+      <view class="btn" bindtap="pay">立即支付</view>
     </view>
   </view>
 </view>
