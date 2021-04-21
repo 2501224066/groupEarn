@@ -24,9 +24,9 @@
       </view>
       <view>结束</view>
     </view>
-    <view class="tag" wx:if="{{detail.num > 0 && detail.sponsor_active == 3}}">拼团中，还差{{detail.num}}人拼团成功拼团已满</view>
+    <view class="tag" wx:if="{{detail.sponsor_active == 3}}">拼团中，还差{{detail.num}}人拼团成功</view>
     <view class="tag" wx:if="{{detail.sponsor_active == 2}}">拼团中止</view>
-    <view class="tag" wx:else>拼团已满</view>
+    <view class="tag" wx:if="{{detail.sponsor_active == 1}}">拼团已满</view>
   </view>
 
   <!-- 成员 -->
