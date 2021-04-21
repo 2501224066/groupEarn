@@ -51,15 +51,9 @@ Page({
 
   // 去订单
   toOrder(e) {
-    // 订阅
-    wx.requestSubscribeMessage({
-      tmplIds: ['FEt-lfDG1w4G6IMync2bIzeII2MtlbDrBnqhlDHNUjE'],
-      success() {
-        wx.setStorageSync('lookOrderTab', e.currentTarget.dataset.tab)
-        wx.switchTab({
-          url: '/pages/order/order'
-        })
-      }
+    wx.setStorageSync('lookOrderTab', e.currentTarget.dataset.tab)
+    wx.switchTab({
+      url: '/pages/order/order'
     })
   },
 
