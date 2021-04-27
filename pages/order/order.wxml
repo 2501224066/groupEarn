@@ -28,7 +28,7 @@
       <view class="time">{{item.created_at}}</view>
       <view class="r">
         <view class="buy" wx:if="{{item.status == 1}}" bindtap="to" data-status="{{item.status}}" data-url="/pages/confirm/confirm?orderId={{item.id}}&goodsId={{item.goods_id}}">付款</view>
-        <view class="see" wx:if="{{item.status == 3}}" bindtap="take" data-id="{{item.id}}">确认收货</view>
+        <view class="buy" wx:if="{{item.status == 3}}" bindtap="take" data-id="{{item.id}}">确认收货</view>
         <view class="see" bindtap="to" data-status="{{item.status}}" data-url="/pages/orderDetail/orderDetail?id={{item.id}}">查看订单</view>
       </view>
     </view>

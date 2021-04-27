@@ -39,8 +39,8 @@
       </view>
     </view>
     <view class="label">
-      <view>中签得￥ {{detail.chief_subsidy}}（团长补贴） + {{detail.point}} 积分</view>
-      <view>未中签得￥ {{detail.chief_subsidy}}（团长补贴） + ¥ {{detail.factory_subsidy}}</view>
+      <view>中签得 {{detail.point}} 积分</view>
+      <view>未中签得 ¥ {{detail.factory_subsidy}} + 团长额外得 ¥ {{detail.chief_subsidy}}</view>
     </view>
   </view>
 </view>

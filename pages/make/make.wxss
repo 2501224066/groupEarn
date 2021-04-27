@@ -1,5 +1,5 @@
 .make{
-  padding-bottom: 10vh;
+  padding-bottom: 2vh;
 }
 
 .tab {

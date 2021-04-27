@@ -33,7 +33,7 @@
 .list>.li>.img {
   width: 41.6rpx;
   height: 58rpx;
-  padding-right: 40rpx;
+  padding-right: 30rpx;
   border-right: 1rpx solid #ececec;
   display: flex;
   flex-direction: column;
@@ -41,11 +41,11 @@
 }
 
 .list>.li>.img>.num {
-  width: 40rpx;
-  height: 40rpx;
+  width: 50rpx;
+  height: 50rpx;
   text-align: center;
-  line-height: 40rpx;
-  border-radius: 6rpx;
+  line-height: 50rpx;
+  border-radius: 60rpx;
   font-size: 30rpx;
   font-weight: 500;
   background: #e6e6e6;
@@ -56,13 +56,14 @@
   height: 86rpx;
   border-radius: 43rpx;
   overflow: hidden;
-  margin: 0 30rpx;
+  margin: 0 20rpx;
 }
 
 .list>.li>.img2 {
-  width: 40rpx;
-  height: 40rpx;
+  width: 30rpx;
+  height: 30rpx;
   margin-right: 10rpx;
+  line-height: 0;
 }
 
 .list>.li>.name {

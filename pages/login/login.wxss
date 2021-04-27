@@ -39,8 +39,8 @@
 }
 
 .logo {
-  width: 200rpx;
-  height: 200rpx;
+  width: 240rpx;
+  height: 240rpx;
   margin: auto;
   margin-top: 20vh;
 }
@@ -64,6 +64,7 @@
 
 .agree>.text {
   color: #999;
+  width: auto;
 }
 
 .agree>.text>span {

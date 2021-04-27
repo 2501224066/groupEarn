@@ -36,7 +36,7 @@
           <view>{{detail.goods.active_price}}</view>
           <view>拼团价</view>
         </view>
-        <view class="lr"> 原价 ¥{{detail.goods.alone_price}} </view>
+        <view class="lr"> 原价 ¥{{detail.goods.price_origin}} </view>
       </view>
       <view class="r">
         <view class="text">中签码</view>
@@ -49,9 +49,10 @@
     <!-- 返积分 -->
     <view class="back">
       <view class="three"></view>
-      <view class="text">团长得￥
-        {{util.toFixed(detail.goods.chief_subsidy,2)}}，拼团失败得￥{{util.toFixed(detail.goods.factory_subsidy,2)}}，拼团成功得
-        {{detail.goods.point}}积分</view>
+      <view class="text">
+          中签得{{detail.goods.point}}积分，未中签得￥{{util.toFixed(detail.goods.factory_subsidy,2)}}，团长额外得{{util.toFixed(detail.goods.chief_subsidy,2)}}
+
+        </view>
     </view>
   </view>
 
@@ -87,16 +88,16 @@
       </view>
       <view class="text">
         <view>
-          <view>参与拼团</view>
+          <view>开团/参与拼团</view>
           <view><span>{{detail.goods.help_people_num}}人</span>成团</view>
         </view>
         <view>
-          <view><span>{{detail.goods.luck_key.length}}个</span>中签号</view>
-          <view>其余未中退款</view>
+          <view><span>{{detail.goods.luck_key.length}}个</span>中签名额</view>
+          <view>未中签<span>退款+¥{{util.toFixed(detail.goods.factory_subsidy,2)}}</span></view>
         </view>
         <view>
-          <view>未拼中获得补贴</view>
-          <view><span>¥{{util.toFixed(detail.goods.factory_subsidy,2)}}</span>红包</view>
+          <view>中签额外获得</view>
+          <view><span>{{util.toFixed(detail.goods.point,2)}}积分</span></view>
         </view>
       </view>
     </view>
@@ -133,7 +134,7 @@
     </view>
   </view>
 
-  <view class="box2">
+  <view class="box2" style="border:0px">
     <view class="title">
       <view class="l">
         <view>商品详情</view>

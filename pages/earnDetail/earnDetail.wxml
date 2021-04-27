@@ -6,7 +6,7 @@
       <view wx:if="{{detail.pay_money == ''}}"></view>
       <view wx:else>已支付：￥{{detail.pay_money}}元</view>
       <view class="r" wx:if="{{detail.sponsor_active == 1}}">拼团已满</view>
-      <view class="r" wx:if="{{detail.sponsor_active == 2}}">拼团中止</view>
+      <view class="r" wx:if="{{detail.sponsor_active == 2}}">拼团失败</view>
       <view class="r" wx:if="{{detail.sponsor_active == 3}}">拼团中</view>
     </view>
   </view>
@@ -25,7 +25,7 @@
       <view>结束</view>
     </view>
     <view class="tag" wx:if="{{detail.sponsor_active == 3}}">拼团中，还差{{detail.num}}人拼团成功</view>
-    <view class="tag" wx:if="{{detail.sponsor_active == 2}}">拼团中止</view>
+    <view class="tag" wx:if="{{detail.sponsor_active == 2}}">拼团失败</view>
     <view class="tag" wx:if="{{detail.sponsor_active == 1}}">拼团已满</view>
   </view>
 
@@ -44,11 +44,16 @@
 
   <view class="text">
     <view class="shadow">
-      邀请好友参团中签可获得积分<span> {{detail.goods.point}} 点</span>，未中签再获得<span> {{detail.goods.factory_subsidy}} 元</span>厂商现金补贴。
+      邀请好友参团中签可获得<span> {{detail.goods.point}} 积分</span>，未中签再获得<span> ￥{{detail.goods.factory_subsidy}} 元</span>厂商现金补贴，团长额外获得 <span>￥{{detail.goods.chief_subsidy}}</span> 元补贴金。
+
+
+      
+
+
     </view>
   </view>
 
-  <view class="luck" bindtap="to" data-url="/pages/luckDraw/luckDraw?id={{id}}&goodsId={{detail.goods.id}}">查看抽奖详情</view>
+  <view class="luck" bindtap="to" data-url="/pages/luckDraw/luckDraw?id={{id}}&goodsId={{detail.goods.id}}">查看抽签详情</view>
 </view>
 
 <!-- 底部浮动栏目 -->
@@ -60,4 +65,4 @@
     <button wx:if="{{detail.groupStatus == 1 && detail.overtime >= timestamp && detail.num > 0}}" class="btn2" open-type="share">邀请好友参团</button>
   </view>
 </view>
-<view style="height:{{iphoneFooter ? 154 : 120}}rpx;margin-top:10vh"></view>
+<view style="height:{{iphoneFooter ? 154 : 120}}rpx;margin-top:2vh"></view>

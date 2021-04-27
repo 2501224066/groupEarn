@@ -39,8 +39,8 @@
 }
 
 .logo {
-  width: 200rpx;
-  height: 200rpx;
+  width: 240rpx;
+  height: 240rpx;
   margin: auto;
   margin-top: 20vh;
 }

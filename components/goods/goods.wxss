@@ -54,9 +54,14 @@
 }
 
 .list>.li>.detail>.title {
-  height: 90rpx;
+  /*height: 90rpx; */
   font-size: 28rpx;
   font-weight: 500;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
 }
 
 .list>.li>.detail>.down {
@@ -106,7 +111,7 @@
 .list>.li>.detail>.down>.l>.people>.img {
   width: 37rpx;
   height: 37rpx;
-  border-radius: 20rpx;
+  border-radius: 50rpx;
   overflow: hidden;
   border: 1rpx solid #fff;
   margin-left: -10rpx;
@@ -161,12 +166,12 @@
 }
 
 .list>.label>view {
-  background: #F74E6F;
-  color: #fff;
-  height: 40rpx;
+  border:1rpx solid #F74E6F;
+  color: #F74E6F;
+  /* height: 40rpx; */
   line-height: 40rpx;
-  padding: 0 10rpx;
+  padding: 0 20rpx;
   box-sizing: border-box;
-  border-radius: 20rpx;
+  border-radius: 40rpx;
   margin-top: 10rpx;
 }

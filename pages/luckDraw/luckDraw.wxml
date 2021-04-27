@@ -10,7 +10,7 @@
       <view class="num">
         <view wx:for="{{detail.luck_key}}" wx:key="*this">{{item}}</view>
       </view>
-      <view class="time">该拼团于{{d}}天{{H}}小时{{i}}分{{s}}秒后结束</view>
+      <view class="time">该拼团于<span class="red">{{d}}</span>天<span class="red">{{H}}</span>小时<span class="red">{{i}}</span>分<span class="red">{{s}}</span>秒后结束</view>
     </view>
 
     <!-- 号码-全翻开 -->
@@ -36,7 +36,7 @@
         <view class="tag" wx:if="{{self == item}}">我</view>
         <!-- 牌面 -->
         <view class="text" style="font-size: 60rpx" wx:if="{{util.indexOf(openList,item) > -1 && self == item}}">{{item}}</view>
-        <view class="text" wx:if="{{util.indexOf(openList,item) > -1 && self != item}}">已刮</view>
+        <view class="text" style="color:#ccc" wx:if="{{util.indexOf(openList,item) > -1 && self != item}}">已刮</view>
         <view class="text" wx:if="{{util.indexOf(openList,item) == -1}}" bindtap="open" data-num="{{item}}">点击刮开</view>
       </view>
     </view>
@@ -46,7 +46,7 @@
       <view class="title">参团特权</view>
       <view class="text shadow">
         参团中签可获得积分 <span>{{detail.point}}点</span> ，未中签再获得
-        <span>{{util.toFixed(detail.factory_subsidy, 2)}}元</span> 厂商现金补贴。
+        <span>{{util.toFixed(detail.factory_subsidy, 2)}}元</span> 厂商现金补贴， 团长额外获得 <span>{{util.toFixed(detail.chief_subsidy, 2)}}元</span>补贴金。
       </view>
     </view>
 
@@ -54,10 +54,10 @@
     <view class="rule">
       <view class="title">规则说明</view>
       <view class="text shadow">
-        <view>1、该拼团需{{detail.position.length}}人参与，其中{{detail.luck_key.length}}人可获拼团商品；</view>
-        <view>2、参与拼团支付成功后，刮来上方卡片获得中签号码；</view>
-        <view>3、获得的号码与开奖号码中任意一位一致即为中签，可获得拼团商品和{{detail.point}}积分；</view>
-        <view>4、未中签者，拼团人满结束后，原路退回参团款项，同时获得{{util.toFixed(detail.factory_subsidy, 2)}}元厂商补贴金。</view>
+        <view>1、该拼团需<span class="red">{{detail.position.length}}</span>人参与，其中<span class="red">{{detail.luck_key.length}}</span>人可获拼得商品；</view>
+        <view>2、参与拼团支付成功后，刮开上方卡片获得中签号码；</view>
+        <view>3、获得的号码与开奖号码中任意一位一致即为中签，中签后可获得<span class="red">拼团商品</span>和<span class="red">{{detail.point}}积分</span>；</view>
+        <view>4、未中签者，拼团人满结束后，原路退回参团款项，同时获得<span class="red">￥{{util.toFixed(detail.factory_subsidy, 2)}}元</span>厂商补贴金，团长额外获得<span class="red">￥{{util.toFixed(detail.chief_subsidy, 2)}}元</span>补贴金。</view>
       </view>
     </view>
   </view>
@@ -77,8 +77,10 @@
 <view class="rel" wx:if="{{relShow}}">
   <view class="box">
     <view class="close" bindtap="relClose">X</view>
-    <view>您刮的数字是</view>
+    <view style="margin-top:250rpx;font-size:24rpx;">您刮的中签码是</view>
     <view class="num">{{self}}</view>
-    <view wx:if="{{util.indexOf(detail.luck_key, self) > -1}}">已中签</view>
+    <view style="font-weight:800;color: #4a3307;" wx:if="{{util.indexOf(detail.luck_key, self) > -1}}">恭喜，您已中签！</view>
+    <view style="font-weight:800;color: #4a3307;" wx:else>很遗憾，您未中签！</view>
+
   </view>
 </view>

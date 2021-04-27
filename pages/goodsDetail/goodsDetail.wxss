@@ -1,5 +1,5 @@
 .goods-detail{
-  padding-bottom: 10vh;
+  padding-bottom: 2vh;
 }
 
 .navbar {
@@ -169,6 +169,7 @@
   justify-content: space-between;
   font-size: 30rpx;
   margin-top: 20rpx;
+  margin-bottom:20rpx;
 }
 
 .box2>.title>.l,
@@ -178,9 +179,10 @@
 }
 
 .box2>.title>.l>.img {
-  width: 34rpx;
-  height: 34rpx;
+  width: 20rpx;
+  height: 20rpx;
   margin-left: 10rpx;
+  line-height: 0;
 }
 
 .box2>.title>.r {
@@ -197,7 +199,7 @@
 .box2>.flow {
   position: relative;
   margin-top: 20rpx;
-  padding: 20rpx 10%;
+  padding: 20rpx 0%;
   box-sizing: border-box;
 }
 
@@ -212,7 +214,7 @@
 }
 
 .box2>.flow>.icon {
-  padding: 0 10%;
+  padding: 0 12%;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
@@ -223,7 +225,7 @@
   width: 50rpx;
   height: 50rpx;
   background: #eee;
-  border-radius: 25rpx;
+  border-radius: 35rpx;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -251,7 +253,7 @@
 }
 
 .box2>.flow>.text>view {
-  width: 28%;
+  width: 33%;
 }
 
 .box2>.list {
@@ -283,7 +285,7 @@
 .box2>.list>.li>.img-box>.img {
   width: 50rpx;
   height: 50rpx;
-  border-radius: 25rpx;
+  border-radius: 55rpx;
   overflow: hidden;
   margin-left: -14rpx;
   border: 1rpx solid #fff;
@@ -292,7 +294,7 @@
 .box2>.list>.li>.img-box>.img:nth-child(1) {
   width: 70rpx;
   height: 70rpx;
-  border-radius: 35rpx;
+  border-radius: 55rpx;
   z-index: 4;
 }
 
@@ -332,8 +334,14 @@
 
 .box2>.rich>rich-text{
   height: 100%;
+  font-size: 28rpx;
+  line-height: 14rpx;
 }
-
+.box3 {
+  border-top: 0rpx solid #f8f9f8;
+  padding: 0rpx 3% 20rpx 3%;
+  box-sizing: border-box;
+}
 .footer {
   position: fixed;
   left: 0;
@@ -463,7 +471,11 @@
 
 .specs>.box>.goods>.detail>.title {
   font-size: 30rpx;
-  height: 80rpx;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  padding: 0 0 5rpx 0;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
 }
 
 .specs>.box>.goods>.detail>.price {
@@ -472,7 +484,7 @@
 }
 
 .specs>.box>.goods>.detail>.price>view>span {
-  font-size: 50rpx;
+  font-size: 45rpx;
   position: relative;
 }
 
@@ -492,7 +504,8 @@
 
 .specs>.box>.list>.li>view {
   margin-top: 20rpx;
-  width: 180rpx;
+  /* width: 180rpx; */
+  padding: 0 20rpx;
   height: 70rpx;
   line-height: 70rpx;
   border: 1rpx solid #FA4556;

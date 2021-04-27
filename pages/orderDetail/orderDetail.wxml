@@ -66,13 +66,13 @@
   </view>
 
   <view class="line">
-    <view class="title">规格</view>
-    <view class="center">{{detail.detail.goods_attr1}},{{detail.detail.goods_attr2}}</view>
+    <view class="title">订单编号</view>
+    <view class="center">{{detail.order_no}}</view>
   </view>
 
   <view class="line">
-    <view class="title">订单编号</view>
-    <view class="center">{{detail.order_no}}</view>
+    <view class="title">规格</view>
+    <view class="center" style="color:#E30000">{{detail.detail.goods_attr1}},{{detail.detail.goods_attr2}}</view>
   </view>
 
   <view class="line">
@@ -87,7 +87,7 @@
 
   <view class="line">
     <view class="title">运费</view>
-    <view class="center">{{util.toFixed(detail.freight_price,2)}} 元</view>
+    <view class="center" style="color:#E30000">{{util.toFixed(detail.freight_price,2)}} 元</view>
   </view>
 
   <view class="line">

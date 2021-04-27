@@ -3,7 +3,8 @@ page {
 }
 
 .order{
-  padding-bottom: 10vh;
+  padding-bottom: 2vh;
+  margin-top: 6vh;
 }
 
 .tab {
@@ -15,6 +16,8 @@ page {
   overflow-x: auto;
   padding-left: 50rpx;
   background: #fff;
+  position: fixed;
+  top: 0;
 }
 
 .tab>view {
@@ -40,7 +43,7 @@ page {
 }
 
 .list:last-child{
-  margin-bottom: 10vh;
+  margin-bottom: 2vh;
 }
 
 .list>.top {
@@ -51,13 +54,13 @@ page {
 .list>.top>.img {
   width: 140rpx;
   height: 140rpx;
-  border-radius: 4rpx;
+  border-radius: 6rpx;
   overflow: hidden;
 }
 
 .list>.top>.center {
   flex: 1;
-  margin: 0 40rpx;
+  margin: 0 0 0 40rpx;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -65,7 +68,12 @@ page {
 }
 
 .list>.top>.center>.title {
-  height: 80rpx;
+  /* height: 80rpx; */
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
 }
 
 .list>.top>.center>.price {
@@ -82,6 +90,7 @@ page {
 .list>.top>.status {
   width: 15%;
   text-align: right;
+  color: #ccc;
 }
 
 .list>.top>.green {

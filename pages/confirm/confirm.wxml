@@ -43,12 +43,12 @@
     </view>
     <view class="li">
       <view>积分兑换</view>
-      <view>{{orderPayData.total_point}} 积分</view>
+      <view>余额：{{orderPayData.total_point}} 积分</view>
       <view>- {{orderPayData.point}}</view>
     </view>
     <view class="li">
       <view>余额抵用</view>
-      <view>¥ {{util.toFixed(orderPayData.total_balance,2)}}</view>
+      <view>余额：¥ {{util.toFixed(orderPayData.total_balance,2)}}</view>
       <view>- ¥ {{util.toFixed(orderPayData.coun_mony,2)}}</view>
     </view>
     <view class="li">
@@ -69,4 +69,4 @@
     </view>
   </view>
 </view>
-<view style="height:{{iphoneFooter ? 204 : 170}}rpx;margin-top:10vh"></view>
+<view style="height:{{iphoneFooter ? 204 : 170}}rpx;margin-top:2vh"></view>

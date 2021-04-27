@@ -66,17 +66,17 @@
 }
 
 .detail>.li>view:nth-child(1) {
-  width: 30%;
+  width: 25%;
   font-size: 30rpx;
 }
 
 .detail>.li>view:nth-child(2) {
   flex: 1;
-  text-align: right;
+  text-align: left;
 }
 
 .detail>.li>view:nth-child(3) {
-  width: 40%;
+  width: 36%;
   color: #FA4556;
   text-align: right;
 }

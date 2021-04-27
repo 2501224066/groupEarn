@@ -58,6 +58,11 @@
   height: 90rpx;
   font-size: 28rpx;
   font-weight: 500;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
 }
 
 .list>.li>.detail>.label {
@@ -71,10 +76,10 @@
 
 .list>.li>.detail>.label>view>span{
   display: inline-block;
-  background: #F74E6F;
-  color: #fff;
+  border: 1px solid #F74E6F;
+  color: #F74E6F;
   line-height: 40rpx;
-  padding: 0 10rpx;
+  padding: 0 20rpx;
   box-sizing: border-box;
-  border-radius: 6rpx;
+  border-radius: 60rpx;
 }

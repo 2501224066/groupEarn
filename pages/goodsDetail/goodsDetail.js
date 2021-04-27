@@ -179,7 +179,7 @@ Page({
   create() {
     if (this.data.specsArr.length < this.data.detail.sku.length) {
       wx.showToast({
-        title: '请选择SKU',
+        title: '请选择规格',
         icon: 'loading'
       })
       return

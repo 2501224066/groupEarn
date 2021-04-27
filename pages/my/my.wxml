@@ -5,7 +5,7 @@
   <!-- 导航栏 -->
   <view class="navbar" style="height:{{navHeight}}px; padding-top:{{navTop}}px">
     <view class="img"></view>
-    <view>我的</view>
+    <view style="font-size:36rpx">我的</view>
     <view class="img"></view>
   </view>
   <view class="navbar-brace" style="height:{{navHeight}}px"></view>
@@ -41,7 +41,7 @@
     <view class="account shadow">
       <view bindtap="to" data-url="/pages/wallet/wallet">
         <view>{{util.toFixed(money,2)}}</view>
-        <view>账户余额</view>
+        <view>账户余额 <span style="font-family:monospace">></span></view>
       </view>
       <view>
         <view>{{util.toFixed(point,2)}}</view>
