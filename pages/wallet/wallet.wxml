@@ -4,7 +4,7 @@
 <view class="wallet">
   <!-- 导航栏 -->
   <view class="navbar"
-    style="height:{{navHeight}}px; padding-top:{{navTop}}px; background:{{navScrollTop>290 ? '#fff' : ''}}">
+    style="height:{{navHeight}}px; padding-top:{{navTop}}px">
     <view class="box">
       <view class="img" bindtap="back">
         <image src="/image/left1.png" mode="aspectFill"></image>

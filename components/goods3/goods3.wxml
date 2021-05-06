@@ -1,0 +1,22 @@
+<!-- 工具 -->
+<wxs src="../../utils/index.wxs" module="util"></wxs>
+
+<view class="goods3">
+  <view class="img"  id="dom" style="weigth:{{domWidth}}px;height:{{domWidth}}px">
+    <view class="discount">品牌折扣</view>
+    <image src="https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3791355620,2579650781&fm=26&gp=0.jpg"
+      mode="aspectFill"></image>
+  </view>
+  <view class="content">
+    <view class="title">
+      <span>推荐</span>新鲜大号车厘子 产地直发
+    </view>
+    <view class="num">
+      已售201件
+    </view>
+    <view class="down">
+      <view class="price"><span>¥</span>82.89</view>
+      <view class="add">+</view>
+    </view>
+  </view>
+</view>

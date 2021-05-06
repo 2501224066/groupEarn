@@ -27,7 +27,20 @@
     "pages/outGreement/outGreement",
     "pages/setting/setting",
     "pages/noPyramid/noPyramid",
-    "pages/serviceNote/serviceNote"
+    "pages/serviceNote/serviceNote",
+    "pages/pointsShop/pointsShop",
+    "pages/classify/classify",
+    "pages/pointsGoodsDetail/pointsGoodsDetail",
+    "pages/poster/poster",
+    "pages/car/car",
+    "pages/promoter/promoter",
+    "pages/withdrawalList/withdrawalList",
+    "pages/commissionList/commissionList",
+    "pages/myOffline/myOffline",
+    "pages/promotionCode/promotionCode",
+    "pages/promotionOrder/promotionOrder",
+    "pages/applyPromoter/applyPromoter",
+    "pages/applyPromoterRel/applyPromoterRel"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -52,10 +65,16 @@
         "selectedIconPath": "/image/pin-sel.png"
       },
       {
-        "pagePath": "pages/order/order",
-        "text": "订单",
-        "iconPath": "/image/order.png",
-        "selectedIconPath": "/image/order-sel.png"
+        "pagePath": "pages/pointsShop/pointsShop",
+        "text": "积分",
+        "iconPath": "/image/pointsShop.png",
+        "selectedIconPath": "/image/pointsShop-sel.png"
+      },
+      {
+        "pagePath": "pages/car/car",
+        "text": "购物车",
+        "iconPath": "/image/car.png",
+        "selectedIconPath": "/image/car-sel.png"
       },
       {
         "pagePath": "pages/my/my",

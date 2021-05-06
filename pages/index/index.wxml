@@ -1,7 +1,7 @@
 <view class="index">
   <!-- 导航栏 -->
   <view class="navbar" style="height:{{navHeight}}px; padding-top:{{navTop}}px">
-    <view class="search" bindtap="toMake" wx:if="{{navScrollTop < 290}}">
+    <view class="search" bindtap="toMake" wx:if="{{navScrollTop < domScrollTop}}">
       <view class="text" style="line-height:{{navHeight}}px">搜索心仪的商品</view>
       <view class="img">
         <image src="/image/search.png" mode="aspectFill"></image>
@@ -73,7 +73,7 @@
         <view class="title">排行榜</view>
       </view>
       <view>
-        <view class="img" bindtap="wait">
+        <view class="img" bindtap="toPointsShop">
           <image src="/image/icon4.png" mode="aspectFill"></image>
         </view>
         <view class="title">积分商城</view>
@@ -81,7 +81,7 @@
     </view>
 
     <!-- 精选 -->
-    <view class="sel">
+    <view class="sel" id="dom">
       <view class="top">
         <view class="l">精选拼团</view>
         <view class="r" bindtap="toMake">
@@ -146,3 +146,6 @@
     </view>
   </view>
 </view>
+
+<!-- 购物车数量 -->
+<carNum></carNum>

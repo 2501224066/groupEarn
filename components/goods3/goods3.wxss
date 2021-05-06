@@ -1,0 +1,77 @@
+.goods3{
+  width: 100%;
+}
+
+.goods3>.img {
+  border-radius: 6rpx;
+  overflow: hidden;
+  position: relative;
+}
+
+.goods3>.img>.discount {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  color: #fff;
+  background: #F93C4C;
+  font-size: 19rpx;
+  padding: 5rpx 12rpx;
+  border-radius: 0 0 20rpx 0;
+}
+
+.goods3>.content {
+  padding-top: 10rpx;
+}
+
+.goods3>.content>.title {
+  font-size: 24rpx;
+}
+
+.goods3>.content>.title>span {
+  background: #F93C4C;
+  color: #fff;
+  font-size: 17rpx;
+  padding: 4rpx 10rpx;
+  border-radius: 6rpx;
+  position: relative;
+  top: -4rpx;
+  left: 0;
+  margin-right: 10rpx;
+}
+
+.goods3>.content>.num {
+  font-size: 21rpx;
+  color: #8E8E8E;
+  margin: 10rpx 0;
+}
+
+.goods3>.content>.down {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.goods3>.content>.down>.price {
+  color: #E24444;
+  font-size: 28rpx;
+}
+
+.goods3>.content>.down>.price>span {
+  font-size: 21rpx;
+  margin-right: 5rpx;
+}
+
+.goods3>.content>.down>.add {
+  width: 41rpx;
+  height: 41rpx;
+  background: #F93C4C;
+  border-radius: 50%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+  font-size: 28rpx;
+  margin-right: 6rpx;
+}

@@ -1,0 +1,32 @@
+<view class="commission-list">
+  <!-- 列表 -->
+  <view class="list">
+    <view class="item">
+      <view>
+        <view>余额提现</view>
+        <view class="time">2021-05-18 08::47:23</view>
+      </view>
+      <view class="price">100.00</view>
+    </view>
+  </view>
+</view>
+
+<!-- 底部浮动栏目 -->
+<view class="footer" style="height:{{iphoneFooter ? 138 : 100}}rpx">
+  <view class="fbox">
+    <view class="l">
+      <picker bindchange="bindPickerChange" value="{{dateIndex}}" range="{{date}}">
+        <view class="picker">
+          {{date[dateIndex]}}
+          <view class="img">
+            <image src="/image/up.png" mode="aspectFill"></image>
+          </view>
+        </view>
+      </picker>
+    </view>
+    <view class="r">
+      <view>合计：<span>2312312.12</span></view>
+    </view>
+  </view>
+</view>
+<view style="height:{{iphoneFooter ? 138 : 100}}rpx;margin-top:10vh"></view>

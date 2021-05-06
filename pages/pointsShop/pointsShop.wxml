@@ -1,0 +1,90 @@
+<view class="points-shop">
+
+  <!-- 搜索 -->
+  <view class="search">
+    <view class="box shadow">
+      <view class="img">
+        <image src="/image//search2.png" mode="aspectFill"></image>
+      </view>
+      <view>搜索心仪的商品</view>
+    </view>
+  </view>
+
+  <!-- 轮播 -->
+  <view class="lb">
+    <view class="box">
+      <swiper autoplay="true">
+        <swiper-item wx:for="{{swiper}}" wx:key="*this">
+          <image src="{{item}}" mode="aspectFill"></image>
+        </swiper-item>
+      </swiper>
+    </view>
+  </view>
+
+  <!-- ICON -->
+  <view class="icon">
+    <view class="item">
+      <view class="img">
+        <image src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3886283169,602937879&fm=26&gp=0.jpg"
+          mode="aspectFill"></image>
+      </view>
+      <view>美食</view>
+    </view>
+    <view class="item">
+      <view class="img">
+        <image src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3886283169,602937879&fm=26&gp=0.jpg"
+          mode="aspectFill"></image>
+      </view>
+      <view>美食</view>
+    </view>
+    <view class="item">
+      <view class="img">
+        <image src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3886283169,602937879&fm=26&gp=0.jpg"
+          mode="aspectFill"></image>
+      </view>
+      <view>美食</view>
+    </view>
+    <view class="item">
+      <view class="img">
+        <image src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3886283169,602937879&fm=26&gp=0.jpg"
+          mode="aspectFill"></image>
+      </view>
+      <view>美食</view>
+    </view>
+    <view class="item">
+      <view class="img">
+        <image src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3886283169,602937879&fm=26&gp=0.jpg"
+          mode="aspectFill"></image>
+      </view>
+      <view>美食</view>
+    </view>
+  </view>
+
+  <!-- 推荐 -->
+  <view class="push">
+    <view class="tag">热销推荐</view>
+    <view class="goods">
+      <view class="item" wx:for="{{5}}">
+        <goods3></goods3>
+      </view>
+    </view>
+  </view>
+
+  <!-- TAB -->
+  <view class="tab" id="dom">
+    <view class="{{navScrollTop < domScrollTop ? 'box' : 'fixed'}}">
+      <view class="item {{tabIndex == index ? 'sel' : ''}}" wx:for="{{tab}}" wx:key="index" bindtap="checkoutTab"
+        data-index="{{index}}">{{item}}</view>
+    </view>
+  </view>
+
+  <!-- 商品列表 -->
+  <view class="list">
+    <view class="item" wx:for="{{5}}">
+      <goods3></goods3>
+    </view>
+  </view>
+</view>
+
+<!-- 购物车数量 -->
+<carNum></carNum>

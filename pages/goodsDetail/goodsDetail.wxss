@@ -1,4 +1,4 @@
-.goods-detail{
+.goods-detail {
   padding-bottom: 2vh;
 }
 
@@ -169,7 +169,7 @@
   justify-content: space-between;
   font-size: 30rpx;
   margin-top: 20rpx;
-  margin-bottom:20rpx;
+  margin-bottom: 20rpx;
 }
 
 .box2>.title>.l,
@@ -332,16 +332,18 @@
   font-weight: 300;
 }
 
-.box2>.rich>rich-text{
+.box2>.rich>rich-text {
   height: 100%;
   font-size: 28rpx;
   line-height: 14rpx;
 }
+
 .box3 {
   border-top: 0rpx solid #f8f9f8;
   padding: 0rpx 3% 20rpx 3%;
   box-sizing: border-box;
 }
+
 .footer {
   position: fixed;
   left: 0;
@@ -402,7 +404,6 @@
 }
 
 .footer>.fbox>.f2>view:nth-child(1) {
-  border-right: 1rpx solid #ececec;
   background: #ff5e01;
 }
 
@@ -504,7 +505,6 @@
 
 .specs>.box>.list>.li>view {
   margin-top: 20rpx;
-  /* width: 180rpx; */
   padding: 0 20rpx;
   height: 70rpx;
   line-height: 70rpx;

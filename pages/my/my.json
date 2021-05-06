@@ -1,5 +1,7 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "carNum": "/components/carNum/carNum"
+  },
   "navigationBarTextStyle": "white",
   "navigationStyle": "custom"
 }

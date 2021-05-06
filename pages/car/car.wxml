@@ -1,0 +1,57 @@
+<!-- 工具 -->
+<wxs src="../../utils/index.wxs" module="util"></wxs>
+
+<view class="car">
+  <view class="list">
+    <view class="item" wx:for="{{list}}" bindtouchmove="touchMove" bindtouchstart="touchstart"
+      style="left:{{item.moveSpace ? item.moveSpace : 0}}px" data-index="{{index}}">
+      <view class="l">
+        <radio color="#F93C4C" checked="true" />
+      </view>
+      <view class="goods">
+        <view class="img">
+          <view class="discount">品牌折扣</view>
+          <image src="https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3791355620,2579650781&fm=26&gp=0.jpg"
+            mode="aspectFill"></image>
+        </view>
+        <view class="content">
+          <view class="title">
+            <span>推荐</span> {{util.strHid('新鲜大号车厘子 产地直发 青岛海参纯淡干海参，野生大 个头海参100g/盒装', 24)}}
+          </view>
+          <view class="down">
+            <view class="price"><span>¥</span>82.89</view>
+            <view class="num">
+              <view class="reduce">-</view>
+              <input type="num" maxlength="4" value="1" />
+              <view class="add">+</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="remove">
+        删除
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 底部浮动栏目 -->
+<view class="footer" style="height:110rpx">
+  <view class="fbox">
+    <view class="l">
+      <radio color="#F93C4C" checked="true" />
+      <view>全选</view>
+    </view>
+    <view class="r">
+      <view class="price">
+        <view>合计：<span>￥8998.00</span> </view>
+        <view class="tag">不含运费</view>
+      </view>
+      <view class="sub">选好了(3)</view>
+    </view>
+  </view>
+</view>
+<view style="height:110rpx;"></view>
+
+<!-- 购物车数量 -->
+<carNum></carNum>

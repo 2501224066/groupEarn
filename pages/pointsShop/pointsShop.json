@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "积分商城",
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#f73d4c",
+  "usingComponents": {
+    "goods3": "/components/goods3/goods3",
+    "carNum":"/components/carNum/carNum"
+  }
+}

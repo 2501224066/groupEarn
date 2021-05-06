@@ -16,7 +16,7 @@
   align-items: center;
   justify-content: space-between;
   color: #fff;
-  font-size: 30rpx;
+  font-size: 26rpx;
   z-index: 999;
 }
 

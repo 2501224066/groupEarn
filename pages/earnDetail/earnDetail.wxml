@@ -45,11 +45,6 @@
   <view class="text">
     <view class="shadow">
       邀请好友参团中签可获得<span> {{detail.goods.point}} 积分</span>，未中签再获得<span> ￥{{detail.goods.factory_subsidy}} 元</span>厂商现金补贴，团长额外获得 <span>￥{{detail.goods.chief_subsidy}}</span> 元补贴金。
-
-
-      
-
-
     </view>
   </view>
 

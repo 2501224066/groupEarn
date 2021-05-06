@@ -5,7 +5,7 @@
   <!-- 导航栏 -->
   <view class="navbar" style="height:{{navHeight}}px; padding-top:{{navTop}}px">
     <view class="img"></view>
-    <view style="font-size:36rpx">我的</view>
+    <view>我的</view>
     <view class="img"></view>
   </view>
   <view class="navbar-brace" style="height:{{navHeight}}px"></view>
@@ -58,28 +58,28 @@
   <view class="order">
     <view class="title">
       <view>我的订单</view>
-      <view class="go" bindtap="toOrder" data-tab="0">全部订单</view>
+      <view class="go" bindtap="to" data-url="/pages/order/order" data-tab="0">全部订单</view>
     </view>
     <view class="list">
-      <view class="li" bindtap="toOrder" data-tab="1">
+      <view class="li" bindtap="to" data-url="/pages/order/order" data-tab="1">
         <view class="img">
           <image src="/image/order1.png" mode="aspectFill"></image>
         </view>
         <view>待付款</view>
       </view>
-      <view class="li" bindtap="toOrder" data-tab="2">
+      <view class="li" bindtap="to" data-url="/pages/order/order" data-tab="2">
         <view class="img">
           <image src="/image/order2.png" mode="aspectFill"></image>
         </view>
         <view>待发货</view>
       </view>
-      <view class="li" bindtap="toOrder" data-tab="3">
+      <view class="li" bindtap="to" data-url="/pages/order/order" data-tab="3">
         <view class="img">
           <image src="/image/order3.png" mode="aspectFill"></image>
         </view>
         <view>已发货</view>
       </view>
-      <view class="li" bindtap="toOrder" data-tab="4">
+      <view class="li" bindtap="to" data-url="/pages/order/order" data-tab="4">
         <view class="img">
           <image src="/image/order4.png" mode="aspectFill"></image>
         </view>
@@ -146,3 +146,6 @@
   </view>
 </view>
 </view>
+
+<!-- 购物车数量 -->
+<carNum></carNum>

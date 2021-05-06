@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "全部拼团",
   "usingComponents": {
-    "goods": "/components/goods/goods"
+    "goods": "/components/goods/goods",
+    "carNum":"/components/carNum/carNum"
   }
 }

@@ -11,7 +11,8 @@ Page({
     iphoneFooter: null,
     navHeight: null,
     navTop: null,
-    navScrollTop: 0,
+    navScrollTop: null,
+    domScrollTop: null,
     id: null,
     detail: null,
     follow: null, // 关注
@@ -25,6 +26,7 @@ Page({
   },
 
   onLoad(options) {
+    this.domScrollTop()
     this.setData({
       id: options.id,
       groupId: Number(options.groupId),
@@ -54,6 +56,17 @@ Page({
       iphoneFooter: App.globalData.iphoneFooter
     })
     this.getData()
+  },
+
+  // 标签距离顶部距离
+  domScrollTop() {
+    let query = wx.createSelectorQuery();
+    query.select('#dom').boundingClientRect();
+    query.exec((res) => {
+      this.setData({
+        domScrollTop: res[0].top
+      })
+    })
   },
 
   // 数据

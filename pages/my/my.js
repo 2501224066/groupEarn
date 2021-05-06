@@ -2,7 +2,6 @@ import {
   userInfo
 } from '../../config/api'
 
-
 const App = getApp()
 
 Page({
@@ -51,14 +50,16 @@ Page({
 
   // 去订单
   toOrder(e) {
-    wx.setStorageSync('lookOrderTab', e.currentTarget.dataset.tab)
-    wx.switchTab({
+    wx.navigateTo({
       url: '/pages/order/order'
     })
   },
 
   //  跳转
   to(e) {
+    if(e.currentTarget.dataset.hasOwnProperty('tab')){
+      wx.setStorageSync('lookOrderTab', e.currentTarget.dataset.tab)
+    }
     wx.navigateTo({
       url: e.currentTarget.dataset.url,
     })

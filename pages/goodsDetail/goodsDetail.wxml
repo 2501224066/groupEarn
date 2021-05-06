@@ -4,7 +4,7 @@
 <view class="goods-detail">
   <!-- 导航栏 -->
   <view class="navbar"
-    style="height:{{navHeight}}px; padding-top:{{navTop}}px; background:{{navScrollTop>290 ? '#fff' : ''}}">
+    style="height:{{navHeight}}px; padding-top:{{navTop}}px; background:{{navScrollTop > (domScrollTop - navHeight) ? '#fff' : ''}}">
     <view class="box">
       <view class="img">
         <image src="/image/left.png" mode="aspectFill" bindtap="back"></image>
@@ -21,7 +21,7 @@
     </swiper>
   </view>
 
-  <view class="box1">
+  <view class="box1" id="dom">
     <!--标题-->
     <view class="title">
       {{detail.goods.name}}
@@ -51,7 +51,6 @@
       <view class="three"></view>
       <view class="text">
           中签得{{detail.goods.point}}积分，未中签得￥{{util.toFixed(detail.goods.factory_subsidy,2)}}，团长额外得{{util.toFixed(detail.goods.chief_subsidy,2)}}
-
         </view>
     </view>
   </view>

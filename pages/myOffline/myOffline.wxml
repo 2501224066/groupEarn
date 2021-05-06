@@ -1,0 +1,20 @@
+<view class="my-offline">
+  <!-- tab -->
+  <view class="tab">
+    <view wx:for="{{tab}}" wx:key="index" bindtap="checkoutTab" data-index="{{index}}">{{item}}</view>
+  </view>
+
+  <!-- 列表 -->
+  <view class="list">
+    <view class="item">
+      <view class="user">
+        <view class="img">
+          <image src="/image/header.png" mode="aspectFill"></image>
+        </view>
+        <view>刘亦菲</view>
+      </view>
+      <view>12800.00</view>
+      <view class="price">100.00</view>
+    </view>
+  </view>
+</view>

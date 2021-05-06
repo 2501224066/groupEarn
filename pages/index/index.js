@@ -8,12 +8,17 @@ Page({
   data: {
     navHeight: null,
     navTop: null,
-    navScrollTop: 0,
+    navScrollTop: null,
+    domScrollTop: null,
     swiper: [], // 轮播
     noticeTop: 0,
     notice: [], // 消息
     active: [], // 团
     dynamic: [], // 动态
+  },
+
+  onLoad() {
+    this.domScrollTop()
   },
 
   onShow() {
@@ -23,6 +28,17 @@ Page({
     })
     this.getData()
     this.checkJoin()
+  },
+
+  // 标签距离顶部距离
+  domScrollTop() {
+    let query = wx.createSelectorQuery();
+    query.select('#dom').boundingClientRect();
+    query.exec((res) => {
+      this.setData({
+        domScrollTop: res[0].top
+      })
+    })
   },
 
   // 检查是否受邀进来参团
@@ -90,11 +106,10 @@ Page({
     })
   },
 
-  // 敬请期待
-  wait(){
-    wx.showToast({
-      title: '敬请期待',
-      icon: "loading"
+  // 去积分商城
+  toPointsShop() {
+    wx.switchTab({
+      url: '/pages/pointsShop/pointsShop',
     })
   },
 

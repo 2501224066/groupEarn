@@ -33,3 +33,6 @@
     <goods detail="{{item}}"></goods>
   </view>
 </view>
+
+<!-- 购物车数量 -->
+<carNum></carNum>
