@@ -127,7 +127,7 @@
           <view>{{detail.goods.help_people_num}}人团，差{{item.num}}人</view>
         </view>
         <view class="go" bindtap="to" data-url="/pages/earnDetail/earnDetail?id={{item.id}}">
-          去拼团
+          立即参团
         </view>
       </view>
     </view>
@@ -171,7 +171,7 @@
     </view>
     <view class="f2">
       <view bindtap="openSpecs" data-type="2">单独购买</view>
-      <view bindtap="openSpecs" data-type="1" wx:if="{{!groupId}}">我要开团</view>
+      <view bindtap="openSpecs" data-type="1" wx:if="{{!groupId}}">团长开团</view>
       <view bindtap="openSpecs" data-type="1" wx:else>参团购买</view>
     </view>
   </view>
@@ -184,7 +184,7 @@
     <!-- 关闭 -->
     <view class="close">
       <view class="img" bindtap="closeSpecs">
-        <image src="/image/close.png" mode="aspectFill"></image>
+        <image src="/image/close2png" mode="aspectFill"></image>
       </view>
     </view>
 
@@ -225,7 +225,7 @@
     </view>
 
     <!-- 按钮 -->
-    <view class="btn" wx:if="{{buyType == 1}}" bindtap="create">确定开团</view>
+    <view class="btn" wx:if="{{buyType == 1}}" bindtap="create">确定选择</view>
     <view class="btn2" wx:else bindtap="create">确定购买</view>
   </view>
 </view>

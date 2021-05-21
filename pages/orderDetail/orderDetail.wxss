@@ -86,6 +86,9 @@ page {
 
 .goods {
   border-top: 1rpx solid #ececec;
+}
+
+.goods>.item {
   height: 140rpx;
   background: #fff;
   padding: 20rpx 50rpx;
@@ -94,14 +97,14 @@ page {
   align-items: center;
 }
 
-.goods>.img {
+.goods>.item>.img {
   width: 140rpx;
   height: 140rpx;
   border-radius: 6rpx;
   overflow: hidden;
 }
 
-.goods>.title {
+.goods>.item>.title {
   flex: 1;
   height: 100%;
   margin: 0 30rpx;
@@ -109,24 +112,24 @@ page {
   flex-direction: column;
   justify-content: space-between;
   color: #999;
-  
+
 }
 
-.goods>.title>.text {
+.goods>.item>.title>.text {
   font-size: 28rpx;
   color: #333;
-  -webkit-line-clamp: 2;
-  display: -webkit-box;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
 }
 
-.goods>.price {
+.goods>.item>.price {
   text-align: right;
 }
 
-.goods>.price>.text {
+.goods>.item>.price>.text {
   font-weight: 500;
   font-size: 32rpx;
 }

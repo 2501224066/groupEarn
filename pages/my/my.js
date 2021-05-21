@@ -11,7 +11,8 @@ Page({
     navTop: null,
     money: '0.00', // 余额
     point: 0, // 积分
-    invite: 0 // 邀请人数
+    invite: 0, // 邀请人数
+    isPromoter: 0,
   },
 
   onShow() {
@@ -43,7 +44,8 @@ Page({
       this.setData({
         money: res.data.balance,
         invite: res.data.invite_num,
-        point: res.data.point
+        point: res.data.point,
+        isPromoter: res.data.promotion_status
       })
     })
   },

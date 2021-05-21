@@ -1,6 +1,9 @@
 import {
-  goodsDetail,
-  createOrder
+  pointsGoodsDetail,
+  addCar,
+  pointsGoodsSku,
+  buy,
+  carList
 } from '../../config/api'
 
 const App = getApp()
@@ -14,18 +17,22 @@ Page({
     domScrollTop: null,
     id: null,
     detail: null,
+    carNum: 0,
     buyType: 1, // 购买类型 1:加入购物车 2:购买
     maxBuyNum: 0, // 最大购买数量
     buyNum: 1, //购买数量
     specsShow: false, // 规格展示
     shareShow: false, // 分享展示
     specsArr: [], // 选中规格
+    skuId: null, // 规格ID
+    skuPrice: null, // 规格价格
+    imgPre: null
   },
 
   onLoad(options) {
     this.domScrollTop()
     this.setData({
-      id: 54,
+      id: options.id,
     })
     if (options.shareUserId) {
       wx.setStorageSync('shareUserId', options.shareUserId)
@@ -47,11 +54,14 @@ Page({
     }
     this.setData({
       specsShow: false,
+      shareShow: false,
       navHeight: App.globalData.navHeight,
       navTop: App.globalData.navTop,
-      iphoneFooter: App.globalData.iphoneFooter
+      iphoneFooter: App.globalData.iphoneFooter,
+      imgPre: wx.getStorageSync('imgPre')
     })
     this.getData()
+    this.getCarNum()
   },
 
   // 标签距离顶部距离
@@ -70,17 +80,23 @@ Page({
     let obj = {
       id: this.data.id
     }
-    goodsDetail(obj).then(res => {
+    pointsGoodsDetail(obj).then(res => {
       this.setData({
         detail: res.data,
-        group: res.data.active != "" ? res.data.active : null,
-        maxBuyNum: res.data.goods.max_buycount
+        maxBuyNum: res.data.goods.max_buycount,
+        skuPrice: res.data.goods.price
       })
     })
   },
 
   // 返回
   back() {
+    if (getCurrentPages().length < 2) {
+      wx.switchTab({
+        url: '/pages/index/index',
+      })
+      return
+    }
     wx.navigateBack()
   },
 
@@ -88,6 +104,40 @@ Page({
   to(e) {
     wx.navigateTo({
       url: e.currentTarget.dataset.url
+    })
+  },
+
+  // 去购物车
+  toCar() {
+    wx.switchTab({
+      url: '/pages/car/car',
+    })
+  },
+
+  // 加入购物车
+  addCar() {
+    if (this.data.specsArr.length < this.data.detail.sku.length) {
+      wx.showToast({
+        title: '请选择规格',
+        icon: 'loading'
+      })
+      return
+    }
+
+    let obj = {
+      goods_id: this.data.id,
+      number: this.data.buyNum,
+      sku_id: this.data.skuId
+    }
+    addCar(obj).then(res => {
+      wx.showToast({
+        title: '加入购物车成功',
+        icon: 'success'
+      })
+      this.getCarNum()
+      this.setData({
+        specsShow: false
+      })
     })
   },
 
@@ -99,6 +149,24 @@ Page({
     this.data.specsArr.push(e.currentTarget.dataset.name)
     this.setData({
       specsArr: this.data.specsArr
+    })
+    if (this.data.specsArr.length == this.data.detail.sku.length) {
+      this.getSkuId()
+    }
+  },
+
+  // skuId
+  getSkuId() {
+    let obj = {
+      id: this.data.id,
+      attr1_value: this.data.specsArr.length < 1 ? '' : this.data.specsArr[0],
+      attr2_value: this.data.specsArr.length < 2 ? '' : this.data.specsArr[1]
+    }
+    pointsGoodsSku(obj).then(res => {
+      this.setData({
+        skuId: res.data.id,
+        skuPrice: res.data.price
+      })
     })
   },
 
@@ -172,7 +240,7 @@ Page({
     }
     if (e.detail.value > this.data.maxBuyNum) {
       this.setData({
-        buyNum: 3
+        buyNum: this.data.maxBuyNum
       })
       return
     }
@@ -181,7 +249,7 @@ Page({
     })
   },
 
-  // 创建订单
+  // 直接购买
   buy() {
     if (this.data.specsArr.length < this.data.detail.sku.length) {
       wx.showToast({
@@ -192,27 +260,34 @@ Page({
     }
 
     let obj = {
-      buy_type: this.data.buyType,
-      good_id: this.data.id,
-      num: this.data.buyNum,
-      message: '',
-      sku: this.data.specsArr.length == 0 ? '默认,默认' : (this.data.specsArr.length == 1 ? this.data.specsArr[0] + ',默认' : this.data.specsArr.toString()),
-      active_id: this.data.groupId ? this.data.groupId : 0
+      goods_id: this.data.id,
+      number: this.data.buyNum,
+      sku_id: this.data.skuId
     }
-    createOrder(obj).then(res => {
+    buy(obj).then(res => {
       wx.navigateTo({
-        url: '/pages/confirm/confirm?orderId=' + res.data.order_id + '&goodsId=' + res.data.good_id
+        url: '/pages/pointsConfirm/pointsConfirm?carId=' + res.data
       })
     })
   },
 
   // 分享
   onShareAppMessage() {
-    console.log('/pages/goodsDetail/goodsDetail?id=' + this.data.detail.goods.id + '&shareUserId=' + wx.getStorageSync('userId'))
     return {
       title: this.data.detail.goods.name,
-      path: '/pages/goodsDetail/goodsDetail?id=' + this.data.detail.goods.id + '&shareUserId=' + wx.getStorageSync('userId'),
-      imageUrl: this.data.detail.goods.banners[0]
+      path: '/pages/pointsGoodsDetail/pointsGoodsDetail?id=' + this.data.id + '&shareUserId=' + wx.getStorageSync('userId'),
+      imageUrl: this.data.imgPre + "/" + this.data.detail.goods.banners[0],
     }
   },
+
+  // 查询购物车数量
+  getCarNum() {
+    if (wx.getStorageSync('loginStatus')) {
+      carList().then(res => {
+        this.setData({
+          carNum: res.data.length
+        })
+      })
+    }
+  }
 })

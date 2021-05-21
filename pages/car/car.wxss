@@ -2,6 +2,20 @@ page {
   background: #f8f8f8;
 }
 
+.null {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #a0a0a0;
+  height: 70vh;
+}
+
+.null>.img {
+  width: 400rpx;
+  height: 400rpx;
+}
+
 .list {
   margin-top: 20rpx;
   border-top: 1rpx solid #ececec;
@@ -85,6 +99,11 @@ page {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.list>.item>.goods>.content>.specs {
+  color: #999;
+  font-size: 20rpx;
 }
 
 .list>.item>.goods>.content>.down>.price {

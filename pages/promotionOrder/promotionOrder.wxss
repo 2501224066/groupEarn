@@ -43,6 +43,7 @@ page{
   width: 117rpx;
   height: 117rpx;
   border-radius: 6rpx;
+  overflow: hidden;
 }
 
 .list>.item>.content>.goods>.title {

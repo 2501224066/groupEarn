@@ -9,7 +9,7 @@
 <!-- 底部浮动栏目 -->
 <view class="footer" style="height:{{iphoneFooter ? 153 : 115}}rpx">
   <view class="fbox">
-    <view class="save">返回</view>
+    <view class="save" bindtap="toMy">返回</view>
   </view>
 </view>
 <view style="height:{{iphoneFooter ? 153 : 115}}rpx;"></view>

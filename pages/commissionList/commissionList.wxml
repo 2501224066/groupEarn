@@ -1,12 +1,15 @@
+<!-- 工具 -->
+<wxs src="../../utils/index.wxs" module="util"></wxs>
+
 <view class="commission-list">
   <!-- 列表 -->
   <view class="list">
-    <view class="item">
+    <view class="item" wx:for="{{list}}" wx:key="index">
       <view>
-        <view>余额提现</view>
-        <view class="time">2021-05-18 08::47:23</view>
+        <view>{{util.strHid(item.goods_name, 10)}}</view>
+        <view class="time">{{item.created_at}}</view>
       </view>
-      <view class="price">100.00</view>
+      <view class="price">+ ¥ {{util.toFixed(item.pro_price, 2)}}</view>
     </view>
   </view>
 </view>
@@ -25,7 +28,7 @@
       </picker>
     </view>
     <view class="r">
-      <view>合计：<span>2312312.12</span></view>
+      <view>合计：<span>¥ {{util.toFixed(total, 2)}}</span></view>
     </view>
   </view>
 </view>

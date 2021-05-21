@@ -1,6 +1,7 @@
 import {
   orderList,
-  take
+  take,
+  pointsPay
 } from '../../config/api'
 
 Page({
@@ -10,6 +11,7 @@ Page({
     ],
     tabIndex: 0,
     list: [],
+    imgPre: null,
     page: 1
   },
 
@@ -29,9 +31,41 @@ Page({
 
     this.setData({
       page: 1,
+      imgPre: wx.getStorageSync('imgPre'),
       tabIndex: wx.getStorageSync('lookOrderTab') ? wx.getStorageSync('lookOrderTab') : 0
     })
     this.getData()
+  },
+
+  // 积分订单付款
+  pointsPay(e) {
+    let obj = {
+      order_id: e.currentTarget.dataset.id
+    }
+    pointsPay(obj).then(res => {
+      wx.requestPayment({
+        timeStamp: res.data.timeStamp,
+        nonceStr: res.data.nonceStr,
+        package: res.data.package,
+        signType: 'MD5',
+        paySign: res.data.paySign,
+        success(r) {
+          if (r.errMsg == "requestPayment:ok") {
+            wx.showToast({
+              title: '支付成功',
+              icon: 'success'
+            })
+            this.onShow()
+          }
+        },
+        fail() {
+          wx.showToast({
+            title: '支付取消',
+            icon: 'loading'
+          })
+        }
+      })
+    })
   },
 
   // 切换tab
@@ -52,7 +86,7 @@ Page({
     }
     orderList(obj).then(res => {
       this.setData({
-        list: addStatus ? this.data.concat(res.data) : res.data
+        list: addStatus ? this.data.list.concat(res.data) : res.data
       })
     })
   },

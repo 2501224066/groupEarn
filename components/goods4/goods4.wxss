@@ -73,15 +73,6 @@
 }
 
 .goods4>.content>.down>.add {
-  width: 41rpx;
-  height: 41rpx;
-  background: #F93C4C;
-  border-radius: 50%;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  color: #fff;
-  font-size: 28rpx;
-  margin-right: 6rpx;
+  width: 46rpx;
+  height: 46rpx;
 }

@@ -7,7 +7,10 @@
 }
 
 .search {
-  height: 5vh;
+  height: 6vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background: #f3f5fa;
   padding: 17rpx 34rpx;
 }
@@ -27,6 +30,11 @@
   margin-right: 10rpx;
 }
 
+.search>.box>.img2 {
+  width: 38rpx;
+  height: 38rpx;
+}
+
 .search>.box>.ipt {
   flex: 1;
 }
@@ -40,7 +48,7 @@
 }
 
 .content {
-  height: 95vh;
+  height: 94vh;
   display: flex;
   justify-content: space-between;
 }
@@ -49,6 +57,8 @@
   width: 164rpx;
   background: #f3f5fa;
   color: #6E6E6E;
+  overflow-y: auto;
+  padding-bottom: 100rpx;
 }
 
 .content>.tab>.item {
@@ -99,7 +109,7 @@
 }
 
 .content>.r>.list {
-  height: 88vh;
+  height: 87vh;
   overflow-y: auto;
 }
 

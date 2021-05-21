@@ -11,4 +11,11 @@ Page({
     })
   },
 
+  // 去我的
+  toMy(){
+    wx.switchTab({
+      url: '/pages/my/my',
+    })
+  }
+
 })

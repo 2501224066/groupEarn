@@ -11,12 +11,13 @@ Page({
     id: null, // 团ID
     goodsId: null, // 商品ID
     detail: null,
-    self: '*', // 自己刮开的号
+    self: '?', // 自己刮开的号
     list: [], // 全部数字
     openList: [], // 打开的数字
     overTime: 0, // 结束时间
     nowTime: 0, // 当前时间
     relShow: false, // 弹框
+    tipsShow: true, // 提示
     d: '00',
     H: '00',
     i: '00',
@@ -71,10 +72,17 @@ Page({
     })
   },
 
-  // 关闭弹框
+  // 关闭结果弹框
   relClose() {
     this.setData({
       relShow: false
+    })
+  },
+
+  // 关闭提示弹框
+  tipsClose() {
+    this.setData({
+      tipsShow: false
     })
   },
 

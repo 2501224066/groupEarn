@@ -142,7 +142,7 @@ Page({
                     } else if (val.data.status == 0) {
                       wx.hideLoading()
                       wx.showToast({
-                        title: '支付失败',
+                        title: '支付取消',
                         icon: 'loading'
                       })
                     }
@@ -154,7 +154,7 @@ Page({
         },
         fail() {
           wx.showToast({
-            title: '支付失败',
+            title: '支付取消',
             icon: 'loading'
           })
         }

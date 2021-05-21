@@ -40,7 +40,11 @@
     "pages/promotionCode/promotionCode",
     "pages/promotionOrder/promotionOrder",
     "pages/applyPromoter/applyPromoter",
-    "pages/applyPromoterRel/applyPromoterRel"
+    "pages/applyPromoterRel/applyPromoterRel",
+    "pages/pointsConfirm/pointsConfirm",
+    "pages/commissionRank/commissionRank",
+    "pages/pointsList/pointsList",
+    "pages/pointsPush/pointsPush"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -66,7 +70,7 @@
       },
       {
         "pagePath": "pages/pointsShop/pointsShop",
-        "text": "积分",
+        "text": "商城",
         "iconPath": "/image/pointsShop.png",
         "selectedIconPath": "/image/pointsShop-sel.png"
       },

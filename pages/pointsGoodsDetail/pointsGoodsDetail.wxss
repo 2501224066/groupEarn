@@ -174,19 +174,42 @@
 
 .footer>.fbox>.f1 {
   width: 15%;
-  display: flex;
   height: 100%;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   font-size: 24rpx;
   color: #7c7c7c;
   padding: 0;
   margin: 0;
   background: #fff;
+  position: relative;
 }
 
-.footer>.fbox>.f1>.img {
+.footer>.fbox>.f1>.num {
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 20rpx;
+}
+
+.footer>.fbox>.f1>.num>view {
+  background: red;
+  height: 30rpx;
+  min-width: 30rpx;
+  border-radius: 15rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 30rpx;
+}
+
+.footer>.fbox>.f1>.icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer>.fbox>.f1>.icon>.img {
   width: 40rpx;
   height: 40rpx;
   margin: 10rpx 0;
@@ -451,15 +474,22 @@
   justify-content: space-around;
 }
 
-.share>.box>.type>view{
+.share>.box>.type>.icon {
   color: #aaa;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  width: 50%;
+  height: 180rpx;
+  padding: 0;
+  margin: 0;
+  font-weight: 400;
+  font-size: 28rpx;
 }
 
-.share>.box>.type>view>.img {
+.share>.box>.type>.icon>.img {
   width: 123rpx;
   height: 123rpx;
-  margin-bottom: 20rpx;
 }

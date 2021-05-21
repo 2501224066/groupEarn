@@ -1,3 +1,7 @@
+import {
+  setting
+} from 'config/api'
+
 App({
   globalData: {
     navHeight: null,
@@ -5,12 +9,22 @@ App({
     windowHeight: null,
     iphoneFooter: null,
   },
-
-  onShow(){
+  
+  onShow() {
     this.getPhoneModel()
     this.topData()
+    this.getSetting()
   },
-  
+
+  // 设置
+  getSetting() {
+    setting().then(res => {
+      wx.setStorageSync('imgPre', res.data.img_pre)
+      wx.setStorageSync('applyPromotersPrice', Number(res.data.pro_price))
+      wx.setStorageSync('pointsPushImg', res.data.points_pushImg)
+    })
+  },
+
   // 获取机型
   getPhoneModel() {
     wx.getSystemInfo({

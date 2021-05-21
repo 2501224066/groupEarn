@@ -1,5 +1,5 @@
 import {
-  homeData
+  homeData,
 } from '../../config/api'
 
 const App = getApp()
@@ -15,6 +15,7 @@ Page({
     notice: [], // 消息
     active: [], // 团
     dynamic: [], // 动态
+    imgPre: null
   },
 
   onLoad() {
@@ -24,7 +25,8 @@ Page({
   onShow() {
     this.setData({
       navHeight: App.globalData.navHeight,
-      navTop: App.globalData.navTop
+      navTop: App.globalData.navTop,
+      imgPre: wx.getStorageSync('imgPre')
     })
     this.getData()
     this.checkJoin()

@@ -1,66 +1,43 @@
-// pages/promotionOrder/promotionOrder.js
+import {
+  promotionOrder
+} from '../../config/api'
+
+const App = getApp()
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    page: 1,
+    pagesize: 10,
+    list: [],
+    imgPre: null
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  onShow() {
+    this.setData({
+      page: 1,
+      imgPre: wx.getStorageSync('imgPre')
+    })
+    this.getData()
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  // 数据
+  getData(addStatus = false) {
+    let obj = {
+      page: this.data.page,
+      pagesize: this.data.pagesize
+    }
+    promotionOrder(obj).then(res => {
+      this.setData({
+        list: addStatus ? this.data.list.concat(res.data) : res.data
+      })
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  // 触底
+  onReachBottom() {
+    this.setData({
+      page: this.data.page + 1
+    })
+    this.getData(true)
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

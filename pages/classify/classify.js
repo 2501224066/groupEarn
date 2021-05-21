@@ -1,22 +1,131 @@
+import {
+  classify,
+  twoClassify,
+  pointsGoods
+} from '../../config/api'
+
+
 Page({
   data: {
     tabIndex: 0,
-    tab: ['生鲜', '水产类', '化妆护肤', '冷饮', '酒水饮料', '土特产', '充值卡', '生活用品', '创意礼品'],
+    tab: [''],
     twoIndex: 0,
-    two: ['蔬菜', '水果', '生鲜肉类', '鸡腿', '汉堡', '可乐', '拉面', '面包']
+    two: [''],
+    goods: [],
+    keyword: '',
+    page: 1,
+    pagesize: 15,
+    tabId: null // icon跳进来
+  },
+
+  onLoad(options) {
+    if (options.hasOwnProperty('id')) {
+      this.setData({
+        tabId: options.id
+      })
+    }
+  },
+
+  onShow() {
+    this.setData({
+      page: 1
+    })
+    this.getClassify()
+  },
+
+  // 关键字
+  keyword(e) {
+    this.setData({
+      keyword: e.detail.value
+    })
+    this.getGoods()
+  },
+
+  // 清楚关键字
+  closeKeyword() {
+    this.setData({
+      keyword: ''
+    })
+    this.getGoods()
+  },
+
+  // 一级分类
+  getClassify() {
+    let that = this
+    classify().then(res => {
+      that.setData({
+        tab: res.data
+      })
+      if (that.data.tabId != null) {
+        res.data.forEach(function (v, k) {
+          if (v.id == that.data.tabId) {
+            that.setData({
+              tabIndex: k
+            })
+          }
+        })
+      }
+      that.getTwoClassify()
+    })
+  },
+
+  // 二级分类
+  getTwoClassify() {
+    let obj = {
+      id: this.data.tab[this.data.tabIndex].id
+    }
+    twoClassify(obj).then(res => {
+      this.setData({
+        two: res.data
+      })
+      this.getGoods()
+    })
+  },
+
+  // 商品
+  getGoods(addStatus = false) {
+    let obj = {
+      pid: this.data.tab[this.data.tabIndex].id,
+      id: this.data.two.length > 0 ? this.data.two[this.data.twoIndex].id : null,
+      page: this.data.page,
+      pagesize: this.data.pagesize
+    }
+    if (this.data.keyword != '') {
+      obj.keyword = this.data.keyword
+    }
+    pointsGoods(obj).then(res => {
+      this.setData({
+        goods: addStatus ? this.data.goods.concat(res.data) : res.data
+      })
+    })
+  },
+
+  // 触底
+  onReachBottom() {
+    this.setData({
+      page: this.data.page + 1
+    })
+    this.getGoods(true)
   },
 
   // 切换tab
-  checkoutTab(e){
+  checkoutTab(e) {
     this.setData({
-      tabIndex: e.currentTarget.dataset.index
+      tabIndex: e.currentTarget.dataset.index,
+      twoIndex: 0,
+      goods: [],
+      page: 1
     })
+    this.getTwoClassify()
   },
 
-   // 切换two
-   checkoutTwo(e){
+  // 切换two
+  checkoutTwo(e) {
     this.setData({
-      twoIndex: e.currentTarget.dataset.index
+      twoIndex: e.currentTarget.dataset.index,
+      goods: [],
+      page: 1
     })
+    this.getGoods()
   }
 })

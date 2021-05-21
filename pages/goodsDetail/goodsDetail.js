@@ -89,6 +89,12 @@ Page({
 
   // 返回
   back() {
+    if (getCurrentPages().length < 2) {
+      wx.switchTab({
+        url: '/pages/index/index',
+      })
+      return
+    }
     wx.navigateBack()
   },
 
@@ -179,7 +185,7 @@ Page({
     }
     if (e.detail.value > this.data.maxBuyNum) {
       this.setData({
-        buyNum: 3
+        buyNum: this.data.maxBuyNum
       })
       return
     }
@@ -257,7 +263,6 @@ Page({
 
   // 分享
   onShareAppMessage() {
-    console.log('/pages/goodsDetail/goodsDetail?id=' + this.data.detail.goods.id + '&shareUserId=' + wx.getStorageSync('userId'))
     return {
       title: this.data.detail.goods.name,
       path: '/pages/goodsDetail/goodsDetail?id=' + this.data.detail.goods.id + '&shareUserId=' + wx.getStorageSync('userId'),

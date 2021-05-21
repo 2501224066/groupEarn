@@ -1,24 +1,127 @@
+import {
+  pointsIndex,
+  classify,
+  pointsGoods,
+  bandPromoters,
+  pointsPush
+} from '../../config/api'
+
 Page({
   data: {
     navScrollTop: null,
-    swiper: [
-      'http://pin.giftfond.cn/images/d248430474cda5da39e0373519c3bfd7.jpg',
-      'http://pin.giftfond.cn/images/755dda131fc92b6db8b0417a2d2fde92.jpg'
-    ], // 轮播
+    swiper: [], // 轮播
     tabIndex: 0,
-    tab: ['生鲜水果', '海产品', '生活用品', '家用百货', '酒水饮料', '其他'],
+    tab: [],
     domScrollTop: null,
+    pushGoods: [],
+    goods: [],
+    icon: [],
+    imgPre: null,
+    page: 1,
+    pagesize: 14,
   },
 
-  onLoad() {
+  onLoad(options) {
+    if (options.hasOwnProperty('shareUserId')) {
+      wx.setStorageSync('shareUserId', options.hasOwnProperty('shareUserId'))
+      if (!wx.getStorageSync('loginStatus')) {
+        wx.navigateTo({
+          url: '/pages/login/login',
+        })
+      } else {
+        // 绑定
+        this.bandPromoters()
+      }
+    }
     this.domScrollTop()
+  },
+
+  onShow() {
+    this.setData({
+      imgPre: wx.getStorageSync('imgPre'),
+      page: 1,
+    })
+    this.getIndex()
+    this.getPush()
+    this.getClassify()
+  },
+
+  // 推荐商品
+  getPush(){
+    let obj = {
+      page: 1,
+      pagesize: 7
+    }
+    pointsPush(obj).then(res=>{
+      this.setData({
+        pushGoods: res.data
+      })
+    })
+  },
+
+  // 绑定推广者
+  bandPromoters() {
+    let obj = {
+      id: wx.getStorageSync('shareUserId')
+    }
+    bandPromoters(obj).then(res => {
+      wx.removeStorageSync('shareUserId')
+      wx.showToast({
+        title: '绑定成功',
+        icon: 'success'
+      })
+    })
+  },
+
+  // 获取页面数据
+  getIndex() {
+    pointsIndex().then(res => {
+      this.setData({
+        swiper: res.data.banner,
+        icon: res.data.category,
+      })
+    })
+  },
+
+  // 一级分类
+  getClassify() {
+    classify().then(res => {
+      this.setData({
+        tab: res.data
+      })
+      this.getGoods()
+    })
+  },
+
+  // 商品
+  getGoods(addStatus = false) {
+    let obj = {
+      pid: this.data.tab[this.data.tabIndex].id,
+      page: this.data.page,
+      pagesize: this.data.pagesize
+    }
+    pointsGoods(obj).then(res => {
+      this.setData({
+        goods: addStatus ? this.data.goods.concat(res.data) : res.data
+      })
+    })
+  },
+
+  // 触底
+  onReachBottom() {
+    this.setData({
+      page: this.data.page + 1
+    })
+    this.getGoods(true)
   },
 
   // 切换tab
   checkoutTab(e) {
     this.setData({
-      tabIndex: e.currentTarget.dataset.index
+      tabIndex: e.currentTarget.dataset.index,
+      page: 1
     })
+    this.getGoods()
   },
 
   // 页面上滑距离
@@ -36,6 +139,13 @@ Page({
       this.setData({
         domScrollTop: res[0].top
       })
+    })
+  },
+
+  // 跳转
+  to(e) {
+    wx.navigateTo({
+      url: e.currentTarget.dataset.url
     })
   }
 })

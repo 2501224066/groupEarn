@@ -1,5 +1,6 @@
 import {
-  orderDetail
+  orderDetail,
+  pointsPay
 } from '../../config/api'
 
 const App = getApp()
@@ -8,6 +9,7 @@ Page({
   data: {
     iphoneFooter: null,
     id: null,
+    imgPre: null,
     d: '00',
     H: '00',
     i: '00',
@@ -22,9 +24,41 @@ Page({
 
   onShow() {
     this.setData({
+      imgPre: wx.getStorageSync('imgPre'),
       iphoneFooter: App.globalData.iphoneFooter
     })
     this.getData()
+  },
+
+  // 积分订单付款
+  pointsPay(e) {
+    let obj = {
+      order_id: e.currentTarget.dataset.id
+    }
+    pointsPay(obj).then(res => {
+      wx.requestPayment({
+        timeStamp: res.data.timeStamp,
+        nonceStr: res.data.nonceStr,
+        package: res.data.package,
+        signType: 'MD5',
+        paySign: res.data.paySign,
+        success(r) {
+          if (r.errMsg == "requestPayment:ok") {
+            wx.showToast({
+              title: '支付成功',
+              icon: 'success'
+            })
+            this.onShow()
+          }
+        },
+        fail() {
+          wx.showToast({
+            title: '支付取消',
+            icon: 'loading'
+          })
+        }
+      })
+    })
   },
 
   // 数据
@@ -37,6 +71,13 @@ Page({
         detail: res.data
       })
       this.countTime()
+    })
+  },
+
+  // 跳转
+  to(e) {
+    wx.navigateTo({
+      url: e.currentTarget.dataset.url
     })
   },
 

@@ -25,15 +25,12 @@
 
   <!-- 信息 -->
   <view class="detail shadow">
-    <goods2 detail="{{detail}}"></goods2>
-    <view class="li">
-      <view>规格</view>
-      <view></view>
-      <view>{{orderDetail.detail.goods_attr1}},{{orderDetail.detail.goods_attr2}}</view>
+    <view wx:if="orderDetail.buy_type != 3">
+      <goods2 detail="{{detail}}"></goods2>
     </view>
     <view class="li">
       <view>数量金额</view>
-      <view>x{{orderDetail.detail.number}}</view>
+      <view>x{{orderDetail.detail[0].number}}</view>
       <view>¥ {{orderDetail.money}}</view>
     </view>
     <view class="li">

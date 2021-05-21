@@ -1,20 +1,10 @@
 .promoter-code{
   border-top: 20rpx solid #f8f8f8;
-  padding: 0 36rpx;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  height: 86vh;
+  height: 70vh;
   font-size: 28rpx;
-}
-
-.img {
-  overflow: hidden;
-  width: 400rpx;
-  height: 400rpx;
-  font-size: 0;
-  margin-bottom: 30rpx;
 }
 
 .footer {
@@ -45,4 +35,10 @@
   background: #FE4C56;
   font-weight: 300;
   border-radius: 48rpx;
+}
+
+.footer>.fbox>.text {
+  flex: 1;
+  color: #FE4C56;
+  text-align: center;
 }

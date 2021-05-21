@@ -1,14 +1,12 @@
 <view class="poster">
-  <view class="img shadow">
-    <image src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2884721060,468395629&fm=26&gp=0.jpg"
-      mode="widthFix"></image>
-  </view>
+  <!-- 海报 -->
+  <canvas type="2d" id="myCanvas" style="width:{{w}}px;height:{{h*0.9}}px"></canvas>
 </view>
 
 <!-- 底部浮动栏目 -->
 <view class="footer" style="height:{{iphoneFooter ? 153 : 115}}rpx">
   <view class="fbox">
-    <view class="save">保存到相册</view>
+    <view class="save" wx:if="{{canvasTemppath}}" bindtap="saveImg">保存到相册</view>
+    <view class="text" wx:else>正在生成海报...</view>
   </view>
 </view>
-<view style="height:{{iphoneFooter ? 153 : 115}}rpx;"></view>

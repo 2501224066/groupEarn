@@ -16,7 +16,7 @@
   <view class="lb">
     <swiper autoplay="true" indicator-dots="true" indicator-color="#000" indicator-active-color="#f73d4c">
       <swiper-item wx:for="{{detail.goods.banners}}" wx:key="*this">
-        <image src="{{item}}" mode="aspectFill"></image>
+        <image src="{{imgPre}}/{{item}}" mode="aspectFill"></image>
       </swiper-item>
     </swiper>
   </view>
@@ -24,33 +24,34 @@
   <view class="box1" id="dom">
     <!--标题-->
     <view class="title">
-      <span>推荐</span>
+      <span wx:if="{{detail.goods.home_push}}">推荐</span>
       {{detail.goods.name}}
     </view>
 
     <!-- 标签  -->
     <view class="tag">
-      可最多使用<span>10000.00积分</span>抵扣<span>100.00元</span>
+      可最多使用<span>{{util.toFixed(detail.goods.available_point,
+        2)}}积分</span>抵扣<span>{{util.toFixed(detail.goods.ded_price, 2)}}元</span>
     </view>
 
     <!-- 价格 -->
     <view class="price">
       <view class="l">
-        <view><span>¥</span>{{detail.goods.active_price}}</view>
+        <view><span>¥</span>{{detail.goods.price}}</view>
         <view>/ 箱</view>
-        <view>原价 ¥ {{detail.goods.alone_price}}</view>
+        <view>原价 ¥ {{detail.goods.price_market}}</view>
       </view>
-      <view class="sale">已售342342件</view>
+      <view class="sale">已售{{detail.goods.sale_num}}件</view>
     </view>
   </view>
 
-  <view class="box1">
+  <view class="box1" wx:if="{{detail.goods.promotion_status}}">
     <!-- 推广 -->
     <view class="push">
       <view class="img">
         <image src="/image/income.png" mode="aspectFill"></image>
       </view>
-      <view>推广此产品您可获得<span>￥18.00元</span>/件收入</view>
+      <view>推广此产品您可获得<span>￥{{util.toFixed(detail.goods.pro_price, 2)}}元</span>/件收入</view>
     </view>
   </view>
 
@@ -73,16 +74,23 @@
 <view class="footer" style="height:{{iphoneFooter ? 178 : 140}}rpx">
   <view class="fbox">
     <view class="f1" bindtap="toCar">
-      <view class="img">
-        <image src="/image/car2.png" mode="aspectFill"></image>
+      <view class="num">
+        <view>{{carNum}}</view>
       </view>
-      <view>购物车</view>
+      <view class="icon">
+        <view class="img" bindtap="toCar">
+          <image src="/image/car2.png" mode="aspectFill"></image>
+        </view>
+        <view>购物车</view>
+      </view>
     </view>
     <view class="f1" bindtap="openShare">
-      <view class="img">
-        <image src="/image/share.png" mode="aspectFill"></image>
+      <view class="icon">
+        <view class="img">
+          <image src="/image/share.png" mode="aspectFill"></image>
+        </view>
+        <view>分享</view>
       </view>
-      <view>分享</view>
     </view>
     <view class="f2">
       <view bindtap="openSpecs" data-type="1">加入购物车</view>
@@ -98,20 +106,20 @@
     <!-- 关闭 -->
     <view class="close">
       <view class="img" bindtap="closeSpecs">
-        <image src="/image/close.png" mode="aspectFill"></image>
+        <image src="/image/close2.png" mode="aspectFill"></image>
       </view>
     </view>
     <!-- 商品 -->
     <view class="goods">
       <view class="img">
-        <image src="{{detail.goods.image_thumb}}" mode="aspectFill"></image>
+        <image src="{{imgPre}}/{{detail.goods.banners[0]}}" mode="aspectFill"></image>
       </view>
       <view class="detail">
-        <view class="title">{{util.strHid(detail.goods.name, 34)}}</view>
+        <view class="title">{{util.strHid(detail.goods.name, 24)}}</view>
         <view class="price">
-          <view>¥ <span>{{detail.goods.active_price}}</span></view>
+          <view>¥ <span>{{skuPrice}}</span></view>
           <view>/ 箱</view>
-          <view>原价 ¥ {{detail.goods.alone_price}}</view>
+          <view>原价 ¥ {{detail.goods.price_market}}</view>
         </view>
       </view>
     </view>
@@ -136,7 +144,7 @@
       </view>
     </view>
     <!-- 按钮 -->
-    <view class="btn" wx:if="{{buyType == 1}}" bindtap="car">加入购物车</view>
+    <view class="btn" wx:if="{{buyType == 1}}" bindtap="addCar">加入购物车</view>
     <view class="btn2" wx:else bindtap="buy">直接购买</view>
   </view>
 </view>
@@ -147,19 +155,19 @@
     <!-- 关闭 -->
     <view class="close">
       <view class="img" bindtap="closeShare">
-        <image src="/image/close.png" mode="aspectFill"></image>
+        <image src="/image/close2.png" mode="aspectFill"></image>
       </view>
     </view>
     <!-- 分享方式 -->
     <view class="type">
-      <view>
+      <button class="icon" open-type="share">
         <view class="img">
           <image src="/image/wx2.png"></image>
         </view>
         <view>分享链接</view>
-      </view>
-      <view>
-        <view class="img" bindtap="to" data-url="/pages/poster/poster">
+      </button>
+      <view class="icon">
+        <view class="img" bindtap="to" data-url="/pages/poster/poster?orderId={{id}}">
           <image src="/image/photo.png"></image>
         </view>
         <view>生成海报</view>

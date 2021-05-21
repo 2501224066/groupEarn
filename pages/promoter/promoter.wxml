@@ -1,11 +1,14 @@
+<!-- 工具 -->
+<wxs src="../../utils/index.wxs" module="util"></wxs>
+
 <view class="promoter">
   <!-- 信息 -->
   <view class="info">
     <view class="img">
-      <image src="/image/header.png" mode="aspectFill"></image>
+      <image src="{{userInfo.avatarUrl ? userInfo.avatarUrl :  '/image/header.png'}}" mode="aspectFill"></image>
     </view>
-    <view class="name">张三丰</view>
-    <view>推广ID：223211</view>
+    <view class="name">{{userInfo.nicName}}</view>
+    <view>推广ID：{{userId + 43200}}</view>
     <view class="bg">
       <image src="/image/promoter-bg.png" mode="widthFix"></image>
     </view>
@@ -14,18 +17,18 @@
   <!-- 数据 -->
   <view class="data">
     <view>
-      <view class="num">1990.00</view>
+      <view class="num">{{util.toFixed(money, 2)}}</view>
       <view>我的余额</view>
     </view>
     <view class="line"></view>
     <view>
-      <view class="num">191290.00</view>
+      <view class="num">{{util.toFixed(commission, 2)}}</view>
       <view>总收入</view>
     </view>
   </view>
 
   <!-- 二维码 -->
-  <view class="code">
+  <view class="code" bindtap="to" data-url="/pages/promotionCode/promotionCode">
     <view class="title">
       <view class="text">通过我的推广码注册消费</view>
       <view>一次绑定，永久收益</view>
@@ -37,31 +40,31 @@
 
   <!-- 九宫格 -->
   <view class="box">
-    <view>
+    <view bindtap="to" data-url="/pages/commissionList/commissionList">
       <view class="img">
         <image src="/image/promoter1.png" mode="aspectFill"></image>
       </view>
       <view>佣金明细</view>
     </view>
-    <view>
+    <view bindtap="to" data-url="/pages/withdrawalList/withdrawalList">
       <view class="img">
         <image src="/image/promoter2.png" mode="aspectFill"></image>
       </view>
       <view>提现明细</view>
     </view>
-    <view>
+    <view bindtap="to" data-url="/pages/promotionOrder/promotionOrder">
       <view class="img">
         <image src="/image/promoter3.png" mode="aspectFill"></image>
       </view>
       <view>推广订单</view>
     </view>
-    <view>
+    <view bindtap="to" data-url="/pages/commissionRank/commissionRank">
       <view class="img">
         <image src="/image/promoter4.png" mode="aspectFill"></image>
       </view>
       <view>佣金排名</view>
     </view>
-    <view>
+    <view bindtap="to" data-url="/pages/myOffline/myOffline">
       <view class="img">
         <image src="/image/promoter5.png" mode="aspectFill"></image>
       </view>
@@ -73,7 +76,7 @@
 <!-- 底部浮动栏目 -->
 <view class="footer" style="height:{{iphoneFooter ? 153 : 115}}rpx">
   <view class="fbox">
-    <view class="save">申请提现</view>
+    <view class="save" bindtap="to" data-url="/pages/withdrawal/withdrawal">申请提现</view>
   </view>
 </view>
 <view style="height:{{iphoneFooter ? 153 : 115}}rpx;"></view>

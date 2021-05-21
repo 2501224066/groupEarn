@@ -16,13 +16,13 @@ Page({
   },
 
   // 数据
-  getData(addStatus = false) {
+  getData() {
     let obj = {
       type: this.data.tabIndex + 1
     }
     rank(obj).then(res => {
       this.setData({
-        list: addStatus ? this.data.list.concat(res.data) : res.data
+        list: res.data
       })
     })
   },

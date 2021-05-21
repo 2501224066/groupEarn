@@ -24,7 +24,7 @@
     <view class="box">
       <swiper autoplay="true">
         <swiper-item wx:for="{{swiper}}" wx:key="*this">
-          <image src="{{item}}" mode="aspectFill"></image>
+          <image src="{{imgPre}}/{{item.image}}" mode="aspectFill" bindtap="to" data-url="{{item.path}}"></image>
         </swiper-item>
       </swiper>
     </view>
@@ -146,6 +146,9 @@
     </view>
   </view>
 </view>
+
+<!-- 版权 -->
+<copyright></copyright>
 
 <!-- 购物车数量 -->
 <carNum></carNum>

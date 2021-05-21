@@ -1,3 +1,8 @@
+import {
+  withdrawalList,
+  withdrawalListCount
+} from '../../config/api'
+
 const App = getApp()
 
 Page({
@@ -6,9 +11,20 @@ Page({
     navHeight: null,
     navTop: null,
     tabIndex: 0,
-    tab: ['成功', '审核中', '失败'],
+    tab: [{
+      type: 2,
+      name: '成功'
+    }, {
+      type: 1,
+      name: '审核中'
+    }, {
+      type: 3,
+      name: '失败'
+    }],
     dateIndex: 0,
     date: [],
+    total: 0,
+    list: []
   },
 
   onShow() {
@@ -18,6 +34,33 @@ Page({
       iphoneFooter: App.globalData.iphoneFooter,
     })
     this.sixMonth()
+    this.getData()
+    this.count()
+  },
+
+  // 数据
+  getData() {
+    let obj = {
+      type: this.data.tab[this.data.tabIndex].type,
+      date: this.data.date[this.data.dateIndex]
+    }
+    withdrawalList(obj).then(res => {
+      this.setData({
+        list: res.data
+      })
+    })
+  },
+
+  // 统计
+  count() {
+    let obj = {
+      date: this.data.date[this.data.dateIndex]
+    }
+    withdrawalListCount(obj).then(res => {
+      this.setData({
+        total: res.data.total
+      })
+    })
   },
 
   // 切换tab
@@ -25,6 +68,8 @@ Page({
     this.setData({
       tabIndex: e.currentTarget.dataset.index
     })
+    this.getData()
+    this.count()
   },
 
   // 最近六个月

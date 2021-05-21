@@ -1,3 +1,6 @@
+<!-- 工具 -->
+<wxs src="../../utils/index.wxs" module="util"></wxs>
+
 <view class="ranking-list">
   <!-- TAB -->
   <view class="tab">
@@ -24,9 +27,9 @@
       </view>
       <view class="name">{{item.nickname}}</view>
       <view class="text" wx:if="{{tabIndex == 0}}">邀请 {{item.num}} 人</view>
-      <view class="text" wx:if="{{tabIndex == 1}}">收入 {{item.num}} ¥</view>
-      <view class="text" wx:if="{{tabIndex == 2}}">获得 {{item.num}} 分</view>
-      <view class="text" wx:if="{{tabIndex == 3}}">消费 {{item.num}} ¥</view>
+      <view class="text" wx:if="{{tabIndex == 1}}">收入 {{util.toFixed(item.num, 2)}} ¥</view>
+      <view class="text" wx:if="{{tabIndex == 2}}">获得 {{util.toFixed(item.num, 2)}} 分</view>
+      <view class="text" wx:if="{{tabIndex == 3}}">消费 {{util.toFixed(item.num, 2)}} ¥</view>
     </view>
   </view>
 </view>

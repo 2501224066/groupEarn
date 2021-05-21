@@ -242,6 +242,30 @@
           "pathName": "pages/applyPromoterRel/applyPromoterRel",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "积分购买确认订单",
+          "pathName": "pages/pointsConfirm/pointsConfirm",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "佣金排名",
+          "pathName": "pages/commissionRank/commissionRank",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "积分明细",
+          "pathName": "pages/pointsList/pointsList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "积分推荐",
+          "pathName": "pages/pointsPush/pointsPush",
+          "query": "",
+          "scene": null
         }
       ]
     }

@@ -41,11 +41,11 @@
     <view class="account shadow">
       <view bindtap="to" data-url="/pages/wallet/wallet">
         <view>{{util.toFixed(money,2)}}</view>
-        <view>账户余额 <span style="font-family:monospace">></span></view>
+        <view>账户余额 <span>></span></view>
       </view>
-      <view>
+      <view bindtap="to" data-url="/pages/pointsList/pointsList">
         <view>{{util.toFixed(point,2)}}</view>
-        <view>积分</view>
+        <view>积分 <span>></span></view>
       </view>
       <view>
         <view>{{invite}}</view>
@@ -86,6 +86,12 @@
         <view>已完成</view>
       </view>
     </view>
+  </view>
+
+  <!-- 推广员 -->
+  <view class="extension">
+    <image wx:if="{{isPromoter}}" src="/image/extension2.png" mode="widthFix" bindtap="to" data-url="/pages/promoter/promoter"></image>
+    <image wx:else src="/image/extension1.png" mode="widthFix"  bindtap="to" data-url="/pages/applyPromoter/applyPromoter"></image>
   </view>
 
   <!-- 跳转 -->
@@ -136,16 +142,19 @@
       </view>
     </view>
     <view class="li" bindtap="to" data-url="/pages/help/help">
-    <view class="img">
-      <image src="/image/help.png" mode="aspectFill"></image>
-    </view>
-    <view class="text">帮助中心</view>
-    <view class="img2">
-      <image src="/image/right2.png" mode="aspectFill"></image>
+      <view class="img">
+        <image src="/image/help.png" mode="aspectFill"></image>
+      </view>
+      <view class="text">帮助中心</view>
+      <view class="img2">
+        <image src="/image/right2.png" mode="aspectFill"></image>
+      </view>
     </view>
   </view>
 </view>
-</view>
+
+<!-- 版权 -->
+<copyright></copyright>
 
 <!-- 购物车数量 -->
 <carNum></carNum>

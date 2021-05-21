@@ -47,7 +47,7 @@ page {
 }
 
 .list>.top {
-  padding: 40rpx;
+  padding: 40rpx 40rpx 0 40rpx;
   display: flex;
 }
 
@@ -68,7 +68,6 @@ page {
 }
 
 .list>.top>.center>.title {
-  /* height: 80rpx; */
   -webkit-line-clamp: 2;
   display: -webkit-box;
   overflow: hidden;
@@ -102,6 +101,7 @@ page {
 }
 
 .list>.down {
+  margin-top: 40rpx;
   border-top: 1rpx solid #ececec;
   padding: 20rpx 40rpx;
   display: flex;

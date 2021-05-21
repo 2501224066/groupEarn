@@ -1,6 +1,7 @@
 Component({
   data: {
     domWidth: null,
+    imgPre: null
   },
   properties: {
     detail: { // 数据列表
@@ -8,8 +9,14 @@ Component({
       value: {}
     }
   },
+  pageLifetimes: {
+
+  },
   lifetimes: {
     attached() {
+      this.setData({
+        imgPre: wx.getStorageSync('imgPre')
+      })
       this.domWidth()
     }
   },
@@ -22,6 +29,13 @@ Component({
         this.setData({
           domWidth: res[0].width
         })
+      })
+    },
+
+    // 跳转
+    to(e) {
+      wx.navigateTo({
+        url: e.currentTarget.dataset.url
       })
     }
   }

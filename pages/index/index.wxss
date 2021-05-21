@@ -1,7 +1,3 @@
-.index{
-  padding-bottom: 2vh;
-}
-
 .navbar {
   position: fixed;
   left: 0;

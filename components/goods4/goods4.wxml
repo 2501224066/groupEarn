@@ -1,22 +1,23 @@
 <!-- 工具 -->
 <wxs src="../../utils/index.wxs" module="util"></wxs>
 
-<view class="goods4">
+<view class="goods4" bindtap="to" data-url="/pages/pointsGoodsDetail/pointsGoodsDetail?id={{detail.id}}">
   <view class="img">
-    <view class="discount">品牌折扣</view>
-    <image src="https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3791355620,2579650781&fm=26&gp=0.jpg"
-      mode="aspectFill"></image>
+    <view class="discount">{{detail.tags}}</view>
+    <image src="{{imgPre}}/{{detail.image_thumb}}" mode="aspectFill"></image>
   </view>
   <view class="content">
     <view class="title">
-      <span>推荐</span> {{util.strHid('新鲜大号车厘子 产地直发 青岛海参纯淡干海参，野生大 个头海参100g/盒装', 24)}}
+      <span wx:if="{{detail.home_push}}">推荐</span> {{util.strHid(detail.name, 24)}}
     </view>
     <view class="num">
-      已售201件
+      已售{{detail.sale_num}}件
     </view>
     <view class="down">
-      <view class="price"><span>¥</span>82.89</view>
-      <view class="add">+</view>
+      <view class="price"><span>¥</span>{{util.toFixed(detail.price, 2)}}</view>
+      <view class="add">
+        <image src="/image/right3.png" mode="aspectFill"></image>
+      </view>
     </view>
   </view>
 </view>

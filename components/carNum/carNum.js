@@ -1,16 +1,24 @@
+import {
+  carList
+} from '../../config/api'
+
 Component({
-  lifetimes: {
-    attached() {
+  pageLifetimes: {
+    show() {
       this.carNum()
     }
   },
   methods: {
     // 查询购物车数量
     carNum() {
-      wx.setTabBarBadge({
-        index: 3,
-        text: '1'
-      })
+      if (wx.getStorageSync('loginStatus')) {
+        carList().then(res => {
+          wx.setTabBarBadge({
+            index: 3,
+            text: String(res.data.length)
+          })
+        })
+      }
     }
   }
 })

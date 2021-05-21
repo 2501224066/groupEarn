@@ -288,3 +288,255 @@ export function take(data, repair = '') {
     data: data
   })
 }
+
+// 积分商城首页
+export function pointsIndex(data, repair = '') {
+  return common.go({
+    method: 'get',
+    url: '/mall/index' + repair,
+    data: data
+  })
+}
+
+// 一级分类
+export function classify(data, repair = '') {
+  return common.go({
+    method: 'get',
+    url: '/category/index' + repair,
+    data: data
+  })
+}
+
+// 二级分类
+export function twoClassify(data, repair = '') {
+  return common.go({
+    method: 'get',
+    url: '/category/getFirst' + repair,
+    data: data
+  })
+}
+
+// 积分商品
+export function pointsGoods(data, repair = '') {
+  return common.go({
+    method: 'get',
+    url: '/pointGoods/query' + repair,
+    data: data
+  })
+}
+
+// 积分商品详情
+export function pointsGoodsDetail(data, repair = '') {
+  return common.go({
+    method: 'get',
+    url: '/pointGoods/detail' + repair,
+    data: data
+  })
+}
+
+// 加入购物车
+export function addCar(data, repair = '') {
+  return common.go({
+    method: 'post',
+    url: '/cart/add' + repair,
+    data: data
+  })
+}
+
+// 积分商品SKU
+export function pointsGoodsSku(data, repair = '') {
+  return common.go({
+    method: 'get',
+    url: '/pointGoods/getSkuPrice' + repair,
+    data: data
+  })
+}
+
+// 购物车列表
+export function carList(data, repair = '') {
+  return common.go({
+    method: 'get',
+    url: '/cart/query' + repair,
+    data: data
+  })
+}
+
+// 修改购物车数量
+export function updateCarNum(data, repair = '') {
+  return common.go({
+    method: 'get',
+    url: '/cart/update' + repair,
+    data: data
+  })
+}
+
+// 删除购物车商品
+export function delCarGoods(data, repair = '') {
+  return common.go({
+    method: 'get',
+    url: '/cart/delete' + repair,
+    data: data
+  })
+}
+
+//购物车选中状态  
+export function carCheckout(data, repair = '') {
+  return common.go({
+    method: 'get',
+    url: '/cart/checked' + repair,
+    data: data
+  })
+}
+
+// 直接购买
+export function buy(data, repair = '') {
+  return common.go({
+    method: 'post',
+    url: '/cart/fastAdd' + repair,
+    data: data
+  })
+}
+
+// 积分购买确认订单
+export function pointsConfirm(data, repair = '') {
+  return common.go({
+    method: 'get',
+    url: '/pointOrder/pre' + repair,
+    data: data
+  })
+}
+
+// 积分商城下单
+export function pointsCreateOrder(data, repair = '') {
+  return common.go({
+    method: 'post',
+    url: '/pointOrder/createOrder' + repair,
+    data: data
+  })
+}
+
+// 积分商支付
+export function pointsPay(data, repair = '') {
+  return common.go({
+    method: 'get',
+    url: '/pay/miniapp_pay' + repair,
+    data: data
+  })
+}
+
+// 获取小程序码
+export function code(data, repair = '') {
+  return common.go({
+    method: 'get',
+    url: '/extend/getCode' + repair,
+    data: data
+  })
+}
+
+// 推广下线
+export function offline(data, repair = '') {
+  return common.go({
+    method: 'get',
+    url: '/extend/myDown' + repair,
+    data: data
+  })
+}
+
+// 提现明细
+export function withdrawalList(data, repair = '') {
+  return common.go({
+    method: 'get',
+    url: '/extend/myTransfer' + repair,
+    data: data
+  })
+}
+
+// 提现明细统计
+export function withdrawalListCount(data, repair = '') {
+  return common.go({
+    method: 'get',
+    url: '/extend/getTransfer' + repair,
+    data: data
+  })
+}
+
+// 佣金明细统计
+export function commissionList(data, repair = '') {
+  return common.go({
+    method: 'get',
+    url: '/extend/myPro' + repair,
+    data: data
+  })
+}
+
+// 佣金明细
+export function commissionListCount(data, repair = '') {
+  return common.go({
+    method: 'get',
+    url: '/extend/getProByDate' + repair,
+    data: data
+  })
+}
+
+// 绑定推广者
+export function bandPromoters(data, repair = '') {
+  return common.go({
+    method: 'get',
+    url: '/extend/bindUser' + repair,
+    data: data
+  })
+}
+
+// 申请推广员
+export function applyPromoters(data, repair = '') {
+  return common.go({
+    method: 'post',
+    url: '/extend/set' + repair,
+    data: data
+  })
+}
+
+// 推广订单
+export function promotionOrder(data, repair = '') {
+  return common.go({
+    method: 'get',
+    url: '/extend/myOrder' + repair,
+    data: data
+  })
+}
+
+// 佣金排名
+export function commissionRank(data, repair = '') {
+  return common.go({
+    method: 'get',
+    url: '/extend/rankExtend' + repair,
+    data: data
+  })
+}
+
+// 积分明细
+export function pointsList(data, repair = '') {
+  return common.go({
+    method: 'get',
+    url: '/extend/pointDetail' + repair,
+    data: data
+  })
+}
+
+// 积分明细统计
+export function pointsListCount(data, repair = '') {
+  return common.go({
+    method: 'get',
+    url: '/extend/getPointByDate' + repair,
+    data: data
+  })
+}
+
+// 积分推荐商品
+export function pointsPush(data, repair = '') {
+  return common.go({
+    method: 'get',
+    url: '/mall/homePush' + repair,
+    data: data
+  })
+}

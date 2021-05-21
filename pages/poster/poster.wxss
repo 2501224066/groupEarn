@@ -1,18 +1,5 @@
-page{
+page {
   background: #f8f8f8;
-}
-
-.poster {
-  padding: 0 36rpx;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 86vh;
-}
-
-.img {
-  overflow: hidden;
-  font-size: 0;
 }
 
 .footer {
@@ -33,7 +20,7 @@ page{
   align-items: center;
 }
 
-.save{
+.footer>.fbox>.save {
   flex: 1;
   height: 95rpx;
   line-height: 95rpx;
@@ -43,4 +30,10 @@ page{
   background: #FE4C56;
   font-weight: 300;
   border-radius: 48rpx;
+}
+
+.footer>.fbox>.text {
+  flex: 1;
+  color: #FE4C56;
+  text-align: center;
 }

@@ -1,6 +1,6 @@
-const BASE_URL = 'https://pin.giftfond.cn/api'
-//const BASE_URL = 'http://127.0.0.1:9091/api'
-
+//const BASE_URL = 'https://pin.giftfond.cn/api'
+const BASE_URL = 'https://shop.970209.xyz/api'  // dev
+ 
 module.exports = {
   BASE_URL
 }
