@@ -8,9 +8,7 @@ Page({
   data: {
     goods: [],
     page: 1,
-    pointsPushImg: null,
     pagesize: 14,
-    imgPre: null
   },
 
   onShow() {
