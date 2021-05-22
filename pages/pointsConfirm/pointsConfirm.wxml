@@ -25,7 +25,7 @@
 
   <!-- 信息 -->
   <view class="detail shadow">
-    <goods5 detail="{{item}}" imgPre="imgPre" wx:for="{{detail.goodList}}" wx:key="index"></goods5>
+    <goods5 detail="{{item}}" imgPre="{{imgPre}}" wx:for="{{detail.goodList}}" wx:key="index"></goods5>
     <view class="li">
       <view>积分抵用</view>
       <view>{{util.toFixed(detail.counPoint, 2)}}积分</view>
