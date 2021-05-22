@@ -70,10 +70,10 @@
         <view class="title">排行榜</view>
       </view>
       <view>
-        <view class="img" bindtap="toPointsShop">
+        <view class="img" bindtap="to" data-url="/pages/promoter/promoter">
           <image src="/image/icon4.png" mode="aspectFill"></image>
         </view>
-        <view class="title">积分商城</view>
+        <view class="title">推广中心</view>
       </view>
     </view>
 

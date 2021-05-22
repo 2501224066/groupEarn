@@ -108,14 +108,6 @@ Page({
     })
   },
 
-  // 去积分商城
-  toPointsShop() {
-    wx.switchTab({
-      url: '/pages/pointsShop/pointsShop',
-    })
-  },
-
-
   // 分享
   onShareAppMessage() {}
 })

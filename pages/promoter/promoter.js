@@ -24,6 +24,18 @@ Page({
   // 用户信息
   getUserInfo() {
     userInfo().then(res => {
+      if (!res.data.promotion_status) {
+        wx.showToast({
+          title: '您还不是推广员',
+          icon: 'loading'
+        })
+        setTimeout(() => {
+          wx.reLaunch({
+            url: '/pages/applyPromoter/applyPromoter',
+          })
+        }, 1000)
+        return
+      }
       this.setData({
         money: res.data.balance,
         commission: res.data.extension_price
