@@ -28,7 +28,7 @@ Page({
     this.setData({
       name: wx.getStorageSync('loginStatus') ? wx.getStorageSync('userInfo').nickName.substring(0, 3) + (wx.getStorageSync('userInfo').nickName.length > 3 ? "..." : '') : '钻石团',
       iphoneFooter: App.globalData.iphoneFooter,
-      imgPre: wx.getStorageSync('imgPre'),
+      imgPre: App.globalData.imgPre,
       w: wx.getSystemInfoSync().screenWidth,
       h: wx.getSystemInfoSync().windowHeight,
       dpr: wx.getSystemInfoSync().pixelRatio

@@ -3,16 +3,13 @@ Component({
     imgPre: null
   },
   properties: {
+    imgPre: { // 图片前缀
+      type: String,
+      value: ""
+    },
     detail: { // 数据列表
       type: JSON,
       value: {}
-    }
-  },
-  lifetimes: {
-    attached() {
-      this.setData({
-        imgPre: wx.getStorageSync('imgPre')
-      })
     }
   },
   methods: {

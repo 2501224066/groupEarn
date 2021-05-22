@@ -1,22 +1,19 @@
 Component({
   data: {
     domWidth: null,
-    imgPre: null
   },
   properties: {
+    imgPre: { // 图片前缀
+      type: String,
+      value: ""
+    },
     detail: { // 数据列表
       type: JSON,
       value: {}
     }
   },
-  pageLifetimes: {
-
-  },
   lifetimes: {
     attached() {
-      this.setData({
-        imgPre: wx.getStorageSync('imgPre')
-      })
       this.domWidth()
     }
   },

@@ -30,7 +30,7 @@
     <view class="item" wx:for="{{detail.detail}}" wx:key="index">
       <view class="img">
         <image wx:if="{{detail.buy_type != 3}}" src="{{item.goods_img}}" mode="aspectFill"></image>
-        <image wx:else src="{{imgPre}}/{{item.goods_img}}" mode="aspectFill"></image>
+        <image wx:else src="{{imgPre}}{{item.goods_img}}" mode="aspectFill"></image>
       </view>
       <view class="title">
         <view class="text">{{item.goods_name}}</view>

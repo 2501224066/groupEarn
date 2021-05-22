@@ -19,7 +19,7 @@
       <view class="goods">
         <view class="img" bindtap="to" data-url="/pages/pointsGoodsDetail/pointsGoodsDetail?id={{item.goods_id}}">
           <view class="discount" wx:if="{{item.tags}}">{{item.tags}}</view>
-          <image src="{{imgPre}}/{{item.image_thumb}}" mode="aspectFill"></image>
+          <image src="{{imgPre}}{{item.image_thumb}}" mode="aspectFill"></image>
         </view>
         <view class="content">
           <view class="title" bindtap="to" data-url="/pages/pointsGoodsDetail/pointsGoodsDetail?id={{item.goods_id}}">

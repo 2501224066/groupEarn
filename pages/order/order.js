@@ -4,6 +4,8 @@ import {
   pointsPay
 } from '../../config/api'
 
+const App = getApp()
+
 Page({
   data: {
     tabList: [
@@ -31,7 +33,7 @@ Page({
 
     this.setData({
       page: 1,
-      imgPre: wx.getStorageSync('imgPre'),
+      imgPre: App.globalData.imgPre,
       tabIndex: wx.getStorageSync('lookOrderTab') ? wx.getStorageSync('lookOrderTab') : 0
     })
     this.getData()

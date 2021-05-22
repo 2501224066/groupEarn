@@ -9,6 +9,7 @@ const App = getApp()
 
 Page({
   data: {
+    imgPre: null,
     iphoneFooter: null,
     carId: null,
     detail: null,
@@ -25,6 +26,7 @@ Page({
 
   onShow() {
     this.setData({
+      imgPre: App.globalData.imgPre,
       iphoneFooter: App.globalData.iphoneFooter
     })
     this.getAddress()

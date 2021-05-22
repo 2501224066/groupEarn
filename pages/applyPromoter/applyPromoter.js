@@ -22,7 +22,7 @@ Page({
 
   onShow() {
     this.setData({
-      imgPre: wx.getStorageSync('imgPre'),
+      imgPre: App.globalData.imgPre,
       iphoneFooter: App.globalData.iphoneFooter,
       price: wx.getStorageSync('applyPromotersPrice')
     })

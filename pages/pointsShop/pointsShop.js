@@ -6,6 +6,8 @@ import {
   pointsPush
 } from '../../config/api'
 
+const App = getApp()
+
 Page({
   data: {
     navScrollTop: null,
@@ -38,7 +40,7 @@ Page({
 
   onShow() {
     this.setData({
-      imgPre: wx.getStorageSync('imgPre'),
+      imgPre: App.globalData.imgPre,
       page: 1,
     })
     this.getIndex()
@@ -47,12 +49,12 @@ Page({
   },
 
   // 推荐商品
-  getPush(){
+  getPush() {
     let obj = {
       page: 1,
       pagesize: 7
     }
-    pointsPush(obj).then(res=>{
+    pointsPush(obj).then(res => {
       this.setData({
         pushGoods: res.data
       })

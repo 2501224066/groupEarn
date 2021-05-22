@@ -2,6 +2,8 @@ import {
   pointsPush
 } from '../../config/api'
 
+const App = getApp()
+
 Page({
   data: {
     goods: [],
@@ -13,7 +15,7 @@ Page({
 
   onShow() {
     this.setData({
-      imgPre: wx.getStorageSync('imgPre'),
+      imgPre: App.globalData.imgPre,
       pointsPushImg: wx.getStorageSync('pointsPushImg'),
       page: 1,
     })

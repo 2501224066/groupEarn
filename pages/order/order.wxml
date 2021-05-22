@@ -12,7 +12,7 @@
   <view class="list" wx:for="{{list}}" wx:key="index">
     <view class="top" wx:for="{{item.detail}}" wx:key="index" wx:for-item="value">
       <view class="img">
-        <image wx:if="{{item.buy_type == 3}}" src="{{imgPre}}/{{value.goods_img}}" mode="aspectFill"></image>
+        <image wx:if="{{item.buy_type == 3}}" src="{{imgPre}}{{value.goods_img}}" mode="aspectFill"></image>
         <image wx:else src="{{value.goods_img}}" mode="aspectFill"></image>
       </view>
       <view class="center">

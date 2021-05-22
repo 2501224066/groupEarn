@@ -19,7 +19,7 @@ Page({
   onShow() {
     this.setData({
       iphoneFooter: App.globalData.iphoneFooter,
-      imgPre: wx.getStorageSync('imgPre'),
+      imgPre: App.globalData.imgPre,
       userId: wx.getStorageSync('userId'),
       w: wx.getSystemInfoSync().screenWidth,
       h: wx.getSystemInfoSync().windowHeight,

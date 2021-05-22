@@ -4,9 +4,11 @@ import {
   pointsGoods
 } from '../../config/api'
 
+const App = getApp()
 
 Page({
   data: {
+    imgPre: null,
     tabIndex: 0,
     tab: [''],
     twoIndex: 0,
@@ -28,6 +30,7 @@ Page({
 
   onShow() {
     this.setData({
+      imgPre: App.globalData.imgPre,
       page: 1
     })
     this.getClassify()

@@ -4,6 +4,7 @@ import {
 
 App({
   globalData: {
+    imgPre: 'https://pin.giftfond.cn/', // 图片前缀
     navHeight: null,
     navTop: null,
     windowHeight: null,
@@ -11,15 +12,14 @@ App({
   },
   
   onShow() {
+    this.getSetting()
     this.getPhoneModel()
     this.topData()
-    this.getSetting()
   },
 
   // 设置
   getSetting() {
     setting().then(res => {
-      wx.setStorageSync('imgPre', res.data.img_pre)
       wx.setStorageSync('applyPromotersPrice', Number(res.data.pro_price))
       wx.setStorageSync('pointsPushImg', res.data.points_pushImg)
     })

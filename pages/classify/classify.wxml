@@ -31,7 +31,7 @@
       <!-- 商品 -->
       <view class="list">
         <view class="item" wx:for="{{goods}}" wx:key="index">
-          <goods4 detail="{{item}}"></goods4>
+          <goods4 detail="{{item}}" imgPre="{{imgPre}}"></goods4>
         </view>
         <view class="over">没有更多了～</view>
       </view>

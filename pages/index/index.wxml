@@ -24,7 +24,7 @@
     <view class="box">
       <swiper autoplay="true">
         <swiper-item wx:for="{{swiper}}" wx:key="*this">
-          <image src="{{imgPre}}/{{item.image}}" mode="aspectFill" bindtap="to" data-url="{{item.path}}"></image>
+          <image src="{{imgPre}}{{item.image}}" mode="aspectFill" bindtap="to" data-url="{{item.path}}"></image>
         </swiper-item>
       </swiper>
     </view>
@@ -41,9 +41,6 @@
         <swiper-item wx:for="{{notice}}" wx:key="id" bindtap="to" data-url="/pages/notice/notice?id={{item.id}}">
           <view class="title">
             {{item.title}}
-          </view>
-          <view class="time">
-            {{item.create_at}}
           </view>
         </swiper-item>
       </swiper>

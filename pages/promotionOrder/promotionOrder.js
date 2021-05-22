@@ -15,7 +15,7 @@ Page({
   onShow() {
     this.setData({
       page: 1,
-      imgPre: wx.getStorageSync('imgPre')
+      imgPre: App.globalData.imgPre,
     })
     this.getData()
   },

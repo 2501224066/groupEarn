@@ -20,14 +20,14 @@ Page({
 
   onLoad() {
     this.domScrollTop()
-  },
-
-  onShow() {
     this.setData({
       navHeight: App.globalData.navHeight,
       navTop: App.globalData.navTop,
-      imgPre: wx.getStorageSync('imgPre')
+      imgPre: App.globalData.imgPre,
     })
+  },
+
+  onShow() {
     this.getData()
     this.checkJoin()
   },

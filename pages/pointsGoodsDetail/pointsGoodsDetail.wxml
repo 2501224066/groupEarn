@@ -16,7 +16,7 @@
   <view class="lb">
     <swiper autoplay="true" indicator-dots="true" indicator-color="#000" indicator-active-color="#f73d4c">
       <swiper-item wx:for="{{detail.goods.banners}}" wx:key="*this">
-        <image src="{{imgPre}}/{{item}}" mode="aspectFill"></image>
+        <image src="{{imgPre}}{{item}}" mode="aspectFill"></image>
       </swiper-item>
     </swiper>
   </view>
@@ -112,7 +112,7 @@
     <!-- 商品 -->
     <view class="goods">
       <view class="img">
-        <image src="{{imgPre}}/{{detail.goods.banners[0]}}" mode="aspectFill"></image>
+        <image src="{{imgPre}}{{detail.goods.banners[0]}}" mode="aspectFill"></image>
       </view>
       <view class="detail">
         <view class="title">{{util.strHid(detail.goods.name, 24)}}</view>

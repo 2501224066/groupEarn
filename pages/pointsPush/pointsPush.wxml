@@ -2,7 +2,7 @@
   <!-- 宣传图 -->
   <view class="top">
     <view class="img">
-      <image src="{{imgPre}}/{{pointsPushImg}}" mode="aspectFill"></image>
+      <image src="{{imgPre}}{{pointsPushImg}}" mode="aspectFill"></image>
     </view>
   </view>
 

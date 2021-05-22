@@ -36,14 +36,14 @@
       <view class="id">
         <view class="photo" bindtap="idFace">
           <view class="img">
-            <image wx:if="{{idFace}}" src="{{imgPre}}/{{idFace}}" mode="aspectFill"></image>
+            <image wx:if="{{idFace}}" src="{{imgPre}}{{idFace}}" mode="aspectFill"></image>
             <image wx:else src="/image/id1.png" mode="widthFix"></image>
           </view>
           <view>身份证人像面</view>
         </view>
         <view class="photo" bindtap="idBack">
           <view class="img">
-            <image wx:if="{{idBack}}" src="{{imgPre}}/{{idBack}}" mode="aspectFill"></image>
+            <image wx:if="{{idBack}}" src="{{imgPre}}{{idBack}}" mode="aspectFill"></image>
             <image wx:else src="/image/id2.png" mode="widthFix"></image>
           </view>
           <view>身份证国徽面</view>

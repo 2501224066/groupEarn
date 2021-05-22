@@ -5,6 +5,8 @@ import {
   carCheckout
 } from '../../config/api'
 
+const App = getApp()
+
 Page({
   data: {
     list: [],
@@ -16,7 +18,7 @@ Page({
 
   onShow() {
     this.setData({
-      imgPre: wx.getStorageSync('imgPre')
+      imgPre: App.globalData.imgPre,
     })
     this.getData()
     this.total()

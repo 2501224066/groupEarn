@@ -58,7 +58,7 @@ Page({
       navHeight: App.globalData.navHeight,
       navTop: App.globalData.navTop,
       iphoneFooter: App.globalData.iphoneFooter,
-      imgPre: wx.getStorageSync('imgPre')
+      imgPre: App.globalData.imgPre,
     })
     this.getData()
     this.getCarNum()
