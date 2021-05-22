@@ -77,7 +77,7 @@ Page({
         let ctx = canvas.getContext('2d')
         ctx.scale(this.data.dpr, this.data.dpr)
         ctx.fillStyle = "#f8f8f8"; // 背景色
-        ctx.fillRect(0, 0, this.data.w, this.data.h * 0.9) // 画布大小  
+        ctx.fillRect(0, 0, this.data.w, this.data.w * 1.8) // 画布大小  
         // 商品图
         let pic = canvas.createImage();
         pic.src = this.data.imgPre + "/" + this.data.detail.goods.banners[0]
@@ -87,35 +87,35 @@ Page({
           let pic4 = canvas.createImage();
           pic4.src = '/image/poster2.png'
           pic4.onload = () => {
-            ctx.drawImage(pic4, this.data.w * 0.05, this.data.w * 0.1, this.data.w * 0.9, this.data.h * 0.8)
+            ctx.drawImage(pic4, this.data.w * 0.05, this.data.w * 0.1, this.data.w * 0.9, this.data.w * 1.6)
           }
         }
         // 中间介绍背景
         let pic2 = canvas.createImage();
         pic2.src = "/image/poster1.png"
         pic2.onload = () => {
-          ctx.drawImage(pic2, this.data.w * 0.05, this.data.w, this.data.w * 0.9, (this.data.h * 0.8 - this.data.w * 0.9) * 0.75)
+          ctx.drawImage(pic2, this.data.w * 0.05, this.data.w, this.data.w * 0.9, (this.data.w * 1.6 - this.data.w * 0.9) * 0.75)
           // 商品标题
           ctx.font = "normal bold 16px sans-serif"
           ctx.fillStyle = "black"
-          ctx.fillText(this.data.detail.goods.name.substring(0, 12), this.data.w * 0.12, this.data.w * 1.12)
-          ctx.fillText(this.data.detail.goods.name.substring(12, 23) + (this.data.detail.goods.name.length > 23 ? "..." : ''), this.data.w * 0.12, this.data.w * 1.18)
+          ctx.fillText(this.data.detail.goods.name.substring(0, 12), this.data.w * 0.11, this.data.w * 1.12)
+          ctx.fillText(this.data.detail.goods.name.substring(12, 23) + (this.data.detail.goods.name.length > 23 ? "..." : ''), this.data.w * 0.11, this.data.w * 1.18)
           // 简介
           ctx.font = "normal 400 14px sans-serif"
           ctx.fillStyle = "gray"
-          ctx.fillText(this.data.detail.goods.desc, this.data.w * 0.12, this.data.w * 1.26)
+          ctx.fillText(this.data.detail.goods.desc, this.data.w * 0.11, this.data.w * 1.27)
           // 价格
           ctx.font = "normal bold 20px sans-serif"
           ctx.fillStyle = "red"
-          ctx.fillText("¥ " + this.data.detail.goods.price, this.data.w * 0.12, this.data.w * 1.36)
+          ctx.fillText("¥ " + this.data.detail.goods.price, this.data.w * 0.11, this.data.w * 1.4)
           // 原价
           ctx.font = "normal 400 14px sans-serif"
           ctx.fillStyle = "gray"
-          ctx.fillText("¥ " + this.data.detail.goods.price_market, this.data.w * 0.41, this.data.w * 1.36)
+          ctx.fillText("¥ " + this.data.detail.goods.price_market, this.data.w * 0.41, this.data.w * 1.4)
           // 删除线
           ctx.font = "normal 400 12px Arial"
           ctx.fillStyle = "gray"
-          ctx.fillText(this.data.detail.goods.price_market > 999 ? "———————" : (this.data.detail.goods.price_market > 99 ? "——————" : "—————"), this.data.w * 0.4, this.data.w * 1.36)
+          ctx.fillText(this.data.detail.goods.price_market > 999 ? "———————" : (this.data.detail.goods.price_market > 99 ? "——————" : "—————"), this.data.w * 0.4, this.data.w * 1.4)
           // 小程序码
           let pic6 = canvas.createImage();
           pic6.src = this.data.imgPre + '/' + this.data.code
@@ -127,26 +127,26 @@ Page({
         let pic7 = canvas.createImage();
         pic7.src = '/image/poster4.png'
         pic7.onload = () => {
-          ctx.drawImage(pic7, this.data.w * 0.05, this.data.w + (this.data.h * 0.8 - this.data.w * 0.9) * 0.75, this.data.w * 0.9, (this.data.h * 0.8 - this.data.w * 0.9) * 0.25)
+          ctx.drawImage(pic7, this.data.w * 0.05, this.data.w + (this.data.w * 1.6 - this.data.w * 0.9) * 0.75, this.data.w * 0.9, (this.data.w * 1.6 - this.data.w * 0.9) * 0.25)
           // 头像
           let pic3 = canvas.createImage();
           pic3.src = wx.getStorageSync('loginStatus') ? wx.getStorageSync('userInfo').avatarUrl : '/image/logo.png'
           pic3.onload = () => {
-            ctx.drawImage(pic3, this.data.w * 0.1, this.data.w + (this.data.h * 0.8 - this.data.w * 0.9) * 0.8, this.data.w * 0.1, this.data.w * 0.1)
+            ctx.drawImage(pic3, this.data.w * 0.1, this.data.w + (this.data.w * 1.6 - this.data.w * 0.9) * 0.75 + (this.data.w * 1.6 - this.data.w * 0.9) * 0.25 / 4, this.data.w * 0.1, this.data.w * 0.1)
             // 名称
             ctx.font = "normal 400 14px sans-serif"
             ctx.fillStyle = "white"
-            ctx.fillText(this.data.name + '推荐好物给您', this.data.w * 0.22, this.data.w + (this.data.h * 0.8 - this.data.w * 0.9) * 0.9)
+            ctx.fillText(this.data.name + '推荐好物给您', this.data.w * 0.22, this.data.w * 1.63)
             // 销量
             ctx.font = "normal 400 14px sans-serif"
             ctx.fillStyle = "white"
-            ctx.fillText('已售' + this.data.detail.goods.sale_num + '件', this.data.w * 0.72, this.data.w + (this.data.h * 0.8 - this.data.w * 0.9) * 0.9)
+            ctx.fillText('已售' + this.data.detail.goods.sale_num + '件', this.data.w * 0.72, this.data.w * 1.63)
           }
           // 头像倒角
           let pic5 = canvas.createImage();
           pic5.src = '/image/poster3.png'
           pic5.onload = () => {
-            ctx.drawImage(pic5, this.data.w * 0.1, this.data.w + (this.data.h * 0.8 - this.data.w * 0.9) * 0.8, this.data.w * 0.1, this.data.w * 0.1)
+            ctx.drawImage(pic5, this.data.w * 0.1, this.data.w + (this.data.w * 1.6 - this.data.w * 0.9) * 0.75 + (this.data.w * 1.6 - this.data.w * 0.9) * 0.25 / 4, this.data.w * 0.1, this.data.w * 0.1)
           }
         }
         // 保存为图片
