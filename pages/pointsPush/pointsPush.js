@@ -40,6 +40,6 @@ Page({
     this.setData({
       page: this.data.page + 1
     })
-    this.getGoods(true)
+    this.getPush(true)
   },
 })
