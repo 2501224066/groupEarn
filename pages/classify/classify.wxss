@@ -116,8 +116,7 @@
 }
 
 .list>.item {
-  margin-top: 20rpx;
-  padding-bottom: 20rpx;
+  padding: 20rpx 0;
   border-bottom: 1rpx solid #ececec;
 }
 
