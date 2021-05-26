@@ -8,7 +8,7 @@
       <view class="ipt">
         <input type="text" placeholder="搜索商品" placeholder-class="placeholder" bindinput="keyword" value="{{keyword}}" />
       </view>
-      <view class="img2" wx:if="{{keyword != ''}}" bindtap="closeKeyword">
+      <view class="img2" wx:if="{{keyword != ''}}" catchtap="closeKeyword">
         <image src="/image/close2.png" mode="aspectFill"></image>
       </view>
     </view>

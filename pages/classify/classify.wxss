@@ -31,6 +31,7 @@
 .search>.box>.img2 {
   width: 38rpx;
   height: 38rpx;
+  padding-left: 10rpx;
 }
 
 .search>.box>.ipt {
