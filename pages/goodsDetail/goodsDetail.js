@@ -31,7 +31,7 @@ Page({
       id: options.id,
       groupId: Number(options.groupId),
     })
-    if (options.shareUserId) {
+    if (options.hasOwnProperty('shareUserId')) {
       wx.setStorageSync('shareUserId', options.shareUserId)
     }
   },

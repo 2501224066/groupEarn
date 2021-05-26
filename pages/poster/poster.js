@@ -22,9 +22,25 @@ Page({
     this.setData({
       orderId: options.orderId
     })
+    if (options.hasOwnProperty('shareUserId')) {
+      wx.setStorageSync('shareUserId', options.shareUserId)
+    }
   },
 
   onShow() {
+    if (!wx.getStorageSync('loginStatus')) {
+      wx.showToast({
+        title: '请先登录',
+        icon: 'loading'
+      })
+      setTimeout(function () {
+        wx.navigateTo({
+          url: '/pages/login/login',
+        })
+      }, 500)
+      return
+    }
+
     this.setData({
       name: wx.getStorageSync('loginStatus') ? wx.getStorageSync('userInfo').nickName.substring(0, 3) + (wx.getStorageSync('userInfo').nickName.length > 3 ? "..." : '') : '钻石团',
       iphoneFooter: App.globalData.iphoneFooter,
@@ -52,7 +68,7 @@ Page({
   // 小程序码
   getCode() {
     let obj = {
-      path: '/pages/pointsGoodsDetail/pointsGoodsDetail?id=' + this.data.detail.goods.id
+      path: '/pages/pointsGoodsDetail/pointsGoodsDetail?id=' + this.data.detail.goods.id + '&shareUserId=' + wx.getStorageSync('userId')
     }
     code(obj).then(res => {
       this.setData({
