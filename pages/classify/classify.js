@@ -39,7 +39,8 @@ Page({
   // 关键字
   keyword(e) {
     this.setData({
-      keyword: e.detail.value
+      keyword: e.detail.value,
+      page: 1
     })
     this.getGoods()
   },
