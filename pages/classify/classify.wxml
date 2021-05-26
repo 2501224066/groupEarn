@@ -6,7 +6,7 @@
         <image src="/image/search2.png" mode="aspectFill"></image>
       </view>
       <view class="ipt">
-        <input type="text" placeholder="搜索商品" placeholder-class="placeholder" bindinput="keyword" value="{{keyword}}"/>
+        <input type="text" placeholder="搜索商品" placeholder-class="placeholder" bindinput="keyword" value="{{keyword}}" />
       </view>
       <view class="img2" wx:if="{{keyword != ''}}" bindtap="closeKeyword">
         <image src="/image/close2.png" mode="aspectFill"></image>
@@ -14,27 +14,23 @@
     </view>
   </view>
 
-  <view class="content">
-    <!-- 分类Tab -->
-    <view class="tab">
-      <view class="item {{tabIndex == index ? 'sel' : ''}}" wx:for="{{tab}}" wx:key="index" bindtap="checkoutTab"
-        data-index="{{index}}">{{item.name}}</view>
-    </view>
+  <!-- 分类Tab -->
+  <view class="tab">
+    <view class="item {{tabIndex == index ? 'sel' : ''}}" wx:for="{{tab}}" wx:key="index" bindtap="checkoutTab"
+      data-index="{{index}}">{{item.name}}</view>
+  </view>
 
-    <view class="r">
-      <!-- 二级tab -->
-      <view class="two" wx:if="{{two.length > 0}}">
-        <view class="item {{twoIndex == index ? 'sel' : ''}}" wx:for="{{two}}" wx:key="index" bindtap="checkoutTwo"
-          data-index="{{index}}">{{item.name}}</view>
-      </view>
+  <!-- 二级tab -->
+  <view class="two" wx:if="{{two.length > 0}}">
+    <view class="item {{twoIndex == index ? 'sel' : ''}}" wx:for="{{two}}" wx:key="index" bindtap="checkoutTwo"
+      data-index="{{index}}">{{item.name}}</view>
+  </view>
 
-      <!-- 商品 -->
-      <view class="list">
-        <view class="item" wx:for="{{goods}}" wx:key="index">
-          <goods4 detail="{{item}}" imgPre="{{imgPre}}"></goods4>
-        </view>
-        <view class="over">没有更多了～</view>
-      </view>
+  <!-- 商品 -->
+  <view class="list">
+    <view class="item" wx:for="{{goods}}" wx:key="index">
+      <goods4 detail="{{item}}" imgPre="{{imgPre}}"></goods4>
     </view>
+    <view class="over">没有更多了～</view>
   </view>
 </view>
