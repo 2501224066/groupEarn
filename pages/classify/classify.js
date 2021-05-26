@@ -47,7 +47,8 @@ Page({
   // 清楚关键字
   closeKeyword() {
     this.setData({
-      keyword: ''
+      keyword: '',
+      page: 1
     })
     this.getGoods()
   },
