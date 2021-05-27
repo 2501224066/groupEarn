@@ -20,7 +20,7 @@ Page({
 
   onLoad(options) {
     if (options.hasOwnProperty('shareUserId')) {
-      wx.setStorageSync('shareUserId', options.hasOwnProperty('shareUserId'))
+      wx.setStorageSync('shareUserId', options.shareUserId)
       // 绑定
       this.bandPromoters()
     }
