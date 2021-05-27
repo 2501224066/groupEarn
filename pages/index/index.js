@@ -44,10 +44,6 @@ Page({
     }
     bandPromoters(obj).then(res => {
       wx.removeStorageSync('shareUserId')
-      wx.showToast({
-        title: '绑定成功',
-        icon: 'success'
-      })
     })
   },
 
