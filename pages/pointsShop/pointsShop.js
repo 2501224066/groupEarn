@@ -26,6 +26,11 @@ Page({
   onLoad(options) {
     if (options.hasOwnProperty('shareUserId')) {
       wx.setStorageSync('shareUserId', options.shareUserId)
+      if (!wx.getStorageSync('loginStatus')) {
+        wx.navigateTo({
+          url: '/pages/login/login',
+        })
+      }
       // 绑定
       this.bandPromoters()
     }
@@ -62,6 +67,9 @@ Page({
     }
     bandPromoters(obj).then(res => {
       wx.removeStorageSync('shareUserId')
+      wx.navigateTo({
+        url: '/pages/bindSuccess/bindSuccess',
+      })
     })
   },
 

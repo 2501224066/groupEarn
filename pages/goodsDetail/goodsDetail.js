@@ -46,7 +46,7 @@ Page({
         wx.navigateTo({
           url: '/pages/login/login',
         })
-      }, 500)
+      }, 1000)
       return
     }
     this.setData({

@@ -266,6 +266,12 @@
           "pathName": "pages/pointsPush/pointsPush",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "绑定成功",
+          "pathName": "pages/bindSuccess/bindSuccess",
+          "query": "",
+          "scene": null
         }
       ]
     }
