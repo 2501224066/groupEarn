@@ -18,7 +18,12 @@ Page({
     imgPre: null
   },
 
-  onLoad() {
+  onLoad(options) {
+    if (options.hasOwnProperty('shareUserId')) {
+      wx.setStorageSync('shareUserId', options.hasOwnProperty('shareUserId'))
+      // 绑定
+      this.bandPromoters()
+    }
     this.domScrollTop()
     this.setData({
       navHeight: App.globalData.navHeight,
@@ -30,6 +35,20 @@ Page({
   onShow() {
     this.getData()
     this.checkJoin()
+  },
+
+  // 绑定推广者
+  bandPromoters() {
+    let obj = {
+      id: wx.getStorageSync('shareUserId')
+    }
+    bandPromoters(obj).then(res => {
+      wx.removeStorageSync('shareUserId')
+      wx.showToast({
+        title: '绑定成功',
+        icon: 'success'
+      })
+    })
   },
 
   // 标签距离顶部距离
@@ -109,5 +128,10 @@ Page({
   },
 
   // 分享
-  onShareAppMessage() {}
+  onShareAppMessage() {
+    return {
+      title: '钻石团，实惠看得见',
+      path: '/pages/index/index?shareUserId=' + wx.getStorageSync('userId')
+    }
+  }
 })

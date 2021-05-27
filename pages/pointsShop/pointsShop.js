@@ -25,15 +25,8 @@ Page({
 
   onLoad(options) {
     if (options.hasOwnProperty('shareUserId')) {
-      wx.setStorageSync('shareUserId', options.hasOwnProperty('shareUserId'))
-      if (!wx.getStorageSync('loginStatus')) {
-        wx.navigateTo({
-          url: '/pages/login/login',
-        })
-      } else {
-        // 绑定
-        this.bandPromoters()
-      }
+      // 绑定
+      this.bandPromoters()
     }
     this.domScrollTop()
   },
