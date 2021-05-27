@@ -157,12 +157,12 @@ Page({
             ctx.font = "normal 400 14px sans-serif"
             ctx.fillStyle = "white"
             ctx.fillText('已售' + this.data.detail.goods.sale_num + '件', this.data.w * 0.72, this.data.w * 1.63)
-          }
-          // 头像倒角
-          let pic5 = canvas.createImage();
-          pic5.src = '/image/poster3.png'
-          pic5.onload = () => {
-            ctx.drawImage(pic5, this.data.w * 0.1, this.data.w + (this.data.w * 1.6 - this.data.w * 0.9) * 0.75 + (this.data.w * 1.6 - this.data.w * 0.9) * 0.25 / 4, this.data.w * 0.1, this.data.w * 0.1)
+            // 头像倒角
+            let pic5 = canvas.createImage();
+            pic5.src = '/image/poster3.png'
+            pic5.onload = () => {
+              ctx.drawImage(pic5, this.data.w * 0.1, this.data.w + (this.data.w * 1.6 - this.data.w * 0.9) * 0.75 + (this.data.w * 1.6 - this.data.w * 0.9) * 0.25 / 4, this.data.w * 0.1, this.data.w * 0.1)
+            }
           }
         }
         // 保存为图片
