@@ -7,7 +7,7 @@ const App = getApp()
 
 Page({
   data: {
-    iphoneFooter: null,
+    iphoneFooter: 0,
     id: null,
     imgPre: null,
     d: '00',

@@ -1,15 +1,16 @@
 import {
   homeData,
+  bandPromoters
 } from '../../config/api'
 
 const App = getApp()
 
 Page({
   data: {
-    navHeight: null,
-    navTop: null,
-    navScrollTop: null,
-    domScrollTop: null,
+    navHeight: 0,
+    navTop: 0,
+    navScrollTop: 0,
+    domScrollTop: 0,
     swiper: [], // 轮播
     noticeTop: 0,
     notice: [], // 消息
@@ -25,6 +26,7 @@ Page({
         wx.navigateTo({
           url: '/pages/login/login',
         })
+        return
       }
       // 绑定
       this.bandPromoters()

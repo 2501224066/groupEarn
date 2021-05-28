@@ -7,7 +7,7 @@ let App = getApp()
 
 Page({
   data: {
-    iphoneFooter: null,
+    iphoneFooter: 0,
     img: null,
     orderId: null,
     detail: null,

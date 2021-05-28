@@ -7,7 +7,7 @@ const App = getApp()
 Page({
   data: {
     id: null,
-    iphoneFooter: null,
+    iphoneFooter: 0,
     timestamp: 0,
     detail: null,
     d: '00',

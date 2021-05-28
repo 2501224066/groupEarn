@@ -7,8 +7,8 @@ const App = getApp()
 Page({
   data: {
     userInfo: null,
-    navHeight: null,
-    navTop: null,
+    navHeight: 0,
+    navTop: 0,
     money: '0.00', // 余额
     point: 0, // 积分
     invite: 0, // 邀请人数

@@ -10,11 +10,11 @@ const App = getApp()
 
 Page({
   data: {
-    iphoneFooter: null,
-    navHeight: null,
-    navTop: null,
-    navScrollTop: null,
-    domScrollTop: null,
+    iphoneFooter: 0,
+    navHeight: 0,
+    navTop: 0,
+    navScrollTop: 0,
+    domScrollTop: 0,
     id: null,
     detail: null,
     carNum: 0,

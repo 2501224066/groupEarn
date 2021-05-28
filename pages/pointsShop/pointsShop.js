@@ -10,11 +10,11 @@ const App = getApp()
 
 Page({
   data: {
-    navScrollTop: null,
+    navScrollTop: 0,
     swiper: [], // 轮播
     tabIndex: 0,
     tab: [],
-    domScrollTop: null,
+    domScrollTop: 0,
     pushGoods: [],
     goods: [],
     icon: [],
@@ -30,6 +30,7 @@ Page({
         wx.navigateTo({
           url: '/pages/login/login',
         })
+        return
       }
       // 绑定
       this.bandPromoters()
@@ -147,5 +148,13 @@ Page({
     wx.navigateTo({
       url: e.currentTarget.dataset.url
     })
+  },
+
+  // 分享
+  onShareAppMessage() {
+    return {
+      title: '钻石团，实惠看得见',
+      path: '/pages/index/index?shareUserId=' + wx.getStorageSync('userId')
+    }
   }
 })

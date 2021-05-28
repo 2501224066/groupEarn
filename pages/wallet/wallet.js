@@ -8,8 +8,8 @@ const App = getApp()
 Page({
   data: {
     phoneFooter: null,
-    navHeight: null,
-    navTop: null,
+    navHeight: 0,
+    navTop: 0,
     dateIndex: 0,
     total: "0.00",
     date: [],

@@ -8,8 +8,8 @@ const App = getApp()
 Page({
   data: {
     phoneFooter: null,
-    navHeight: null,
-    navTop: null,
+    navHeight: 0,
+    navTop: 0,
     tabIndex: 0,
     tab: [{
       type: 2,

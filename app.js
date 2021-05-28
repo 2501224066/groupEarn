@@ -5,10 +5,10 @@ import {
 App({
   globalData: {
     imgPre: 'https://pin.giftfond.cn/', // 图片前缀
-    navHeight: null,
-    navTop: null,
-    windowHeight: null,
-    iphoneFooter: null,
+    navHeight: 0,
+    navTop: 0,
+    windowHeight: 0,
+    iphoneFooter: 0,
   },
   
   onShow() {

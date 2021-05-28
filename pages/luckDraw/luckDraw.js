@@ -7,7 +7,7 @@ const App = getApp()
 
 Page({
   data: {
-    iphoneFooter: null,
+    iphoneFooter: 0,
     id: null, // 团ID
     goodsId: null, // 商品ID
     detail: null,

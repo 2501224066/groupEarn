@@ -7,8 +7,8 @@ const App = getApp()
 
 Page({
   data: {
-    navHeight: null,
-    navTop: null,
+    navHeight: 0,
+    navTop: 0,
   },
 
   onShow() {

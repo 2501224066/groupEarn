@@ -10,7 +10,7 @@ const App = getApp()
 Page({
   data: {
     imgPre: null,
-    iphoneFooter: null,
+    iphoneFooter: 0,
     carId: null,
     detail: null,
     address: null,

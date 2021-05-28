@@ -2,7 +2,7 @@ const App = getApp()
 
 Page({
   data: {
-    iphoneFooter: null,
+    iphoneFooter: 0,
   },
 
   onShow() {

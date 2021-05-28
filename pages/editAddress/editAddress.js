@@ -9,7 +9,7 @@ const App = getApp()
 Page({
   data: {
     id: null,
-    iphoneFooter: null,
+    iphoneFooter: 0,
     sex: null,
     default: 0,
     address: null,

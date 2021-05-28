@@ -6,7 +6,7 @@ const App = getApp()
 
 Page({
   data: {
-    iphoneFooter: null,
+    iphoneFooter: 0,
     userInfo: null,
     money: 0,
     commission: 0,
