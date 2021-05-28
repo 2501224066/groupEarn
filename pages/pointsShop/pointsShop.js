@@ -24,6 +24,7 @@ Page({
   },
 
   onLoad(options) {
+    this.domScrollTop()
     if (options.hasOwnProperty('shareUserId')) {
       wx.setStorageSync('shareUserId', options.shareUserId)
       if (!wx.getStorageSync('loginStatus')) {
@@ -35,7 +36,6 @@ Page({
       // 绑定
       this.bandPromoters()
     }
-    this.domScrollTop()
   },
 
   onShow() {

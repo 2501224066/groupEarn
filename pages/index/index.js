@@ -20,6 +20,12 @@ Page({
   },
 
   onLoad(options) {
+    this.domScrollTop()
+    this.setData({
+      navHeight: App.globalData.navHeight,
+      navTop: App.globalData.navTop,
+      imgPre: App.globalData.imgPre,
+    })
     if (options.hasOwnProperty('shareUserId')) {
       wx.setStorageSync('shareUserId', options.shareUserId)
       if (!wx.getStorageSync('loginStatus')) {
@@ -31,12 +37,6 @@ Page({
       // 绑定
       this.bandPromoters()
     }
-    this.domScrollTop()
-    this.setData({
-      navHeight: App.globalData.navHeight,
-      navTop: App.globalData.navTop,
-      imgPre: App.globalData.imgPre,
-    })
   },
 
   onShow() {
