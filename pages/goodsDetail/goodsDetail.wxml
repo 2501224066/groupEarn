@@ -184,7 +184,7 @@
     <!-- 关闭 -->
     <view class="close">
       <view class="img" bindtap="closeSpecs">
-        <image src="/image/close2png" mode="aspectFill"></image>
+        <image src="/image/close2.png" mode="aspectFill"></image>
       </view>
     </view>
 
