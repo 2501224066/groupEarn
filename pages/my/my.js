@@ -13,6 +13,7 @@ Page({
     point: 0, // 积分
     invite: 0, // 邀请人数
     isPromoter: 0,
+    isAdmin: 0
   },
 
   onShow() {
@@ -45,7 +46,8 @@ Page({
         money: res.data.balance,
         invite: res.data.invite_num,
         point: res.data.point,
-        isPromoter: res.data.promotion_status
+        isPromoter: res.data.promotion_status,
+        isAdmin:  res.data.is_admin,
       })
     })
   },
