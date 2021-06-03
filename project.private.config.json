@@ -278,6 +278,12 @@
           "pathName": "pages/index/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "发货",
+          "pathName": "pages/orderSend/orderSend",
+          "query": "",
+          "scene": null
         }
       ]
     }

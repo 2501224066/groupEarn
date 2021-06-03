@@ -199,3 +199,22 @@
   width: 90%;
   margin-bottom: 30rpx;
 }
+
+.send{
+  position: fixed;
+  right: 20rpx;
+  bottom: 8vh;
+  background: #f83c5e;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.send>.img{
+  width: 60rpx;
+  height: 60rpx;
+  margin: auto;
+}

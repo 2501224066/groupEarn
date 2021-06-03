@@ -45,7 +45,9 @@
     "pages/commissionRank/commissionRank",
     "pages/pointsList/pointsList",
     "pages/pointsPush/pointsPush",
-    "pages/bindSuccess/bindSuccess"
+    "pages/bindSuccess/bindSuccess",
+    "pages/pendingOrderList/pendingOrderList",
+    "pages/orderSend/orderSend"
   ],
   "window": {
     "backgroundTextStyle": "light",

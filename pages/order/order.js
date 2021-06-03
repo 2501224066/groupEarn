@@ -23,7 +23,7 @@ Page({
         title: '请先登录',
         icon: 'loading'
       })
-      setTimeout(function () {
+     setTimeout(() => {
         wx.navigateTo({
           url: '/pages/login/login',
         })
@@ -109,7 +109,7 @@ Page({
               title: '收货成功',
               icon: "success"
             })
-            setTimeout(function () {
+           setTimeout(() => {
               that.setData({
                 page: 1
               })

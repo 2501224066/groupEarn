@@ -35,7 +35,7 @@ Page({
       icon: 'success'
     })
 
-    setTimeout(function () {
+   setTimeout(() => {
       wx.switchTab({
         url: '/pages/index/index',
       })

@@ -540,3 +540,21 @@ export function pointsPush(data, repair = '') {
     data: data
   })
 }
+
+// 所以待发货订单列表
+export function waitSendOrder(data, repair = '') {
+  return common.go({
+    method: 'get',
+    url: '/ajax/getSend' + repair,
+    data: data
+  })
+}
+
+// 发货
+export function orderSend(data, repair = '') {
+  return common.go({
+    method: 'get',
+    url: '/ajax/send' + repair,
+    data: data
+  })
+}

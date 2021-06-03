@@ -90,8 +90,10 @@
 
   <!-- 推广员 -->
   <view class="extension">
-    <image wx:if="{{isPromoter}}" src="/image/extension2.png" mode="widthFix" bindtap="to" data-url="/pages/promoter/promoter"></image>
-    <image wx:else src="/image/extension1.png" mode="widthFix"  bindtap="to" data-url="/pages/applyPromoter/applyPromoter"></image>
+    <image wx:if="{{isPromoter}}" src="/image/extension2.png" mode="widthFix" bindtap="to"
+      data-url="/pages/promoter/promoter"></image>
+    <image wx:else src="/image/extension1.png" mode="widthFix" bindtap="to"
+      data-url="/pages/applyPromoter/applyPromoter"></image>
   </view>
 
   <!-- 跳转 -->
@@ -158,3 +160,10 @@
 
 <!-- 购物车数量 -->
 <carNum></carNum>
+
+<!-- 发货 -->
+<view class="send shadow" bindtap="to" data-url="/pages/pendingOrderList/pendingOrderList">
+  <view class="img">
+    <image src="/image/send.png" mode="aspectFill"></image>
+  </view>
+</view>

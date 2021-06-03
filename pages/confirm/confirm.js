@@ -129,7 +129,7 @@ Page({
                   duration: 5000,
                   mask: true
                 })
-                setTimeout(function () {
+               setTimeout(() => {
                   let obj = {
                     id: that.data.orderId
                   }

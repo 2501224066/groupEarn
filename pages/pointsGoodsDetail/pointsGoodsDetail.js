@@ -45,7 +45,7 @@ Page({
         title: '请先登录',
         icon: 'loading'
       })
-      setTimeout(function () {
+     setTimeout(() => {
         wx.navigateTo({
           url: '/pages/login/login',
         })
