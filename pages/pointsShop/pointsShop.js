@@ -36,6 +36,9 @@ Page({
       // 绑定
       this.bandPromoters()
     }
+  },
+
+  onShow(){
     this.setData({
       imgPre: App.globalData.imgPre,
       page: 1,
