@@ -18,14 +18,23 @@ const go = function (obj) {
         'content-type': 'application/json' // 默认值
       },
       success: function (res) {
+        wx.hideLoading() //隐藏loading
         if (res.data.code === 200) {
           resolve(res.data)
-          wx.hideLoading() //隐藏loading
+        } else if (res.data.code === 444) {
+          wx.showToast({
+            icon: 'loading',
+            title: '登录已过期'
+          })
+          setTimeout(() => {
+            wx.navigateTo({
+              url: '/pages/login/login',
+            })
+          }, 1000)
         } else {
           wx.showToast({
-            icon: 'none',
-            title: res.data.msg,
-            duration: 2000,
+            icon: 'loading',
+            title: res.data.msg
           })
         }
       },

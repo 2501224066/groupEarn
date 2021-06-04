@@ -17,20 +17,19 @@ Page({
     page: 1
   },
 
-  onShow() {
+  onLoad() {
     if (!wx.getStorageSync('loginStatus')) {
       wx.showToast({
         title: '请先登录',
         icon: 'loading'
       })
-     setTimeout(() => {
+      setTimeout(() => {
         wx.navigateTo({
           url: '/pages/login/login',
         })
       }, 500)
       return
     }
-
     this.setData({
       page: 1,
       imgPre: App.globalData.imgPre,
@@ -109,7 +108,7 @@ Page({
               title: '收货成功',
               icon: "success"
             })
-           setTimeout(() => {
+            setTimeout(() => {
               that.setData({
                 page: 1
               })

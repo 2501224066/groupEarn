@@ -26,16 +26,13 @@ Page({
         tabId: options.id
       })
     }
-  },
-
-  onShow() {
     this.setData({
       imgPre: App.globalData.imgPre,
       page: 1
     })
     this.getClassify()
   },
-
+  
   // 关键字
   keyword(e) {
     this.setData({
